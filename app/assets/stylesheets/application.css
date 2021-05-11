@@ -14,9 +14,9 @@
  *= require_self
  */
 
-.session-form-container {
+/* .session-form-container {
 
-}
+} */
 
  .session-form-box {
      width: 400px; 
@@ -32,19 +32,19 @@
     font-size: 30px;
  }
 
- .form-headline {
+ /* .form-headline {
 
- }
+ } */
 
  .session-form-inputs {
     /* position: relative;  */
     margin: auto; 
  }
 
- .session-inputs {
+ /* .session-inputs {
 
  }
 
  .nav-container {
 
- }
+ } */
