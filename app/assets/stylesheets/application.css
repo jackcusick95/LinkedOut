@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+.session-form-container {
+
+}
+
+ .session-form-box {
+     width: 400px; 
+    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+    border-radius: 8px;
+    margin: 0 auto; 
+    background: #fff;
+    padding: 40px, 10px, 20px; 
+ }
+
+.form-type-header {
+    font-weight: 700;
+    font-size: 30px;
+ }
+
+ .form-headline {
+
+ }
+
+ .session-form-inputs {
+    /* position: relative;  */
+    margin: auto; 
+ }
+
+ .session-inputs {
+
+ }
+
+ .nav-container {
+
+ }
