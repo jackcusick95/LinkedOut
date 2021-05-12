@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -40,6 +41,14 @@ class SessionForm extends React.Component {
         }
     }
 
+    demoLogin(e) {
+        e.preventDefault()
+        this.props.processForm({
+            username: "demo@demo.com",
+            password: "password123",
+        })
+    }
+
     renderErrors() {
         return (
             <ul>
@@ -53,10 +62,14 @@ class SessionForm extends React.Component {
     }
 
     render() {
+
         if (this.props.formType === 'Sign in') {
 
-            return (
+            return ( 
                 <div className="session-form-container">
+                    <Link to={"/"}>
+                        <img className='logo' src={window.logo} />
+                    </Link>
                     <form className="session-form-box" onSubmit={this.handleSubmit}>
                         <h1 className="form-type-header">{this.props.formType}</h1>
                         <p className="form-headline">Stay updated on your professional life</p>
@@ -69,6 +82,7 @@ class SessionForm extends React.Component {
                             <input className="session-input" type="Password" value={this.state.password} onChange={this.update('password')} />
                             </label>
                             <input type="submit" className="session-submit" value={this.props.formType} />
+                            <button className="demo-login" onClick={this.demoLogin}>Demo Login</button>
                         </div>
                     </form>
                     {/* <button>Continue as DEMO user!</button> */}
@@ -84,7 +98,9 @@ class SessionForm extends React.Component {
 
                 return (
                     <div className="session-form-container">
-                    {/* <form className="session-form-box" onSubmit={this.handleSubmit}> */}
+                     <Link to={"/"}>
+                        <img className='logo' src={window.logo} />
+                    </Link>
                     <form className="session-form-box">
                     <h1 className="form-type-header">{this.props.formType}</h1>
                     <p className="form-headline">Stay updated on your professional life</p>
@@ -112,6 +128,9 @@ class SessionForm extends React.Component {
         if ((this.state.formNum === 1) && (this.props.formType === 'Sign Up')) {
             return (
                 <div className="session-form-container">
+                    <Link to={"/"}>
+                        <img className='logo' src={window.logo} />
+                    </Link>
                     <form className="session-form-box">
                         <p className="form-headline">Stay updated on your professional life</p>
                         {this.renderErrors()}
@@ -132,6 +151,9 @@ class SessionForm extends React.Component {
         if ((this.state.formNum === 2) && (this.props.formType === 'Sign Up')) {
             return (
                 <div className="session-form-container">
+                    <Link to={"/"}>
+                        <img className='logo' src={window.logo} />
+                    </Link>
                     <form className="session-form-box">
                         <h1 className="form-type-header">Welcome {this.state.fname}!</h1>
                         <p className="form-headline">Let's start your profile, connect to people you know, and engage with them on topics you care about.</p>
@@ -153,6 +175,9 @@ class SessionForm extends React.Component {
         if ((this.state.formNum === 3) && (this.props.formType === 'Sign Up')) {
             return (
                 <div className="session-form-container">
+                    <Link to={"/"}>
+                        <img className='logo' src={window.logo} />
+                    </Link>
                     <form className="session-form-box" onSubmit={this.handleSubmit}>
                         <p className="form-headline">Your profile helps you discover new people and new opportunities</p>
                         {this.renderErrors()}

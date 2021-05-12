@@ -3,10 +3,19 @@ import { Link } from 'react-router-dom';
 
 const BasePage = ( {currentUser, logoutUser }) => {
     const loggedOutLinks = () => (
-       <nav>
-            <Link to="/login">Sign In</Link>
-            <Link to="/signup">Join Now</Link>
-        </nav>
+       <div className="base-page-container">
+            <nav className="nav-bar">
+                <div className="left-nav">
+                    <Link to={"/"}>
+                        <img className='logo' src={window.logo} />
+                    </Link>
+                </div>
+                <div className="right-nav">
+                    <Link id="nav-signup" to="/signup">Join Now</Link>
+                    <Link id="nav-signin" to="/login">Sign In</Link>
+                </div>
+            </nav>
+       </div>
     );
 
     const loggedInPage = () => (

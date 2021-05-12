@@ -13,10 +13,9 @@ const App = () => {
     return (
         <div>
            <header>
-               <Link to={"/"}>
+               {/* <Link to={"/"}>
                     <img className='logo' src={window.logo} />
-                    {/* <h1>LinkedOut</h1> */}
-               </Link>
+               </Link> */}
            </header>
            <Switch>
                <Route exact path="/" component={BasePageContainer} />
