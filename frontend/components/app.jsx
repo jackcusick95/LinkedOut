@@ -6,13 +6,16 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LoginFormContainer from './session_form/login_form_container'; 
 import SignUpFormContainer from './session_form/signup_form_container';
 import BasePageContainer from './base_page/base_page_container'; 
+// import logo from '../../app/assets/images/linked.png'; 
 
 const App = () => {
+    // const logo = require('../../app/assets/images/logo.png');
     return (
         <div>
            <header>
                <Link to={"/"}>
-                    <h1>LinkedOut</h1>
+                    <img className='logo' src={window.logo} />
+                    {/* <h1>LinkedOut</h1> */}
                </Link>
            </header>
            <Switch>

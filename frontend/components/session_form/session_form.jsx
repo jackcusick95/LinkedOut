@@ -4,10 +4,19 @@ class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            formNum: 0,
             email: '',
-            password: ''
+            password: '',
+            fname: '',
+            lname: '',
+            location: '',
+            zipcode: '',
+            title: '',
+            industry: '',
+            company: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this); 
+        this.nextForm = this.nextForm.bind(this);
     }
 
     update(field) {
@@ -23,6 +32,14 @@ class SessionForm extends React.Component {
         // .then(() => this.props.history.push('/')); 
     }
 
+    nextForm(num) {
+        return (e) => {
+            e.preventDefault();
+            // this.props.formNum = num; 
+            this.setState({formNum: num});
+        }
+    }
+
     renderErrors() {
         return (
             <ul>
@@ -36,30 +53,125 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        return (
-            <div className="session-form-container">
-                <form className="session-form-box" onSubmit={this.handleSubmit}>
-                <h1 className="form-type-header">{this.props.formType}</h1>
-                <p className="form-headline">Stay updated on your professional world</p>
-                    {this.renderErrors()}
-                <div className="session-from-inputs">
-                    <label>Email
-                        <input className="session-input" type="text" value={this.state.email} onChange={this.update('email')}/>
-                    </label>
-                    <label>Password
-                        <input className="session-input" type="Password" value={this.state.password} onChange={this.update('password')} />
-                    </label>
-                        <input className="session-submit" type="submit" value={this.props.formType}/>
+        if (this.props.formType === 'Sign in') {
+
+            return (
+                <div className="session-form-container">
+                    <form className="session-form-box" onSubmit={this.handleSubmit}>
+                        <h1 className="form-type-header">{this.props.formType}</h1>
+                        <p className="form-headline">Stay updated on your professional life</p>
+                        {this.renderErrors()}
+                        <div className="session-from-inputs">
+                            <label>Email
+                            <input className="session-input" type="text" value={this.state.email} onChange={this.update('email')} />
+                            </label>
+                            <label>Password
+                            <input className="session-input" type="Password" value={this.state.password} onChange={this.update('password')} />
+                            </label>
+                            <input type="submit" className="session-submit" value={this.props.formType} />
+                        </div>
+                    </form>
+                    {/* <button>Continue as DEMO user!</button> */}
+                    <div className="nav-container">
+                        <section>{this.props.navHeader}
+                            {this.props.navLink}
+                        </section>
+                    </div>
                 </div>
-                </form>
-                {/* <button>Continue as DEMO user!</button> */}
-                <div className="nav-container">
-                    <section>{this.props.navHeader}
-                       {this.props.navLink}
-                    </section>
+            )
+        }
+        if (this.state.formNum === 0 && this.props.formType === 'Sign Up') {
+
+                return (
+                    <div className="session-form-container">
+                    {/* <form className="session-form-box" onSubmit={this.handleSubmit}> */}
+                    <form className="session-form-box">
+                    <h1 className="form-type-header">{this.props.formType}</h1>
+                    <p className="form-headline">Stay updated on your professional life</p>
+                        {this.renderErrors()}
+                    <div className="session-from-inputs">
+                        <label>Email
+                            <input className="session-input" type="text" value={this.state.email} onChange={this.update('email')}/>
+                        </label>
+                        <label>Password
+                            <input className="session-input" type="Password" value={this.state.password} onChange={this.update('password')} />
+                        </label>
+                        <button onClick={this.nextForm(1)}>Continue</button>
+                    </div>
+                    </form>
+                    {/* <button>Continue as DEMO user!</button> */}
+                    <div className="nav-container">
+                        <section>{this.props.navHeader}
+                        {this.props.navLink}
+                        </section>
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }
+
+        if ((this.state.formNum === 1) && (this.props.formType === 'Sign Up')) {
+            return (
+                <div className="session-form-container">
+                    <form className="session-form-box">
+                        <p className="form-headline">Stay updated on your professional life</p>
+                        {this.renderErrors()}
+                        <div className="session-from-inputs">
+                            <label>First name
+                                <input className="session-input" type="text" value={this.state.fname} onChange={this.update('fname')} />
+                            </label>
+                            <label>Last name
+                                <input className="session-input" type="text" value={this.state.lname} onChange={this.update('lname')} />
+                            </label>
+                            <button onClick={this.nextForm(2)}>Continue</button>
+                        </div>
+                    </form>
+                </div>
+            )
+        }
+
+        if ((this.state.formNum === 2) && (this.props.formType === 'Sign Up')) {
+            return (
+                <div className="session-form-container">
+                    <form className="session-form-box">
+                        <h1 className="form-type-header">Welcome {this.state.fname}!</h1>
+                        <p className="form-headline">Let's start your profile, connect to people you know, and engage with them on topics you care about.</p>
+                        {this.renderErrors()}
+                        <div className="session-from-inputs">
+                            <label>Country/ Region
+                                <input className="session-input" type="text" value={this.state.location} onChange={this.update('location')} />
+                            </label>
+                            <label>Postal code
+                                <input className="session-input" type="text" value={this.state.zipcode} onChange={this.update('zipcode')} />
+                            </label>
+                            <button onClick={this.nextForm(3)}>Next</button>
+                        </div>
+                    </form>
+                </div>
+            )
+        }
+
+        if ((this.state.formNum === 3) && (this.props.formType === 'Sign Up')) {
+            return (
+                <div className="session-form-container">
+                    <form className="session-form-box" onSubmit={this.handleSubmit}>
+                        <p className="form-headline">Your profile helps you discover new people and new opportunities</p>
+                        {this.renderErrors()}
+                        <div className="session-from-inputs">
+                            <label>Most recent job title
+                                <input className="session-input" type="text" value={this.state.title} onChange={this.update('title')} />
+                            </label>
+                            <label>Employment type
+                                <input className="session-input" type="text" value={this.state.industry} onChange={this.update('industry')} />
+                            </label>
+                            <label>Most recent company
+                                <input className="session-input" type="text" value={this.state.company} onChange={this.update('company')} />
+                            </label>
+                            <input type="submit" className="session-submit" value={this.props.formType}/>
+                        </div>
+                    </form>
+                </div>
+            )
+        }
     }
 }
 

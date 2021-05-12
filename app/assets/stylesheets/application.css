@@ -24,27 +24,36 @@
     border-radius: 8px;
     margin: 0 auto; 
     background: #fff;
-    padding: 40px, 10px, 20px; 
+    padding: 200px, 10px, 20px; 
  }
 
 .form-type-header {
     font-weight: 700;
     font-size: 30px;
+    padding-left: 20px; 
  }
 
- /* .form-headline {
-
- } */
+ .form-headline {
+   margin-top: 0px; 
+ }
 
  .session-form-inputs {
-    /* position: relative;  */
-    margin: auto; 
+    position: relative; 
+    padding-left: 20px; 
+    /* display: flex;
+    margin: auto;  */
  }
 
- /* .session-inputs {
-
- }
-
- .nav-container {
+/* .session-inputs {
 
  } */
+
+ .nav-container {
+   text-align: center;
+   margin-top: 40px;  
+ } 
+
+.logo {  
+width: 150px;  
+height: 40px;  
+} 

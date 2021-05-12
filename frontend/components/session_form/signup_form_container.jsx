@@ -9,6 +9,7 @@ const mapStateToProps = ({ errors }) => {
         errors: errors.session,
         formType: 'Sign Up',
         navHeader: "Already on Linkedin?",
+        // formNum: 0,
         navLink: <Link to={"/login"}>Sign in</Link>
     }
 }
