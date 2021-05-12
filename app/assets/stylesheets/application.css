@@ -18,30 +18,45 @@
 
 } */
 
- .session-form-box {
+ /* .session-form-box {
     width: 400px; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 15%);
     border-radius: 8px;
     margin: 0 auto; 
     background: #fff;
     padding: 200px, 10px, 20px; 
+ } */
+
+ .session-form-box {
+    position: relative; 
+    width: 352px;
+    -webkit-box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+    padding: 24px 32px 32px;
+    border-radius: 8px;
+    margin: 0 auto;
+    background: #fff;
  }
 
 .form-type-header {
-    font-weight: 700;
-    font-size: 30px;
-    padding-left: 20px; 
+    font-size: 3.2rem;
+    line-height: 1.25;
+    font-weight: 600;
+    color: rgba(0,0,0,0.9);
+    padding: 0 0 4px 0;
  }
 
  .form-headline {
-   margin-top: 0px; 
+    font-size: 1.4rem;
+    line-height: 1.42857;
+    font-weight: 400;
+    color: rgba(0,0,0,0.9);
  }
 
  .session-form-inputs {
-    position: relative; 
-    padding-left: 20px; 
-    /* display: flex;
-    margin: auto;  */
+    /* position: relative;  */
+    /* padding-left: 20px;  */
+    margin: auto;
  }
 
 /* .session-inputs {
@@ -57,6 +72,16 @@
 width: 150px;  
 height: 40px;  
 } 
+
+
+/* .base-page-container {
+background-image: url(https://i.pinimg.com/736x/99/52/39/9952396479af014a14c3cf834dfa0f77.jpg);
+z-index: -1;
+height: 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+} */
 
 html {
 background-image: url(https://i.pinimg.com/736x/99/52/39/9952396479af014a14c3cf834dfa0f77.jpg);
@@ -78,25 +103,6 @@ display: flex;
 -webkit-box-pack: end;
 justify-content: flex-end;
 }
-
-/* #nav-signin {
-  -webkit-box-align: center;
-  align-items: center;
-  text-decoration: none;
-  display: inline-flex;
-  justify-content: center;
-  text-align: center;
-  height: 40px;
-  min-width: 130px;
-  border-radius: 30px;
-  border-color: royalblue;
-  border-width: 2px;
-  background-color: rgba(0,0,0,0);
-  color: #0073b1; 
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin: 0px 15px;
-} */
 
 #nav-signin {
   -webkit-box-sizing: border-box;
