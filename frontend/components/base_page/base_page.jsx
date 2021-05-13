@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const BasePage = ( {currentUser, logoutUser }) => {
-    const loggedOutLinks = () => (
+const BasePage = ( ) => {
+    return (
        <div className="base-page-container">
             <nav className="nav-bar">
                 <div className="left-nav">
@@ -16,16 +16,18 @@ const BasePage = ( {currentUser, logoutUser }) => {
                 </div>
             </nav>
        </div>
-    );
+    )
+    // const loggedOutLinks = () => (
+    // );
 
-    const loggedInPage = () => (
-        <div>
-            <h1>Hello {currentUser.username}</h1>
-            <button onClick={logoutUser}>Sign Out</button>
-        </div>
-    );
+    // const loggedInPage = () => (
+    //     <div>
+    //         <h1>Hello {currentUser.username}</h1>
+    //         <button onClick={logoutUser}>Sign Out</button>
+    //     </div>
+    // );
 
-    return currentUser ? loggedInPage() : loggedOutLinks(); 
+    // return currentUser ? loggedInPage() : loggedOutLinks(); 
 }
 
 export default BasePage; 

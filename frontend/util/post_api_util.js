@@ -16,11 +16,13 @@ export const createPost = (post) => {
     return $.ajax({
         method: 'POST',
         url: '/api/posts',
-        data: { post: post }
+        data: { post: post },
+        contentType: false,
+        processData: false
     });
 }
 
-export const udpatePost = (post) => {
+export const updatePost = (post) => {
     return $.ajax({
         method: 'PATCH', 
         url: `/api/posts/${post.id}`,

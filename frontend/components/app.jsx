@@ -5,8 +5,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import LoginFormContainer from './session_form/login_form_container'; 
 import SignUpFormContainer from './session_form/signup_form_container';
-import BasePageContainer from './base_page/base_page_container'; 
-// import logo from '../../app/assets/images/linked.png'; 
+import BasePage from './base_page/base_page'; 
+import FeedPageContainer from './feed_page/feed_page_container'; 
 
 const App = () => {
     // const logo = require('../../app/assets/images/logo.png');
@@ -18,9 +18,11 @@ const App = () => {
                </Link> */}
            </header>
            <Switch>
-               <Route exact path="/" component={BasePageContainer} />
+               <AuthRoute exact path="/" component={BasePage} />
                <AuthRoute exact path="/login" component={LoginFormContainer} /> 
                <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+               <ProtectedRoute exact path="/feed" component={FeedPageContainer} />
+
            </Switch>
        </div>
     )
