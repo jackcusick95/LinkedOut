@@ -42,9 +42,9 @@
             width: 350px;
             color: #0073b1;
             cursor: pointer;
-            font-size: 1.0rem;
-            font-weight: 600;
-            font-family: inherit;
+            font-size: 1.2rem;
+            font-weight: 400;
+            font-family: Sans-Serif;
             height: 60px;
             line-height: 32px;
             overflow: hidden;
@@ -59,6 +59,39 @@
             box-shadow: inset 0 0 0 1px lightgrey;
             color: black;
             margin-top: 15px;
+        }
+
+        #navbutton:hover {
+            border-color: transparent;
+            background-color:rgb(238, 238, 238);
+            color:rgb(60, 60, 60);  
+            box-shadow: inset 0 0 0 2px black;    
+            font-weight: 500;      
+        }
+
+        .arrow {
+            border: solid black;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 3px;;
+            // margin-left: 10px;
+        }
+
+        .right {
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+        }
+
+        .one {
+            margin-left: 165px; 
+        }
+
+        .two {
+            margin-left: 95px; 
+        }
+
+        .three {
+            margin-left: 155px; 
         }
     }
     

@@ -17,9 +17,9 @@ const BasePage = ( ) => {
 
                 <img src="https://static-exp3.licdn.com/sc/h/3m4tgpbdz7gbldapvl63mrnxz" id="background-img" />
                 <div className="nav-buttons">
-                    <button id="navbutton">Search for a job</button>
-                    <button id="navbutton">Find a person you know</button>
-                    <button id="navbutton">Learn a new skill</button>
+                    <button id="navbutton">Search for a job<i class="arrow right one"></i></button>
+                    <button id="navbutton">Find a person you know<i class="arrow right two"></i></button>
+                    <button id="navbutton">Learn a new skill<i class="arrow right three"></i></button>
                 </div>
             </nav>
             <img src="https://static-exp3.licdn.com/sc/h/2vt8plqbv2l2pi6kxm89bqs59" id="bottom-img"/>
