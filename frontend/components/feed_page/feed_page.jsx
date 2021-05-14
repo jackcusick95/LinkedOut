@@ -10,6 +10,7 @@ class FeedPage extends React.Component {
     constructor(props){
         super(props); 
         this.state = {
+            post: {}, 
             body: "",
             photoFile: null,
             photoUrl: null
@@ -34,6 +35,7 @@ class FeedPage extends React.Component {
         const fileReader = new FileReader(); 
         fileReader.onloadend = () => {
             this.setState({photoFile: file, photoUrl: fileReader.result}); 
+            // this.setState({ post: {...this.state.post, ['photoUrl']: fileReader.result, ['photoFile']: file}});
         }
         if (file) {
             fileReader.readAsDataURL(file);
@@ -57,41 +59,51 @@ class FeedPage extends React.Component {
         // const { postsArr } = this.props.postsArr;
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null; 
         return (
-
-        <div>
-            <div className="post-form">
-                <form onSubmit={this.handleSubmit}>
-                    <textarea
-                        placeholder="Start a Post"
-                        required="required"
-                        cols="30"
-                        width="100%"
-                        onChange={this.handleBody}>
-                        </textarea>
-                    <div>
-                        <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                            <HiPhotograph />
-                        </IconContext.Provider>
-                        <input type="file" onChange={this.handleFile}/>
-                    </div>
-                    <h3>Image preview:</h3>
-                    {preview}
-                    <button>Post</button>
-                </form>
-            </div>
-                <ul>
-                    {[...this.props.postsArr].map((post) => {
-                        return (
-                            <li key={post.id}>
-                                <h2>{post.body}</h2>
-                                <img src={post.photoUrl} />
-                            </li>
-                        );
-                    })}
-                </ul>
+        
+        <div className="feed-container">
                 <Link to={"/"}>
                     <button onClick={this.props.logoutUser}>Sign Out</button>
                 </Link>
+            <div className="postfeed">
+                <div className="post-form">
+                    <form onSubmit={this.handleSubmit}>
+                        <textarea
+                            placeholder="Start a Post"
+                            required="required"
+                            cols="30"
+                            width="100%"
+                            onChange={this.handleBody}>
+                            </textarea>
+                        <div>
+                            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                <HiPhotograph />
+                            </IconContext.Provider>
+                            <input type="file" onChange={this.handleFile}/>
+                        </div>
+                        <h3>Image preview:</h3>
+                        {preview}
+                        <button>Post</button>
+                    </form>
+                </div>
+                <div className="feedposts">
+                    <ul>
+                        {[...this.props.postsArr].map((post) => {
+                            return (
+                                <li key={post.id}>
+                                    <h2>{post.body}</h2>
+                                    <img src={post.photoUrl} />
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+                    {/* <Link to={"/"}>
+                        <button onClick={this.props.logoutUser}>Sign Out</button>
+                    </Link> */}
+            </div>
+            <div className="profile-sidebar">
+                <h1>Profile Sidebar</h1>
+            </div>
         </div>
         )
     }

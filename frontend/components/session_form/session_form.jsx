@@ -44,7 +44,11 @@ class SessionForm extends React.Component {
         return (e) => {
             e.preventDefault();
             // this.props.formNum = num; 
-            this.setState({formNum: num});
+            if (this.props.errors.length !== 0) {
+                this.props.renderErrors()
+            } else {
+                this.setState({formNum: num});
+            }
         }
     }
 
@@ -123,11 +127,11 @@ class SessionForm extends React.Component {
                      <Link to={"/"}>
                         <img className='logo' src={window.logo} />
                     </Link>
-                    <form className="session-form-box">
+                    <form className="session-signup-box">
                     <h1 className="form-type-header">{this.props.formType}</h1>
                     <p className="form-headline">Stay updated on your professional life</p>
                         {this.renderErrors()}
-                    <div className="session-from-inputs">
+                    <div className="session-form-inputs">
                         <label>Email
                             <input className="session-input" type="text" value={this.state.email} onChange={this.update('email')}/>
                         </label>
@@ -136,7 +140,9 @@ class SessionForm extends React.Component {
                             <input className="session-input" type="Password" value={this.state.password} onChange={this.update('password')} />
                         </label>
                         <p>{this.props.errors[0]}</p>
-                        <button onClick={this.nextForm(1)}>Continue</button>
+                        <section className="action-buttons">
+                            <button onClick={this.nextForm(1)}>Continue</button>
+                        </section>
                     </div>
                     </form>
                     {/* <button>Continue as DEMO user!</button> */}
@@ -155,17 +161,20 @@ class SessionForm extends React.Component {
                     <Link to={"/"}>
                         <img className='logo' src={window.logo} />
                     </Link>
-                    <form className="session-form-box">
+                    <form className="session-signup-box">
+                        <h1 className="form-type-header">{this.props.formType}</h1>
                         <p className="form-headline">Stay updated on your professional life</p>
                         {this.renderErrors()}
-                        <div className="session-from-inputs">
+                        <div className="session-form-inputs">
                             <label>First name
                                 <input className="session-input" type="text" value={this.state.fname} onChange={this.update('fname')} />
                             </label>
                             <label>Last name
                                 <input className="session-input" type="text" value={this.state.lname} onChange={this.update('lname')} />
                             </label>
-                            <button onClick={this.nextForm(2)}>Continue</button>
+                            <section className="action-buttons">
+                                <button onClick={this.nextForm(2)}>Continue</button>
+                            </section>
                         </div>
                     </form>
                 </div>
@@ -178,18 +187,20 @@ class SessionForm extends React.Component {
                     <Link to={"/"}>
                         <img className='logo' src={window.logo} />
                     </Link>
-                    <form className="session-form-box">
+                    <form className="session-welcome-box">
                         <h1 className="form-type-header">Welcome {this.state.fname}!</h1>
                         <p className="form-headline">Let's start your profile, connect to people you know, and engage with them on topics you care about.</p>
                         {this.renderErrors()}
-                        <div className="session-from-inputs">
+                        <div className="session-form-inputs">
                             <label>Country/ Region
                                 <input className="session-input" type="text" value={this.state.location} onChange={this.update('location')} />
                             </label>
                             <label>Postal code
                                 <input className="session-input" type="text" value={this.state.zipcode} onChange={this.update('zipcode')} />
                             </label>
-                            <button onClick={this.nextForm(3)}>Next</button>
+                            <section className="action-buttons">
+                                <button onClick={this.nextForm(3)}>Next</button>
+                            </section>
                         </div>
                     </form>
                 </div>
@@ -202,10 +213,11 @@ class SessionForm extends React.Component {
                     <Link to={"/"}>
                         <img className='logo' src={window.logo} />
                     </Link>
-                    <form className="session-form-box" onSubmit={this.handleSubmit}>
+                    <form className="session-almostdone-box" onSubmit={this.handleSubmit}>
+                        <h1 className="form-type-header">Almost done!</h1>
                         <p className="form-headline">Your profile helps you discover new people and new opportunities</p>
                         {this.renderErrors()}
-                        <div className="session-from-inputs">
+                        <div className="session-form-inputs">
                             <label>Most recent job title
                                 <input className="session-input" type="text" value={this.state.title} onChange={this.update('title')} />
                             </label>
@@ -215,7 +227,9 @@ class SessionForm extends React.Component {
                             <label>Most recent company
                                 <input className="session-input" type="text" value={this.state.company} onChange={this.update('company')} />
                             </label>
-                            <input type="submit" className="session-submit" value={this.props.formType}/>
+                            <section className="action-buttons">
+                                <input type="submit" className="session-submit" value={this.props.formType}/>
+                            </section>
                         </div>
                     </form>
                 </div>
