@@ -91,16 +91,16 @@ class SessionForm extends React.Component {
                     <form className="session-form-box" onSubmit={this.handleSubmit}>
                         <h1 className="form-type-header">{this.props.formType}</h1>
                         <p className="form-headline">Stay updated on your professional life</p>
-                        {this.renderErrors()}
+                        <p id="errors">{this.renderErrors()}</p>
                         <div className="session-form-inputs">
                             <label>Email:
                                 <input className="session-input" type="text" value={this.state.email} onChange={this.update('email')} />
                             </label>
-                            <p>{this.props.errors[0]}</p>
+                            {/* <p>{this.props.errors[0]}</p> */}
                             <label>Password:
                                 <input className="session-input" type="Password" value={this.state.password} onChange={this.update('password')} />
                             </label>
-                            <p>{this.props.errors[0]}</p>
+                            {/* <p>{this.props.errors[0]}</p> */}
                             <section className="action-buttons">
                                 <input type="submit" className="session-submit" value={this.props.formType} />
                                 <button className="button" onClick={this.demoLogin}>Demo Login</button>

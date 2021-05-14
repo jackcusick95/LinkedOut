@@ -23,6 +23,19 @@ const BasePage = ( ) => {
                 </div>
             </nav>
             <img src="https://static-exp3.licdn.com/sc/h/2vt8plqbv2l2pi6kxm89bqs59" id="bottom-img"/>
+            <div className="footer">
+                <h3 className="founder">Founder: <br/>
+                    Jack Cusick</h3>
+                <img className='faceshot' src={window.faceshot} />
+                <div className="footlinks">
+                    <a href="www.linkedin.com/in/jack-cusick">
+                        <img className='lilogo' src={window.linkedin} />
+                    </a>
+                    <a href="https://github.com/jackcusick95">
+                        <img className='gitlogo' src={window.github} />
+                    </a>
+                </div>
+            </div>
        </div>
     )
     // const loggedOutLinks = () => (

@@ -1,7 +1,7 @@
 .base-page {
     background-color: white;
-    height: 100%;
-    width: 100%;
+  position: relative;
+  min-height: 100vh;
     .logo {
         display: block;
         margin-left: 30px;
@@ -129,76 +129,57 @@
         }
     }
 
-    // h3 {
-    //     color: black;
-    // }
-
-    // h1  {
-    //     font-size: 50px;
-    //     display:inline-block;
-    // }
-
-    // h2 {
-    //     font-size: 35px;
-    // }
-
     #bottom {
         display:flex;
         align-content: bottom; 
     }
 
     #bottom-img {
-        // margin: -10px 0px 0px 10px;
         width: 110%; 
         margin-left: -15px; 
-        // height: 590;
         margin-top: -50px;
-        // margin-right: 100px;
-        // padding: 0px; 
+        margin-bottom: 50px;
     }
 
-    // .form-buttons {
-    //     position: absolute; 
-    //         right: 20px;
-    //         top:4px;
+    .footer {
+    position: absolute;
+    display: inline-flex;
+    bottom: 0;
+    width:120%;
+    height: 76px;
+    background-color: #f1f1f1;
+    margin-left: -10px;
+    margin-top: 50px;
+    margin-bottom: -10px;
+    border-color: #F8F8F8;
+    border-top-width: 2px;
 
-    //     button {
-    //         font-family: Sans-Serif;
-    //         background-color: transparent;
-    //         color: #2977c9;
-    //         font-weight: bold;
-    //         border-color: #2977c9;
-    //         border-width: 1px;
-    //         padding: 10px;
-    //         padding-left: 15px;
-    //         padding-right: 15px;
-    //         border-radius:50px;
-    //         margin: 10px;
+        .founder{
+            height: 30px; 
+            font-size: 12px;
+            margin-left: 20px;
+            font-family: Sans-Serif;
+            margin-top: 25px
+        }
 
-    //     }
+        .faceshot {
+            height: 45px; 
+            margin-left: 20px;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
 
-    //     button:hover {
-    //         border-color:  #2977c9;
-    //         background-color:  #e3eefa;
-    //         border-width: 2px;
-    //         margin: -1px;
-    //         margin-left: 9px;
-    //         margin-right: 9px;
-    //         cursor: pointer;
-    //     }
-    //     .signup {
-    //         border-radius: 5px;
-    //         border-color: transparent;
-    //         background-color: transparent;
-    //         color: grey;
-    //     }
-    //     .signup:hover {
-    //         border-color: transparent;
-    //         background-color:rgb(238, 238, 238);
-    //         color:rgb(60, 60, 60);
-    //     }
-    // }
-    // :last:child {
-    //     margin: -10px 0px 0px -180px
-    // }
+        .lilogo {
+            height: 30px; 
+            margin-left: 800px;
+            margin-top: 22px
+        }
+
+        .gitlogo {
+            height: 30px;  
+            margin-right: 10px;
+            margin-left: 30px;
+            margin-top: 22px          
+        }
+    }
 }

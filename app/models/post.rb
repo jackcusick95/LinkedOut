@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
 
     validates :body, presence: true
-    validates :author_id, uniqueness: true 
+    validates :author_id, presence: true 
 
     has_one_attached :photo
 

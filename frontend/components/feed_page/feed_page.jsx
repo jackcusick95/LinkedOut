@@ -12,6 +12,7 @@ class FeedPage extends React.Component {
         this.state = {
             body: "",
             photoFile: null,
+            photoUrl: null
         }
         // this.postRef = React.createRef();
 
@@ -20,12 +21,23 @@ class FeedPage extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this); 
     }
 
+    componentDidMount() {
+        this.props.fetchAllPosts(); 
+    }
+
     handleBody(e) {
         this.setState({body: e.currentTarget.value}); 
     }
 
     handleFile(e) {
-        this.setState({photoFile: e.currentTarget.files[0]}); 
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader(); 
+        fileReader.onloadend = () => {
+            this.setState({photoFile: file, photoUrl: fileReader.result}); 
+        }
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
     }
 
     handleSubmit(e) {
@@ -34,23 +46,16 @@ class FeedPage extends React.Component {
         formData.append('post[body]', this.state.body);
         formData.append('post[photo]', this.state.photoFile); 
         this.props.createPost(formData)
-        // .then(() => this.postRef.current.reset()); 
-
-        // $.ajax({
-        //     method: 'POST',
-        //     url: '/api/posts',
-        //     data: formData,
-        //     contentType: false,
-        //     processData: false
-        // }).then(
-        //     (response) => console.log(response.message),
-        //     (response) => console.log(response.responseJSON)
-        // );
+        .then(
+            (response) => console.log(response.message),
+            (response) => console.log(response.responseJSON)
+        );
     }
 
     render() {
         console.log(this.state); 
-        const { posts } = this.props.posts;
+        // const { postsArr } = this.props.postsArr;
+        const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null; 
         return (
 
         <div>
@@ -69,19 +74,21 @@ class FeedPage extends React.Component {
                         </IconContext.Provider>
                         <input type="file" onChange={this.handleFile}/>
                     </div>
+                    <h3>Image preview:</h3>
+                    {preview}
                     <button>Post</button>
                 </form>
             </div>
-                {/* <ul>
-                    {posts.map(post => {
+                <ul>
+                    {[...this.props.postsArr].map((post) => {
                         return (
                             <li key={post.id}>
-                                <h2>{post.title}</h2>
+                                <h2>{post.body}</h2>
                                 <img src={post.photoUrl} />
                             </li>
                         );
                     })}
-                </ul> */}
+                </ul>
                 <Link to={"/"}>
                     <button onClick={this.props.logoutUser}>Sign Out</button>
                 </Link>
