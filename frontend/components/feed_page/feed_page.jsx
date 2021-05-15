@@ -73,22 +73,24 @@ class FeedPage extends React.Component {
                             {this.props.textmodal}
                         </div>
                         <div className="post-icons">
-                            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                                <FcAddImage />
-                            </IconContext.Provider>
-                            <p>Photo</p>
-                            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                                <FcVideoCall />
-                            </IconContext.Provider>
-                            <p>Video</p>
-                            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                                <FcCalendar />
-                            </IconContext.Provider>
-                            <p>Event</p>
-                            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                                <FcNews />
-                            </IconContext.Provider>
-                            <p>Article</p>
+                            <div className="first-icon">
+                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                    <FcAddImage />
+                                </IconContext.Provider>
+                            </div>
+                                <p>Photo</p>
+                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                    <FcVideoCall />
+                                </IconContext.Provider>
+                                <p>Video</p>
+                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                    <FcCalendar />
+                                </IconContext.Provider>
+                                <p>Event</p>
+                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                    <FcNews />
+                                </IconContext.Provider>
+                                <p>Article</p>
                         </div>
                         <div onClick={this.props.closeModal} className="close-x">X</div>
                     </form>

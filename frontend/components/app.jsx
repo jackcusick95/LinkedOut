@@ -10,15 +10,9 @@ import FeedPageContainer from './feed_page/feed_page_container';
 import Modal from './modal/modal'; 
 
 const App = () => {
-    // const logo = require('../../app/assets/images/logo.png');
     return (
         <div>
             <Modal />
-           <header>
-               {/* <Link to={"/"}>
-                    <img className='logo' src={window.logo} />
-               </Link> */}
-           </header>
            <Switch>
                <AuthRoute exact path="/" component={BasePage} />
                <AuthRoute exact path="/login" component={LoginFormContainer} /> 
