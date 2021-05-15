@@ -1,7 +1,8 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom';
 import { IconContext } from "react-icons";
-import { HiPhotograph} from 'react-icons/hi';
+import { FcAddImage, FcCalendar, FcNews, FcVideoCall} from 'react-icons/fc';
+import PostPage from './post';
 
 
 
@@ -57,7 +58,7 @@ class FeedPage extends React.Component {
     render() {
         console.log(this.state); 
         // const { postsArr } = this.props.postsArr;
-        const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null; 
+        const preview = this.state.photoUrl ? <img className="preview-img" src={this.state.photoUrl} /> : null;
         return (
         
         <div className="feed-container">
@@ -67,22 +68,29 @@ class FeedPage extends React.Component {
             <div className="postfeed">
                 <div className="post-form">
                     <form onSubmit={this.handleSubmit}>
-                        <textarea
-                            placeholder="Start a Post"
-                            required="required"
-                            cols="30"
-                            width="100%"
-                            onChange={this.handleBody}>
-                            </textarea>
-                        <div>
-                            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                                <HiPhotograph />
-                            </IconContext.Provider>
-                            <input type="file" onChange={this.handleFile}/>
+                        <div className="post-pic">
+                            <img className='dogo' src={window.dogo} />
+                            {this.props.textmodal}
                         </div>
-                        <h3>Image preview:</h3>
-                        {preview}
-                        <button>Post</button>
+                        <div className="post-icons">
+                            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                <FcAddImage />
+                            </IconContext.Provider>
+                            <p>Photo</p>
+                            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                <FcVideoCall />
+                            </IconContext.Provider>
+                            <p>Video</p>
+                            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                <FcCalendar />
+                            </IconContext.Provider>
+                            <p>Event</p>
+                            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                <FcNews />
+                            </IconContext.Provider>
+                            <p>Article</p>
+                        </div>
+                        <div onClick={this.props.closeModal} className="close-x">X</div>
                     </form>
                 </div>
                 <div className="feedposts">
@@ -97,9 +105,6 @@ class FeedPage extends React.Component {
                         })}
                     </ul>
                 </div>
-                    {/* <Link to={"/"}>
-                        <button onClick={this.props.logoutUser}>Sign Out</button>
-                    </Link> */}
             </div>
             <div className="profile-sidebar">
                 <h1>Profile Sidebar</h1>

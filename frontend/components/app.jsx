@@ -7,11 +7,13 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import BasePage from './base_page/base_page'; 
 import FeedPageContainer from './feed_page/feed_page_container'; 
+import Modal from './modal/modal'; 
 
 const App = () => {
     // const logo = require('../../app/assets/images/logo.png');
     return (
         <div>
+            <Modal />
            <header>
                {/* <Link to={"/"}>
                     <img className='logo' src={window.logo} />
