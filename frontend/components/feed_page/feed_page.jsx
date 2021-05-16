@@ -92,16 +92,17 @@ class FeedPage extends React.Component {
                                 </IconContext.Provider>
                                 <p>Article</p>
                         </div>
-                        <div onClick={this.props.closeModal} className="close-x">X</div>
+                        {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
                     </form>
                 </div>
-                <div className="feedposts">
-                    <ul>
-                        {[...this.props.postsArr].map((post) => {
+                <div>
+                    <ul className="singlepost">
+                        {[...this.props.postsArr].reverse().map((post) => {
                             return (
-                                <li key={post.id}>
-                                    <h2>{post.body}</h2>
-                                    <img src={post.photoUrl} />
+                                <li className="feedposts" key={post.id}>
+                                    {/* <h1>{this.props.users[post.author_id].fname} {this.props.users[post.author_id].lname}</h1> */}
+                                    <h2 id="feed-body">{post.body}</h2>
+                                    <img id="feed-image" src={post.photoUrl} />
                                 </li>
                             );
                         })}

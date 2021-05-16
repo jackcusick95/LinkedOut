@@ -63,8 +63,11 @@ class PostPage extends React.Component {
                 <div className="postfeed">
                     <div className="modal-form">
                         <form onSubmit={this.handleSubmit}>
+                            <h2 className="modal-header">Create a post</h2>
+                            <div id="modal-border"></div>
                             <textarea
-                            placeholder="Start a Post"
+                            className="modal-textarea"
+                            placeholder="What do you want to talk about?"
                             required="required"
                             cols="30"
                             width="100%"
@@ -74,9 +77,9 @@ class PostPage extends React.Component {
                                 <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                                     <HiPhotograph />
                                 </IconContext.Provider>
-                                <input type="file" onChange={this.handleFile} />
+                                <input type="file" onChange={this.handleFile} id="upload-photo"/>
                             </div>
-                            <h3>Image preview:</h3>
+                            {/* <h3>Image preview:</h3> */}
                                 {preview}
                             <button>Post</button>
                         </form>

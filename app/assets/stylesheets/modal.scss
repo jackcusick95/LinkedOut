@@ -17,14 +17,47 @@
 
  .close-x {
    position: absolute;
-   top: 0px;
-   right: 0px;
+   top: 10px;
+   right: 5px;
+   height: 20px;
+   width: 20px;
+   border: 30px;
    cursor: pointer;
+   border-radius: 50%;
+ }
+
+ .close-x:hover {
+    border-radius: 50%;
+    border-color: transparent;
+    background-color:rgb(238, 238, 238);
+    color:rgb(60, 60, 60);  
+    font-weight: 500;    
  }
 
  .modal-form {
     height: 300px;
-    // padding: 24px, 32px, 32px; 
     border-radius: 8px;
     background-color: white;
+}
+
+.modal-header {
+  padding-top: 10px;
+  margin-left: 20px;
+  font-weight: 300;
+  font-family: sans-serif;
+  font-size: 20px;
+  width: 490px;
+  // border-bottom: 2px solid black;
+  // border-width: 2px;
+}
+
+#modal-border {
+   width: 490px;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 20px;
+}
+
+.modal-textarea {
+  margin-top: 0px;
+  width: 450px;
 }

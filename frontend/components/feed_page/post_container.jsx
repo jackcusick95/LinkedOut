@@ -8,6 +8,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 const mapStateToProps = (state) => {
     return {
         posts: state.entities.posts,
+        users: state.entities.users,
         postsArr: Object.values(state.entities.posts)
         // currentUser: users[session.id]
     };
