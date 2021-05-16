@@ -6,7 +6,7 @@ import SessionForm from './session_form';
 
 const mapStateToProps = ({ errors }) => {
     return {
-        errors: errors.session,
+        errors: Object.values(errors.session),
         formType: 'Sign Up',
         navHeader: "Already on Linkedin?",
         // formNum: 0,

@@ -43,9 +43,8 @@ class SessionForm extends React.Component {
     nextForm(num) {
         return (e) => {
             e.preventDefault();
-            // this.props.formNum = num; 
             if (this.props.errors.length !== 0) {
-                this.props.renderErrors()
+                return this.props.renderErrors()
             } else {
                 this.setState({formNum: num});
             }
