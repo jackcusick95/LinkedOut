@@ -59,11 +59,11 @@ class PostPage extends React.Component {
         const preview = this.state.photoUrl ? <img className="preview-img" src={this.state.photoUrl} /> : null;
         return (
 
-            <div className="feed-container">
-                <div className="postfeed">
+            // <div className="feed-container">
                     <div className="modal-form">
                         <form onSubmit={this.handleSubmit}>
                             <h2 className="modal-header">Create a post</h2>
+                            <div onClick={this.props.closeModal} className="close-x">X</div>
                             <div id="modal-border"></div>
                             <textarea
                             className="modal-textarea"
@@ -84,8 +84,7 @@ class PostPage extends React.Component {
                             <button>Post</button>
                         </form>
                     </div>
-                </div>
-            </div>
+            // </div>
         )
     }
 
