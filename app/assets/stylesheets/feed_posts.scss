@@ -110,6 +110,7 @@
         margin-left: -40px;
         box-shadow: 0 4px 12px lightgrey;
         border-radius: 8px;
+        margin-bottom: 10px;
     }
 
     #feed-image {
@@ -119,9 +120,10 @@
     }
 
     #feed-body {
-        // position: absolute;
-        // display: flex;
         font-size: 12px;
+        font-weight: 300;
+        margin-left: 15px;
+        margin-top: 20px;
         // list-style-type: none;
     }
 
