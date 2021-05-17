@@ -191,15 +191,19 @@ ActiveRecord::Base.transaction do
         company: 'Self Employed'     
     )
 
-    post_1 = Post.create(
-        body: 'New to LinkedOut. Looking forward to connecting with all my friends!',
-        author_id: demo.id,
-    )
+    # post_1 = Post.create(
+    #     body: 'New to LinkedOut. Looking forward to connecting with all my friends!',
+    #     author_id: demo.id,
+    # )
+
+    
 
     post_2 = Post.create(
         body: 'Long day at the office, but the walk after work was beautiful!',
         author_id: demo.id,
     )
+
+    post_2.photo.attach(io: open('https://linkedout-pro.s3.amazonaws.com/summer.jpg'), filename: 'summer.jpg')
 
     # post_3 = Post.create(
     #     body: 'Happy to be back from the sprained ankle and back with the BOYS. King has retaken his chair.',
