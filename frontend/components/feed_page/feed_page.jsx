@@ -62,9 +62,9 @@ class FeedPage extends React.Component {
         return (
         
         <div className="feed-container">
-                <Link to={"/"}>
+                {/* <Link to={"/"}>
                     <button onClick={this.props.logoutUser}>Sign Out</button>
-                </Link>
+                </Link> */}
             <div className="postfeed">
                 <div className="post-form">
                     <form onSubmit={this.handleSubmit}>

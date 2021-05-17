@@ -8,11 +8,13 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import BasePage from './base_page/base_page'; 
 import FeedPageContainer from './feed_page/feed_page_container'; 
 import Modal from './modal/modal'; 
+import NavBarContainer from './nav_bar/nav_bar_container';
 
 const App = () => {
     return (
         <div>
             <Modal />
+            <ProtectedRoute component={NavBarContainer} />
            <Switch>
                <AuthRoute exact path="/" component={BasePage} />
                <AuthRoute exact path="/login" component={LoginFormContainer} /> 

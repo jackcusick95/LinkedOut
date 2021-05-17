@@ -73,15 +73,16 @@ class PostPage extends React.Component {
                             width="100%"
                             onChange={this.handleBody}>
                             </textarea>
-                            <div>
-                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                            {/* <div> */}
+                                {/* <IconContext.Provider className="modal-photo-icon" value={{ style: { fontSize: '25px' } }}>
                                     <HiPhotograph />
-                                </IconContext.Provider>
-                                <input type="file" onChange={this.handleFile} id="upload-photo"/>
-                            </div>
-                            {/* <h3>Image preview:</h3> */}
+                                </IconContext.Provider> */}
                                 {preview}
-                            <button>Post</button>
+                                <input className="modal-file-button" type="file" onChange={this.handleFile} id="upload-photo"/>
+                            {/* </div> */}
+                            {/* <h3>Image preview:</h3> */}
+                                {/* {preview} */}
+                            <button className="modal-post-button" >Post</button>
                         </form>
                     </div>
             // </div>

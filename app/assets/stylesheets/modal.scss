@@ -38,12 +38,16 @@
  }
 
  .modal-form {
-    height: 300px;
+  //  position: fixed;
+    height: auto;
+    margin-top: 30%;
+    // margin-bottom: auto;
     border-radius: 8px;
     background-color: white;
 }
 
 .modal-header {
+  // margin-top: 30%;
   padding-top: 15px;
   margin-left: 20px;
   font-weight: 300;
@@ -61,5 +65,42 @@
 
 .modal-textarea {
   margin-top: 0px;
-  width: 450px;
+  width: 500px;
+  margin-left: 20px;
+  height: 100px;
+   font-family: sans-serif;
+  border: 0px; 
+}
+
+// .modal-photo-icon {
+// display: inline-block;
+// }
+
+.modal-file-button {
+ display: inline-block;
+ margin-left: 20px;
+ margin-bottom: 20px;
+ margin-top: 15px;
+}
+
+.modal-post-button {
+  display: inline-block;
+  color:white;
+  text-align: center;
+  background:  #2072ca;
+  width: 50px;
+  padding: 8px;
+  border-width: 0px;
+  border-radius: 40px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 20px;  
+  // margin-right: 10px;
+  margin-left: 200px; 
+}
+
+.preview-img {
+    width: 490px;
+    height: 300px; 
+    margin-left: 20px;
 }

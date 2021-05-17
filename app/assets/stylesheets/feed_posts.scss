@@ -2,7 +2,7 @@
 .feed-container {
     background-color: #f1f1f1;
     position: relative;
-    width: 100%;
+    width: 105%;
     height: 100%;
     left: 0;
     top: 0;
@@ -13,10 +13,12 @@
 
 .postfeed {
     // background-color: white;
+    position: relative;
     width: 490px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    padding-top: 30px;
+    // margin-top: 100px;
 }
 
 // .profile-sidebar {
@@ -44,10 +46,10 @@
 }
 
 
-.preview-img {
-    height: 100px;
-    width: 200px; 
-}
+// .preview-img {
+//     height: 100px;
+//     width: 200px; 
+// }
 
 .feed-post-box {
     width: 370px;
