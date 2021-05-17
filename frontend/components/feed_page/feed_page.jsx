@@ -62,9 +62,9 @@ class FeedPage extends React.Component {
         return (
         
         <div className="feed-container">
-                {/* <Link to={"/"}>
-                    <button onClick={this.props.logoutUser}>Sign Out</button>
-                </Link> */}
+            <div className="profile-sidebar">
+                <h1>Profile Sidebar</h1>
+            </div>
             <div className="postfeed">
                 <div className="post-form">
                     <form onSubmit={this.handleSubmit}>
@@ -98,9 +98,16 @@ class FeedPage extends React.Component {
                 <div>
                     <ul className="singlepost">
                         {[...this.props.postsArr].reverse().map((post) => {
+                            const firstname = this.props.users[this.props.session.id].fname;
+                            const lastname = this.props.users[this.props.session.id].lname;
+                            const career = this.props.users[this.props.session.id].title;
                             return (
                                 <li className="feedposts" key={post.id}>
-                                    {/* <h1>{this.props.users[post.author_id].fname} {this.props.users[post.author_id].lname}</h1> */}
+                                    <div className="feed-pro-pic">
+                                        <img className='post-dogo' src={window.dogo} />
+                                        <h1 className="first-last-name">{firstname} {lastname}</h1>
+                                    </div>
+                                    <p className="feed-career">{career}</p>
                                     <h2 id="feed-body">{post.body}</h2>
                                     <img id="feed-image" src={post.photoUrl} />
                                 </li>
@@ -109,9 +116,9 @@ class FeedPage extends React.Component {
                     </ul>
                 </div>
             </div>
-            <div className="profile-sidebar">
+            {/* <div className="profile-sidebar">
                 <h1>Profile Sidebar</h1>
-            </div>
+            </div> */}
         </div>
         )
     }

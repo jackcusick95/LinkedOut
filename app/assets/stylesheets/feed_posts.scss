@@ -21,15 +21,16 @@
     // margin-top: 100px;
 }
 
-// .profile-sidebar {
-//     width: 100px;
-//     margin-top: 100px;
-//     margin-left: 10px;
-//     background-color: white;
-//     border-radius: 8px;
-//     height: 100px; 
-//     display: inline-block;
-// }
+.profile-sidebar {
+    position: relative;
+    float: left;
+    width: 250px;
+    margin-top: 30px;
+    margin-left: 60px;
+    background-color: white;
+    border-radius: 8px;
+    height: 400px; 
+}
 
 .post-form {
     background-color: white;
@@ -118,12 +119,46 @@
     }
 
     #feed-body {
+        // position: absolute;
+        // display: flex;
         font-size: 12px;
         // list-style-type: none;
     }
 
     .singlepost {
         list-style-type: none;
+    }
+
+    .feed-pro-pic {
+        // position: absolute;
+        display: flex;
+        padding-bottom: 10px;
+    }
+
+    .first-last-name {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 1.0rem;
+    font-family: sans-serif;
+    }
+
+    .feed-career {
+    // position: absolute;
+    // display: flex;
+    margin-top: -37px;
+    margin-left: 70px;
+    font-size: 12px;
+    font-family: sans-serif;
+    color: grey; 
+    }
+
+    .post-dogo {
+    height: 45px; 
+    width: 45px;
+    margin-left: 15px;
+    margin-top: 10px;
+    border-radius: 50%;
     }
 
   
