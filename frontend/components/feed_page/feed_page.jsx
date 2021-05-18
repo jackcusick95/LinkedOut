@@ -98,9 +98,9 @@ class FeedPage extends React.Component {
                 <div>
                     <ul className="singlepost">
                         {[...this.props.postsArr].map((post) => {
-                            const firstname = this.props.users[this.props.session.id].fname;
-                            const lastname = this.props.users[this.props.session.id].lname;
-                            const career = this.props.users[this.props.session.id].title;
+                            const firstname = this.props.users[post.author_id].fname;
+                            const lastname = this.props.users[post.author_id].lname;
+                            const career = this.props.users[post.author_id].title;
                             return (
                                 <li className="feedposts" key={post.id}>
                                     <div className="feed-pro-pic">

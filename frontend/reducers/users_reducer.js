@@ -9,7 +9,7 @@ const usersReducer = (oldState = {}, action) => {
             newState[action.currentUser.id] = action.currentUser;
             return newState; 
         case RECEIVE_ALL_POSTS:
-            return {...oldState, ...action.users}
+            return {...oldState, ...action.payload.users}
         default:
             return oldState;
     }

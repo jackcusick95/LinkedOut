@@ -260,20 +260,26 @@ ActiveRecord::Base.transaction do
 
     post_10.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/eli.jpg'), filename: 'eli.jpg')
 
-    # post_11 = Post.create(
-    #     body: '',
-    #     author_id: user_6.id,
-    # )
+    post_11 = Post.create(
+        body: 'Great to be back in the office...been way too long!',
+        author_id: user_6.id,
+    )
 
-    # post_12 = Post.create(
-    #     body: '',
-    #     author_id: user_6.id,
-    # )
+    post_11.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/dreoffice.png'), filename: 'dreoffice.png')
 
-    # post_13 = Post.create(
-    #     body: '',
-    #     author_id: user_7.id,
-    # )
+    post_12 = Post.create(
+        body: 'Based on our analysis, we see Amazon shares potentially doubling within the next year.',
+        author_id: user_6.id,
+    )
+
+    post_12.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/amazonshares.png'), filename: 'amazonshares.png')
+
+    post_13 = Post.create(
+        body: 'Would like to give a big shoutout to my associate Will.... been bring in the big bucks over in Cali',
+        author_id: user_7.id,
+    )
+
+    post_13.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/google.jpg'), filename: 'google.jpg')
 
     # post_14 = Post.create(
     #     body: '',
