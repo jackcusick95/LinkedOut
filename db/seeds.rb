@@ -232,25 +232,33 @@ ActiveRecord::Base.transaction do
 
     post_6.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/teslaplane.jpg'), filename: 'teslaplane.jpg')
 
-    # post_7 = Post.create(
-    #     body: 'Little did you know, Apple and Microsoft have been in partnership for over 15 years....but we still remain rivals.',
-    #     author_id: user_4.id,
-    # )
+    post_7 = Post.create(
+        body: 'Little did you know, Apple and Microsoft have been in partnership for over 15 years....but we still remain rivals.',
+        author_id: user_4.id,
+    )
 
-    # post_8 = Post.create(
-    #     body: 'Really missing Melinda right now :(',
-    #     author_id: user_4.id,
-    # )
+    post_7.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/applemicrosoft.jpg'), filename: 'applemicrosoft.jpg')
 
-    # post_9 = Post.create(
-    #     body: 'Big year for the GMEN. Have a feeling Danny Dimes has a breakout season!',
-    #     author_id: user_5.id,
-    # )
+    post_8 = Post.create(
+        body: 'For those of you that don`t know about my charity work, the Bill & Melinda Gates Foundation focuses on improving people`s health and fight against poverty in developming countries.',
+        author_id: user_4.id,
+    )
 
-    # post_10 = Post.create(
-    #     body: 'Missing the NFL days... :(',
-    #     author_id: user_5.id,
-    # )
+    post_8.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/gatesfoundation.jpg'), filename: 'gatesfoundation.jpg')
+
+    post_9 = Post.create(
+        body: 'Big year for the GMEN. Have a feeling Danny Dimes has a breakout season!',
+        author_id: user_5.id,
+    )
+
+    post_9.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/dannydimes.jpg'), filename: 'dannydimes.jpg')
+
+    post_10 = Post.create(
+        body: 'Missing the NFL days... :(',
+        author_id: user_5.id,
+    )
+
+    post_10.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/eli.jpg'), filename: 'eli.jpg')
 
     # post_11 = Post.create(
     #     body: '',
