@@ -202,19 +202,21 @@ ActiveRecord::Base.transaction do
         author_id: demo.id,
     )
 
-    # demo_photo_1 = open('https://linkedout-pro.s3.amazonaws.com/summer.jpg')
-    # post_2.photomain.attach(io: demo_photo_1, filename: 'summer.jpg')
     post_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/summer.jpg'), filename: 'summer.jpg')
 
-    # post_3 = Post.create(
-    #     body: 'Happy to be back from the sprained ankle and back with the BOYS. King has retaken his chair.',
-    #     author_id: user_2.id,
-    # )
+    post_3 = Post.create(
+        body: 'Happy to be back from the sprained ankle and back with the BOYS. King has retaken his chair.',
+        author_id: user_2.id,
+    )
 
-    # post_4 = Post.create(
-    #     body: 'Playin tournament this week. ALL IN.',
-    #     author_id: user_2.id,
-    # )
+    post_3.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebron.jpg'), filename: 'lebron.jpg')
+
+    post_4 = Post.create(
+        body: 'Playin tournament this week. ALL IN.',
+        author_id: user_2.id,
+    )
+
+    post_4.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/playin.jpg'), filename: 'playin.jpg')
 
     # post_5 = Post.create(
     #     body: 'DogeCoin is going to hit intergalactic travel before I do...',
