@@ -196,8 +196,6 @@ ActiveRecord::Base.transaction do
     #     author_id: demo.id,
     # )
 
-    
-
     post_2 = Post.create(
         body: 'Long day at the office, but the walk after work was beautiful!',
         author_id: demo.id,
@@ -218,32 +216,32 @@ ActiveRecord::Base.transaction do
     # )
 
     # post_5 = Post.create(
-    #     body: '',
+    #     body: 'DogeCoin is going to hit intergalactic travel before I do...',
     #     author_id: user_3.id,
     # )
 
     # post_6 = Post.create(
-    #     body: '',
+    #     body: 'Breaking news, Tesla will now focus soley on commercial airplanes.',
     #     author_id: user_3.id,
     # )
 
     # post_7 = Post.create(
-    #     body: '',
+    #     body: 'Little did you know, Apple and Microsoft have been in partnership for over 15 years....but we still remain rivals.',
     #     author_id: user_4.id,
     # )
 
     # post_8 = Post.create(
-    #     body: '',
+    #     body: 'Really missing Melinda right now :(',
     #     author_id: user_4.id,
     # )
 
     # post_9 = Post.create(
-    #     body: '',
+    #     body: 'Big year for the GMEN. Have a feeling Danny Dimes has a breakout season!',
     #     author_id: user_5.id,
     # )
 
     # post_10 = Post.create(
-    #     body: '',
+    #     body: 'Missing the NFL days... :(',
     #     author_id: user_5.id,
     # )
 
