@@ -203,7 +203,9 @@ ActiveRecord::Base.transaction do
         author_id: demo.id,
     )
 
-    post_2.photo.attach(io: open('https://linkedout-pro.s3.amazonaws.com/summer.jpg'), filename: 'summer.jpg')
+    demo_photo_1 = open('https://linkedout-pro.s3.amazonaws.com/summer.jpg')
+    post_2.photomain.attach(io: demo_photo_1, filename: 'summer.jpg')
+    # post_2.photo.attach(io: open('https://linkedout-pro.s3.amazonaws.com/summer.jpg'), filename: 'summer.jpg')
 
     # post_3 = Post.create(
     #     body: 'Happy to be back from the sprained ankle and back with the BOYS. King has retaken his chair.',

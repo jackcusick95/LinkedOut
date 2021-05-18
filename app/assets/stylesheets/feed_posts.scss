@@ -30,6 +30,7 @@
     background-color: white;
     border-radius: 8px;
     height: 400px; 
+    z-index: 0;
 }
 
 .post-form {
@@ -46,12 +47,6 @@
        z-index: 3;
 }
 
-
-// .preview-img {
-//     height: 100px;
-//     width: 200px; 
-// }
-
 .feed-post-box {
     width: 370px;
     height: 30px;
@@ -62,6 +57,7 @@
     font-size: 1.0rem;
     font-family: sans-serif;
     line-height: 1.5;
+    border-width: 1px;
     border-color: lightgrey;
 }
 
@@ -107,10 +103,10 @@
     .feedposts {
         background-color: white;
         width: 490px; 
-        margin-left: -40px;
+        margin-left: 0px;
         box-shadow: 0 4px 12px lightgrey;
         border-radius: 8px;
-        margin-bottom: 10px;
+        margin-top: 20px;
     }
 
     #feed-image {
@@ -124,6 +120,7 @@
         font-weight: 300;
         margin-left: 15px;
         margin-top: 20px;
+        margin-bottom: 5px;
         // list-style-type: none;
     }
 

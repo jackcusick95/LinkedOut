@@ -12,8 +12,8 @@
 
 #errors{
    color: red; 
-   margin-top: -16px;
-   margin-bottom: -8px;
+   margin-top: -15px;
+   margin-bottom: 10px;
 }
 
 
@@ -68,6 +68,9 @@
       }
 
       form > h1 {
+         font-family: sans-serif;
+         font-weight: 600; 
+         font-size: 25px;
          margin-bottom: 15px;
          margin-top: 15px;
       }
@@ -79,7 +82,7 @@
       }
 
       .form-headline {
-         margin-bottom: 15px;
+         margin-bottom: 20px;
       }
 
       .nav-container {
@@ -89,6 +92,10 @@
          margin-top: 20px; 
       }
 
+   }
+
+   .form-type-header {
+      font-weight: 600; 
    }
 
    .action-buttons {
@@ -108,7 +115,7 @@
          font-weight: bold;
          margin-top: 8px;
          margin-bottom: 8px;  
-         margin-left: -23px; 
+         margin-left: 0px; 
       }
    }
 
@@ -130,7 +137,7 @@
          margin-bottom: 20px;
          font-weight: 500;
       input {
-         width: 260px;
+         width: 288px;
          padding: 7px;
          border-width: 1px;
          border-radius: 3px;
