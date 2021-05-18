@@ -97,7 +97,7 @@ class FeedPage extends React.Component {
                 </div>
                 <div>
                     <ul className="singlepost">
-                        {[...this.props.postsArr].reverse().map((post) => {
+                        {[...this.props.postsArr].map((post) => {
                             const firstname = this.props.users[this.props.session.id].fname;
                             const lastname = this.props.users[this.props.session.id].lname;
                             const career = this.props.users[this.props.session.id].title;

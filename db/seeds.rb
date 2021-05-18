@@ -218,15 +218,19 @@ ActiveRecord::Base.transaction do
 
     post_4.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/playin.jpg'), filename: 'playin.jpg')
 
-    # post_5 = Post.create(
-    #     body: 'DogeCoin is going to hit intergalactic travel before I do...',
-    #     author_id: user_3.id,
-    # )
+    post_5 = Post.create(
+        body: 'DogeCoin is going to hit intergalactic travel before I do...',
+        author_id: user_3.id,
+    )
 
-    # post_6 = Post.create(
-    #     body: 'Breaking news, Tesla will now focus soley on commercial airplanes.',
-    #     author_id: user_3.id,
-    # )
+    post_5.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/dogcoin.jpg'), filename: 'dogecoin.jpg')
+
+    post_6 = Post.create(
+        body: 'Breaking news, Tesla will now focus soley on commercial airplanes.',
+        author_id: user_3.id,
+    )
+
+    post_6.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/teslaplane.jpg'), filename: 'teslaplane.jpg')
 
     # post_7 = Post.create(
     #     body: 'Little did you know, Apple and Microsoft have been in partnership for over 15 years....but we still remain rivals.',
