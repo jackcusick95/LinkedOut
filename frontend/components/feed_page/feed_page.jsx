@@ -2,7 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { IconContext } from "react-icons";
 import { FcAddImage, FcCalendar, FcNews, FcVideoCall} from 'react-icons/fc';
+import { BsPencilSquare, BsThreeDots } from 'react-icons/bs';
+import { FaTrashAlt } from 'react-icons/fa';
 import PostPage from './post';
+
 
 
 
@@ -13,15 +16,27 @@ class FeedPage extends React.Component {
         this.state = {
             post: {}, 
             body: "",
+            comment: {},
+            commentdrop: 'hidden',
             photoFile: null,
             photoUrl: null
         }
+        this.commentRef = {};
         // this.postRef = React.createRef();
 
         this.handleBody = this.handleBody.bind(this);
         this.handleFile = this.handleFile.bind(this); 
         this.handleSubmit = this.handleSubmit.bind(this); 
+        this.handleComment = this.handleComment.bind(this);
+        this.handleCommentBody = this.handleCommentBody.bind(this); 
+
     }
+
+    // commentRef(postId) {
+    //     const commentRef = React.createRef();
+    //     this.commentRefs[postId] = commentRef;
+    //     return commentRef
+    // }
 
     componentDidMount() {
         this.props.fetchAllPosts(); 
@@ -55,6 +70,34 @@ class FeedPage extends React.Component {
         );
     }
 
+    handleComment(postId) {
+        return (e) => {
+            e.preventDefault();
+            this.postCommentId = -1;
+            this.props.createComment(this.state.comment, postId)
+            .then(()=>{
+                this.commentRefs[postId].current.reset()
+            });
+        }
+    }
+
+    handleCommentBody(postId) {
+        return (e) => {
+            this.postCommentId = postId
+            this.setState({ comment: {['body']: e.target.value}});
+        }
+    }
+
+    commentDropdown(commentId) {
+        return (e) => {
+            e.preventDefault();
+            if (this.state.commentdrop === 'hidden') {
+                this.commentId = commentId;
+                this.setState({commentdrop: 'show'})
+            } else this.setState({commentdrop: 'hidden'})
+        }
+    }
+
     render() {
         console.log(this.state); 
         // const { postsArr } = this.props.postsArr;
@@ -69,7 +112,10 @@ class FeedPage extends React.Component {
                 <div className="post-form">
                     <form onSubmit={this.handleSubmit}>
                         <div className="post-pic">
-                            <img className='dogo' src={window.dogo} />
+                            <img className='dogo' src={
+                                this.props.currentuser.photoUrl ?
+                                this.props.currentuser.photoUrl :
+                                window.dogo} />
                             {this.props.textmodal}
                         </div>
                         <div className="post-icons">
@@ -92,33 +138,71 @@ class FeedPage extends React.Component {
                                 </IconContext.Provider>
                                 <p>Article</p>
                         </div>
-                        {/* <div onClick={this.props.closeModal} className="close-x">X</div> */}
                     </form>
                 </div>
                 <div>
                     <ul className="singlepost">
                         {[...this.props.postsArr].map((post) => {
+                            const postUser = this.props.users[post.author_id];
                             const firstname = this.props.users[post.author_id].fname;
                             const lastname = this.props.users[post.author_id].lname;
                             const career = this.props.users[post.author_id].title;
                             return (
                                 <li className="feedposts" key={post.id}>
                                     <div className="feed-pro-pic">
-                                        <img className='post-dogo' src={window.dogo} />
+                                        <img className='post-dogo' src={
+                                            postUser.profile_photo ?
+                                            postUser.profile_photo :
+                                            window.dogo} />
                                         <h1 className="first-last-name">{firstname} {lastname}</h1>
                                     </div>
-                                    <p className="feed-career">{career}</p>
-                                    <h2 id="feed-body">{post.body}</h2>
-                                    <img id="feed-image" src={post.photoUrl} />
+                                        <p className="feed-career">{career}</p>
+                                        <h2 id="feed-body">{post.body}</h2>
+                                        <img id="feed-image" src={post.photoUrl} />
+                                    <div className="create-comment">
+                                        <form className="comment-container" onSubmit={this.handleComment(post.id)}>
+                                            <img className='post-comment-dogo' src={window.dogo} />
+                                            <input type="text"
+                                                className="comment-form"
+                                                required="required"
+                                                placeholder="Add a comment..."
+                                                onChange={this.handleCommentBody(post.id)}
+                                            />
+                                            <button className="post-comment-button">Post</button>
+                                        </form>
+                                    </div>
+                                    <div className="post-comments">
+                                        {[...this.props.commentsArr].map((comment) => {
+                                            if (comment.post_id == post.id)
+                                            return (
+                                                <div className="display-comment" key={comment.id}>
+                                                        <img className='comment-dogo' src={window.dogo} />
+                                                    <div id="comment-box">
+                                                        <h2 id="comment-name">{firstname} {lastname}</h2>
+                                                        <p id="comment-body">{comment.body}</p>
+                                                    </div>
+                                                    {this.props.session.id === comment.author_id ?
+                                                        <button className="comment-drop" onClick={this.commentDropdown(comment.id)}><BsThreeDots /></button> : ''
+                                                    }
+                                                    <div className={this.commentId === comment.id ? this.state.cmtDropdown : 'hidden'}>
+                                                        <button onClick={() => this.props.deleteComment(comment.id)}>
+                                                            <IconContext.Provider
+                                                                value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
+                                                                <FaTrashAlt></FaTrashAlt>
+                                                            </IconContext.Provider>
+                                                            <span>Delete Comment</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
                                 </li>
                             );
                         })}
                     </ul>
                 </div>
             </div>
-            {/* <div className="profile-sidebar">
-                <h1>Profile Sidebar</h1>
-            </div> */}
         </div>
         )
     }

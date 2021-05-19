@@ -35,6 +35,8 @@ ActiveRecord::Base.transaction do
         company: 'Los Angeles Lakers'     
     )
 
+    user_2.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
+
     user_3 = User.create(
         email: 'elon@gmail.com',
         password: 'password123',
@@ -196,6 +198,12 @@ ActiveRecord::Base.transaction do
         author_id: demo.id,
     )
     post_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/friends.jpg'), filename: 'friends.jpg')
+
+    # comment_1 = Comment.create(
+    #     body: "first comment",
+    #     author_id: demo.id,
+    #     post_id: post_1.id,
+    # )
 
     post_2 = Post.create(
         body: 'Long day at the office, but the walk after work was beautiful!',

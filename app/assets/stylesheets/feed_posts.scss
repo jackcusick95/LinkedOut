@@ -160,4 +160,128 @@
     border-radius: 50%;
     }
 
+    .display-comment {
+        display: flex;
+    }
+
+    #comment-box{
+        // position: relative;
+        display: inline-block;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 370px;
+        background-color:rgb(238, 238, 238);
+        height: 50px;
+        box-shadow: 0 4px 12px lightgrey;
+        border-radius: 8px;
+    }
+
+    #comment-name {
+    margin-left: 5px;
+    // margin-top: -20px;
+    font-size: 1.0rem;
+    font-family: sans-serif;
+    }
+
+    #comment-body {
+        font-size: 12px;
+        font-weight: 300;
+        margin-left: 5px;
+        // margin-top: 5px;
+        // margin-bottom: 5px;
+    }
+
+    .comment-dogo{
+    // position: relative;
+    display: inline-block;
+    height: 45px; 
+    width: 45px;
+    margin-left: 30px;
+    margin-top: 10px;
+    border-radius: 50%;   
+    }
+
+    .comment-container {
+        display: flex;
+        // margin-bottom: 10px;
+    }
+
+    .comment-form {
+        display: inline-block;
+        width: 300px;
+        height: 25px;
+        margin-left: 15px;
+        border-radius: 35px;
+        padding-left: 30px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: 1.0rem;
+        font-family: sans-serif;
+        line-height: 1.5;
+        border-width: 1px;
+        border-color: lightgrey;
+        margin-top: 10px;
+         margin-bottom: 10px;
+    }
+
+    .post-comment-button {
+        display: inline-block;
+        margin-left: 10px;
+        color:white;
+        text-align: center;
+        background:  #2072ca;
+        width: 50px;
+        padding: 2px;
+        border-width: 0px;
+        border-radius: 20px;
+        font-weight: bold;
+        margin-top: 10px;
+          margin-bottom: 10px;
+    }
+
+    .post-comment-dogo {
+    display: inline-block;
+    height: 45px; 
+    width: 45px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 50%;     
+    }
+
+    .hidden {
+        display:none;
+    }
+
+    .show {
+        border-radius: 5px;
+        border-top-right-radius: 0px;
+        text-align: left;
+        font-family: sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        display: inline-block;
+        width: 250px;
+        height: 90px;
+        position: absolute;
+        right:25px;
+        margin-top: 10px;
+        background-color: white;
+        color: rgb(95, 95, 95);
+         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    
+        z-index: 5;
+    }
+
+    .comment-drop {
+
+        display:inline-block;
+        border:none;
+        // margin-right: 50;
+        // z-index: 6;
+    }
+
+
+    
+
   

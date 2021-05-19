@@ -7,10 +7,17 @@ class User < ApplicationRecord
     validates :fname, :lname, :location, :zipcode, presence: true 
     validates :title, :industry, :company, presence: true 
 
+    has_one_attached :profile_photo
+    
     has_many :posts,
      primary_key: :id,
      foreign_key: :author_id,
      class_name: :Post 
+
+    has_many :comments,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Comment
 
     after_initialize :ensure_session_token
     attr_reader :password 
