@@ -6,6 +6,8 @@
     height: 100%;
     left: 0;
     top: 0;
+    // right: 0;
+    // padding-right: 100px;
     margin:auto;
     font-family: sans-serif;
     // display: inline-block;
@@ -14,11 +16,32 @@
 .postfeed {
     // background-color: white;
     position: relative;
+    justify-content: center;
     width: 490px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 30px;
-    // margin-top: 100px;
+}
+
+.news-sidebar {
+    // position: relative;
+    float: right;
+    width: 250px;
+    margin-top: 30px;
+    margin-right: 90px;
+    // margin-left: 300px;
+    background-color: white;
+    border-radius: 8px;
+    height: 280px; 
+    z-index: 0;
+    box-shadow: 0 4px 12px lightgrey;
+}
+
+.news-sidebar-header {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 1.0rem;
+    font-family: sans-serif;
 }
 
 .profile-sidebar {
@@ -29,8 +52,64 @@
     margin-left: 60px;
     background-color: white;
     border-radius: 8px;
-    height: 400px; 
+    height: 280px; 
     z-index: 0;
+    box-shadow: 0 4px 12px lightgrey;
+}
+
+.sidebar-block {
+    background-color: rgb(90, 153, 173); 
+    height: 80px;
+     border-top-right-radius: 8px;
+     border-top-left-radius: 8px;
+}
+
+.sidebar-photo {
+    height: 100px; 
+    width: 100px;
+    margin-left: 28%;
+    margin-top: -50px;
+    border-radius: 50%;
+    border-width: 3px;
+    border-style: solid;
+    border-color: white;
+}
+
+.sidebar-name {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.0rem;
+    font-family: sans-serif;
+}
+
+.sidebar-title {
+    text-align: center;
+    font-size: 12px;
+    font-family: sans-serif;
+    color: grey; 
+    border-bottom: solid lightgrey;
+    border-width: 1px;
+    padding-bottom: 20px;
+}
+
+.sidebar-viewprofile {
+    font-size: 12px;
+    font-family: sans-serif;
+    color: grey; 
+    padding-top: 20px;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.sidebar-connections {
+    font-size: 12px;
+    font-family: sans-serif;
+    color: grey; 
+    padding-top: 5px;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 13px;
 }
 
 .post-form {

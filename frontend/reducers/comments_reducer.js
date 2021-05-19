@@ -4,7 +4,7 @@ import { RECEIVE_ALL_POSTS } from '../actions/post_actions';
 const commentsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     let newState = {...oldState};
-    debugger 
+    // debugger 
     switch (action.type) {
         case RECEIVE_COMMENT:
             newState[action.comment.id] = action.comment

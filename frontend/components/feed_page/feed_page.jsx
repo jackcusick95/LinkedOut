@@ -106,15 +106,26 @@ class FeedPage extends React.Component {
         
         <div className="feed-container">
             <div className="profile-sidebar">
-                <h1>Profile Sidebar</h1>
+               <div className="sidebar-block"></div>
+                    <img className='sidebar-photo' src={
+                        this.props.currentuser.profile_photo ?
+                            this.props.currentuser.profile_photo :
+                            window.dogo} />
+                <h1 className="sidebar-name">{this.props.currentuser.fname} {this.props.currentuser.lname}</h1>
+                <p className="sidebar-title">{this.props.currentuser.title}</p>
+                <p className="sidebar-viewprofile">Who viewed your profile:</p>
+                <p className="sidebar-connections">Connections:</p>
+            </div>
+            <div className="news-sidebar">
+                <h1 className="news-sidebar-header">LinkedOut News:</h1>
             </div>
             <div className="postfeed">
                 <div className="post-form">
                     <form onSubmit={this.handleSubmit}>
                         <div className="post-pic">
                             <img className='dogo' src={
-                                this.props.currentuser.photoUrl ?
-                                this.props.currentuser.photoUrl :
+                                this.props.currentuser.profile_photo ?
+                                this.props.currentuser.profile_photo :
                                 window.dogo} />
                             {this.props.textmodal}
                         </div>
@@ -161,7 +172,10 @@ class FeedPage extends React.Component {
                                         <img id="feed-image" src={post.photoUrl} />
                                     <div className="create-comment">
                                         <form className="comment-container" onSubmit={this.handleComment(post.id)}>
-                                            <img className='post-comment-dogo' src={window.dogo} />
+                                            <img className='post-comment-dogo' src={
+                                                this.props.currentuser.profile_photo ?
+                                                this.props.currentuser.profile_photo :
+                                                window.dogo} />
                                             <input type="text"
                                                 className="comment-form"
                                                 required="required"
@@ -173,12 +187,16 @@ class FeedPage extends React.Component {
                                     </div>
                                     <div className="post-comments">
                                         {[...this.props.commentsArr].map((comment) => {
+                                            const commentUser = this.props.users[comment.author_id];
                                             if (comment.post_id == post.id)
                                             return (
                                                 <div className="display-comment" key={comment.id}>
-                                                        <img className='comment-dogo' src={window.dogo} />
+                                                        <img className='comment-dogo' src={
+                                                            commentUser.profile_photo ?
+                                                            commentUser.profile_photo :
+                                                            window.dogo} />
                                                     <div id="comment-box">
-                                                        <h2 id="comment-name">{firstname} {lastname}</h2>
+                                                        <h2 id="comment-name">{commentUser.fname} {commentUser.lname}</h2>
                                                         <p id="comment-body">{comment.body}</p>
                                                     </div>
                                                     {this.props.session.id === comment.author_id ?
@@ -203,6 +221,7 @@ class FeedPage extends React.Component {
                     </ul>
                 </div>
             </div>
+            {/* <div className="news-sidebar"></div> */}
         </div>
         )
     }
