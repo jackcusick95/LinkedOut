@@ -7,6 +7,7 @@
     json.users do
         json.set! post.author_id do
             json.extract! post.author, :id, :fname, :lname, :title
+            json.profile_photo url_for(post.author.profile_photo) if post.author.profile_photo.attached?
         end
     end
     json.comments do 

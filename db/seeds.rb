@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
 
 ActiveRecord::Base.transaction do 
     User.destroy_all
@@ -49,6 +50,8 @@ ActiveRecord::Base.transaction do
         company: 'Tesla and SpaceX'     
     )
 
+    user_3.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/elonpp.jpg'), filename: 'elonpp.jpg')
+
     user_4 = User.create(
         email: 'bill@gmail.com',
         password: 'password123',
@@ -60,6 +63,8 @@ ActiveRecord::Base.transaction do
         industry: 'Technology',
         company: 'Microsoft'     
     )
+
+    user_4.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/billpp.jpg'), filename: 'billpp.jpg')
 
     user_5 = User.create(
         email: 'eli@gmail.com',
@@ -73,6 +78,8 @@ ActiveRecord::Base.transaction do
         company: 'New York Giants'     
     )
 
+    user_5.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/elipp.jpg'), filename: 'elipp.jpg')
+
     user_6 = User.create(
         email: 'andre@gmail.com',
         password: 'password123',
@@ -84,6 +91,8 @@ ActiveRecord::Base.transaction do
         industry: 'Finance',
         company: 'Morgan Stanley'     
     )
+
+    user_6.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/andrepp.jpg'), filename: 'andrepp.jpg')
 
     user_7 = User.create(
         email: 'sal@gmail.com',
@@ -97,6 +106,8 @@ ActiveRecord::Base.transaction do
         company: 'Google'     
     )
 
+    user_7.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/salpp.jpg'), filename: 'salpp.jpg')
+
     user_8 = User.create(
         email: 'will@gmail.com',
         password: 'password123',
@@ -108,6 +119,8 @@ ActiveRecord::Base.transaction do
         industry: 'Sales',
         company: 'Google'     
     )
+
+    # user_8.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
 
     user_9 = User.create(
         email: 'brendan@gmail.com',
@@ -121,6 +134,8 @@ ActiveRecord::Base.transaction do
         company: 'Unemployed'     
     )
 
+    # user_9.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
+
     user_10 = User.create(
         email: 'julius@gmail.com',
         password: 'password123',
@@ -132,6 +147,8 @@ ActiveRecord::Base.transaction do
         industry: 'NBA',
         company: 'New York Knicks'     
     )
+
+    # user_10.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
 
     user_11 = User.create(
         email: 'derrick@gmail.com',
@@ -145,6 +162,8 @@ ActiveRecord::Base.transaction do
         company: 'New York Knicks'     
     )
 
+    # user_11.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
+
     user_12 = User.create(
         email: 'tony@gmail.com',
         password: 'password123',
@@ -156,6 +175,8 @@ ActiveRecord::Base.transaction do
         industry: 'Skateboarding',
         company: 'Self Employed'     
     )
+
+    # user_12.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
 
     user_13 = User.create(
         email: 'bode@gmail.com',
@@ -169,6 +190,8 @@ ActiveRecord::Base.transaction do
         company: 'US Ski Team'     
     )
 
+    # user_13.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
+
     user_14 = User.create(
         email: 'clare@gmail.com',
         password: 'password123',
@@ -181,6 +204,8 @@ ActiveRecord::Base.transaction do
         company: 'National Geographic'     
     )
 
+    # user_14.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
+
     user_15 = User.create(
         email: 'john@gmail.com',
         password: 'password123',
@@ -192,6 +217,8 @@ ActiveRecord::Base.transaction do
         industry: 'Comedy',
         company: 'Self Employed'     
     )
+
+    # user_15.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
 
     post_1 = Post.create(
         body: 'New to LinkedOut. Looking forward to connecting with all my friends!',
