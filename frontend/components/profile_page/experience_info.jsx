@@ -8,9 +8,11 @@ class ExperienceInfo extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div className="experience-box">
                 <h1>Experience</h1>
+                {/* <h1>{this.props.currentjob.title}</h1> */}
             </div>
         )
     }

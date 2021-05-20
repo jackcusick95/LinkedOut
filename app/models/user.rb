@@ -24,6 +24,11 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Job
 
+    has_many :likes,
+        primary_key: :id,
+        foreign_key: :liker_id,
+        class_name: :Like
+
     after_initialize :ensure_session_token
     attr_reader :password 
 

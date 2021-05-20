@@ -14,6 +14,7 @@
    left: 29%;
     height: 500px;
     width: 550px;
+    // width: 700px;
   //  transform: translate(-50%, -50%);
  }
 
@@ -108,3 +109,81 @@
     height: 300px; 
     margin-left: 20px;
 }
+
+// Profile Edit Modal:
+
+ .modal-edit {
+  //  position: fixed;
+    height: 400px;
+    width: auto;
+    // margin-top: 30%;
+    border-radius: 8px;
+    background-color: white;
+    // margin-left: -50px;
+    // padding-left: -50px;
+}
+
+.modal-edit-header {
+  padding-top: 10px;
+  font-weight: 300;
+  padding-left: 20px;
+  font-family: sans-serif;
+  font-size: 20px;
+  padding-bottom: 20px;   
+}
+
+.edit-modal-border {
+  border-bottom: solid lightgrey;
+  border-width: 1px;
+  width: 550px;   
+}
+
+
+// .model-fname-container {
+//   display: inline-block;
+//   // width: 50%;
+// }
+
+// .modal-edit-title-location{
+// display:inline-block;
+// }
+
+// .model-headline-container {
+//   width: 100%;
+// }
+
+// .model-location-container {
+//   width: 100%;
+// }
+
+    .modal-name-label {
+        text-align: right;
+        width: 100px;
+        white-space: nowrap;
+        margin-bottom: 20px;
+    }
+
+    .modal-name-input {
+        width: 200px;
+    }
+
+    .edit-modal-fullname {
+      margin-top: 30px;
+      float: left;
+      width: 250px;
+    }
+    .modal-headline {
+      width: 250px;
+      // margin-bottom: 20px;
+    }
+
+    .modal-location {
+      width: 200px;
+    }
+
+    .modal-edit-title-location {
+        margin-top: 30px;
+      display: inline-block;
+      width: 200px;
+      
+    }

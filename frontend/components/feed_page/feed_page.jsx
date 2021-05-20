@@ -19,7 +19,10 @@ class FeedPage extends React.Component {
             comment: {},
             commentdrop: 'hidden',
             photoFile: null,
-            photoUrl: null
+            photoUrl: null,
+            // like: null,
+            // liked: false
+            // likeCount: this.props.post.likes
         }
         this.commentRef = {};
         // this.postRef = React.createRef();
@@ -29,6 +32,9 @@ class FeedPage extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this); 
         this.handleComment = this.handleComment.bind(this);
         this.handleCommentBody = this.handleCommentBody.bind(this); 
+        this.handleLike = this.handleLike.bind(this); 
+        // this.displayLikes = this.displayLikes.bind(this);
+        // this.hideLikes = this.hideLikes.bind(this);
 
     }
 
@@ -98,8 +104,29 @@ class FeedPage extends React.Component {
         }
     }
 
+    handleLike() {
+        if (this.props.like) {
+            this.props.deleteLike(this.props.like.id);
+        } else {
+            this.props.createLike({
+                likeable_id: this.props.likeable_id,
+                likeable_type: this.props.likeable_type,
+                liker_id: this.props.liker_id
+            });
+        }
+    }
+
+    // displayLikes() {
+    //     this.setState({ showLikes: true });
+    // }
+
+    // hideLikes() {
+    //     this.setState({ showLikes: false });
+    // }
+
     render() {
         console.log(this.state); 
+        console.log(this.props);
         // const { postsArr } = this.props.postsArr;
         const preview = this.state.photoUrl ? <img className="preview-img" src={this.state.photoUrl} /> : null;
         return (
@@ -174,6 +201,16 @@ class FeedPage extends React.Component {
                                         <p className="feed-career">{career}</p>
                                         <h2 id="feed-body">{post.body}</h2>
                                         <img id="feed-image" src={post.photoUrl} />
+                                        {/* <PostLike post={post}/> */}
+                                                    <div className="count-bar">
+                                                        {/* <div>{this.props.likes.length} likes</div> */}
+                                                    </div>
+                                                    <div className="option-bar">
+                                                        <button className='option-btn' onClick={this.toggleLike}>
+                                                            <i className="far fa-thumbs-up"></i>
+                                                            <div>Like</div>
+                                                        </button>
+                                                    </div>
                                     <div className="create-comment">
                                         <form className="comment-container" onSubmit={this.handleComment(post.id)}>
                                             <img className='post-comment-dogo' src={

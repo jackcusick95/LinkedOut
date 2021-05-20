@@ -30,6 +30,8 @@ class SessionProfilePage extends React.Component {
 
                 <ExperienceInfo 
                     jobs={this.props.jobs}
+                    currentuser={this.props.currentuser}
+                    currentjob={this.props.currentjob}
                 />
 
                 </div>

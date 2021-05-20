@@ -13,6 +13,7 @@ ActiveRecord::Base.transaction do
     Post.destroy_all
     Comment.destroy_all
     Job.destroy_all 
+    Like.destroy_all 
 
     demo = User.create(
         email: 'demouser@demo.com',
@@ -317,6 +318,12 @@ ActiveRecord::Base.transaction do
     )
 
     post_13.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/google.jpg'), filename: 'google.jpg')
+
+    like_1 = Like.create(
+        liker_id: demo.id,
+        likeable_id: post_3.id,
+        likeable_type: "Post"
+    )
 
     job_1 = Job.create(
         user_id: demo.id,
