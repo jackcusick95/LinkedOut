@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux'; 
 import PostContainer from  '../../components/feed_page/post_container';
+import EditModal from '../profile_page/edit_modal';
 // import FeedPage from '../feed_page/feed_page';
 
 function Modal({ modal, closeModal }) {
@@ -12,6 +13,9 @@ function Modal({ modal, closeModal }) {
     switch (modal) {
         case 'post':
             component = <PostContainer />;
+            break;
+        case 'edit':
+            component = <EditModal />;
             break;
         default:
             return null;

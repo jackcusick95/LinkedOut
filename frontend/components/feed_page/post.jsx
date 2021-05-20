@@ -66,22 +66,15 @@ class PostPage extends React.Component {
                             <div onClick={this.props.closeModal} className="close-x">X</div>
                             <div id="modal-border"></div>
                             <textarea
-                            className="modal-textarea"
-                            placeholder="What do you want to talk about?"
-                            required="required"
-                            cols="30"
-                            width="100%"
-                            onChange={this.handleBody}>
+                                className="modal-textarea"
+                                placeholder="What do you want to talk about?"
+                                required="required"
+                                cols="30"
+                                width="100%"
+                                onChange={this.handleBody}>
                             </textarea>
-                            {/* <div> */}
-                                {/* <IconContext.Provider className="modal-photo-icon" value={{ style: { fontSize: '25px' } }}>
-                                    <HiPhotograph />
-                                </IconContext.Provider> */}
-                                {preview}
-                                <input className="modal-file-button" type="file" onChange={this.handleFile} id="upload-photo"/>
-                            {/* </div> */}
-                            {/* <h3>Image preview:</h3> */}
-                                {/* {preview} */}
+                            {preview}
+                            <input className="modal-file-button" type="file" onChange={this.handleFile} id="upload-photo"/>
                             <button className="modal-post-button" >Post</button>
                         </form>
                     </div>

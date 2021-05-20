@@ -107,11 +107,15 @@ class FeedPage extends React.Component {
         <div className="feed-container">
             <div className="profile-sidebar">
                <div className="sidebar-block"></div>
+                    <Link to={"/profile"}>
                     <img className='sidebar-photo' src={
                         this.props.currentuser.profile_photo ?
                             this.props.currentuser.profile_photo :
                             window.dogo} />
-                <h1 className="sidebar-name">{this.props.currentuser.fname} {this.props.currentuser.lname}</h1>
+                    </Link>
+                <Link to={"/profile"}>
+                    <h1 className="sidebar-name">{this.props.currentuser.fname} {this.props.currentuser.lname}</h1>
+                </Link>
                 <p className="sidebar-title">{this.props.currentuser.title}</p>
                 <p className="sidebar-viewprofile">Who viewed your profile:</p>
                 <p className="sidebar-connections">Connections:</p>

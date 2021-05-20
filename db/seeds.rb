@@ -11,6 +11,8 @@ require 'open-uri'
 ActiveRecord::Base.transaction do 
     User.destroy_all
     Post.destroy_all
+    Comment.destroy_all
+    Job.destroy_all 
 
     demo = User.create(
         email: 'demouser@demo.com',
@@ -315,6 +317,19 @@ ActiveRecord::Base.transaction do
     )
 
     post_13.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/google.jpg'), filename: 'google.jpg')
+
+    job_1 = Job.create(
+        user_id: demo.id,
+        title: "Software Engineer",
+        job_type: "Full time",
+        company: "Facebook",
+        location: "Menlo Park, CA",
+        start_date: "2018",
+        end_date: "2019",
+        description: "Worked on a several projects including design of Facebook Marketplace and the adtech integration it required.", 
+    )
+
+    job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/fblogo.png'), filename: 'fblogo.png')
 
     # post_14 = Post.create(
     #     body: '',

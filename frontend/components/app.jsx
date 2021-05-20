@@ -9,6 +9,7 @@ import BasePage from './base_page/base_page';
 import FeedPageContainer from './feed_page/feed_page_container'; 
 import Modal from './modal/modal'; 
 import NavBarContainer from './nav_bar/nav_bar_container';
+import SessionProfileContainer from './profile_page/session_profile_container'; 
 
 const App = () => {
     return (
@@ -20,7 +21,7 @@ const App = () => {
                <AuthRoute exact path="/login" component={LoginFormContainer} /> 
                <AuthRoute exact path="/signup" component={SignUpFormContainer} />
                <ProtectedRoute exact path="/feed" component={FeedPageContainer} />
-
+               <ProtectedRoute exact path="/profile" component={SessionProfileContainer} />
            </Switch>
        </div>
     )

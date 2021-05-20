@@ -20,15 +20,16 @@
     width: 490px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 30px;
+    padding-top: 70px;
 }
 
 .news-sidebar {
-    // position: relative;
+    position: fixed;
     float: right;
     width: 250px;
-    margin-top: 30px;
-    margin-right: 90px;
+    margin-top: 70px;
+    right: 6px;
+    // padding-right: 20px;
     // margin-left: 300px;
     background-color: white;
     border-radius: 8px;
@@ -45,10 +46,10 @@
 }
 
 .profile-sidebar {
-    position: relative;
+    position: fixed;
     float: left;
     width: 250px;
-    margin-top: 30px;
+    margin-top: 70px;
     margin-left: 60px;
     background-color: white;
     border-radius: 8px;
@@ -359,6 +360,9 @@
         // margin-right: 50;
         // z-index: 6;
     }
+
+
+    
 
 
     
