@@ -8,6 +8,8 @@ class User < ApplicationRecord
     validates :title, :industry, :company, presence: true 
 
     has_one_attached :profile_photo
+
+    has_one_attached :wall_photo
     
     has_many :posts,
      primary_key: :id,

@@ -11,7 +11,7 @@ class ExperienceInfo extends React.Component {
         console.log(this.props)
         return (
             <div className="experience-box">
-                <h1>Experience</h1>
+                <h1 className="about-header">Experience</h1>
                 {/* <h1>{this.props.currentjob.title}</h1> */}
             </div>
         )

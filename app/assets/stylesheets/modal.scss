@@ -85,6 +85,7 @@
  margin-left: 20px;
  margin-bottom: 20px;
  margin-top: 15px;
+//  opacity: 0;  
 }
 
 .modal-post-button {
@@ -101,7 +102,7 @@
   margin-top: 11px;
   margin-bottom: 28px;  
   // margin-right: 10px;
-  margin-left: 150px; 
+  margin-left: 175px; 
 }
 
 .preview-img {
@@ -114,7 +115,7 @@
 
  .modal-edit {
   //  position: fixed;
-    height: 400px;
+    height: auto;
     width: auto;
     // margin-top: 30%;
     border-radius: 8px;
@@ -156,29 +157,73 @@
 //   width: 100%;
 // }
 
+.edit-modal-form {
+  padding-left: 20px;
+  // padding-right: 10px;
+}
+
     .modal-name-label {
         text-align: right;
         width: 100px;
         white-space: nowrap;
-        margin-bottom: 20px;
+        // margin-bottom: 5px;
+        font-size: 12px;
+        font-family: sans-serif;
+        color: grey; 
+        // margin-left: 20px;
     }
 
-    .modal-name-input {
-        width: 200px;
+    // .modal-name-input {
+    //     width: 200px;
+    //     border-radius: 3px;
+    //     height: 25px;
+    //       font-size: 12px;
+    //     font-family: sans-serif;
+    // }
+
+    .modal-fname-input {
+        width: 230px;
+        border-radius: 3px;
+        height: 25px;
+          font-size: 12px;
+        font-family: sans-serif;
+        margin-bottom: 20px;
+        padding: 2px;
+    }
+
+    .modal-lname-input {
+        width: 230px;
+        border-radius: 3px;
+        height: 25px;
+          font-size: 12px;
+        font-family: sans-serif;
+        padding: 2px;
     }
 
     .edit-modal-fullname {
       margin-top: 30px;
       float: left;
       width: 250px;
+      margin-right: 20px;
     }
     .modal-headline {
-      width: 250px;
-      // margin-bottom: 20px;
+      width: 230px;
+      border-radius: 3px;
+      height: 25px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      font-family: sans-serif;
+      padding: 2px;
     }
 
     .modal-location {
-      width: 200px;
+      width: 230px;
+      border-radius: 3px;
+      height: 25px;
+        font-size: 12px;
+        font-family: sans-serif;
+        // margin-top: 3px;
+        padding: 2px;
     }
 
     .modal-edit-title-location {
@@ -187,3 +232,47 @@
       width: 200px;
       
     }
+
+    .model-description-container {
+      align-items: left;
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    .modal-description-label {
+        width: 200px;
+        white-space: nowrap;
+        font-size: 12px;
+        font-family: sans-serif;
+        color: grey; 
+    }
+
+    .modal-description-textarea {
+      border-radius: 3px;
+      width: 93%;
+      height: 50px;
+      margin-top: 3px;
+      font-family: sans-serif;
+      padding: 5px;
+    }
+
+
+   .modal-edit-save {
+    position: relative;
+  display: inline-block;
+  color:white;
+  text-align: center;
+  background:  #2072ca;
+  width: 50px;
+  padding: 6px;
+  border-width: 0px;
+  border-radius: 40px;
+  font-weight: bold;
+  margin-top: 8px;
+  margin-bottom: 8px;  
+  // margin-right: 10px;
+  margin-left: 440px;  
+   }
+
+

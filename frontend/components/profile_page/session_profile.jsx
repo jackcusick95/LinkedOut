@@ -16,6 +16,10 @@ class SessionProfilePage extends React.Component {
 
     }   
 
+    // componentDidMount() {
+    //     this.props.currentuser;
+    // }
+
     render() {
         return (
             <div className="profile-container">

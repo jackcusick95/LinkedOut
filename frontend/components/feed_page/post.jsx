@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IconContext } from "react-icons";
-import { HiPhotograph } from 'react-icons/hi';
+import { FcAddImage } from 'react-icons/fc';
 
 
 
@@ -74,8 +74,11 @@ class PostPage extends React.Component {
                                 onChange={this.handleBody}>
                             </textarea>
                             {preview}
-                            <input className="modal-file-button" type="file" onChange={this.handleFile} id="upload-photo"/>
-                            <button className="modal-post-button" >Post</button>
+                                 {/* <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                     <FcAddImage />
+                                    </IconContext.Provider> */}
+                                <input className="modal-file-button" type="file" onChange={this.handleFile} id="upload-photo"/>
+                                <button className="modal-post-button" >Post</button>
                         </form>
                     </div>
             // </div>

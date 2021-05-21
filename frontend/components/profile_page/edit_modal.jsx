@@ -10,10 +10,6 @@ class EditModalItem extends React.Component {
         super(props);
         this.state = {
             ...this.props.currentuser,
-            // fname: this.props.currentuser.fname,
-            // lname: this.props.currentuser.lname,
-            // title: this.props.currentuser.title,
-            // location: this.props.currentuser.location
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this); 
@@ -34,7 +30,7 @@ class EditModalItem extends React.Component {
 
     render() {
         const {
-            fname, lname, title, location
+            fname, lname, title, location, description
         } = this.state;
         return (
 
@@ -42,39 +38,39 @@ class EditModalItem extends React.Component {
                 <h2 className="modal-edit-header">Edit user info</h2>
                 <div onClick={this.props.closeModal} className="close-x">X</div>
                 <div className="edit-modal-border"></div>
-                <form onSubmit={this.handleSubmit}>
+                <form className="edit-modal-form" onSubmit={this.handleSubmit}>
                     <div className="edit-modal-fullname">
                         {/* <div className="model-fname-container"> */}
-                            <label className="modal-fname-label">First Name</label>
+                            <label className="modal-name-label">First Name *</label>
                                 <input 
                                     type="text"
-                                    className="modal-name-input"
+                                    className="modal-fname-input"
                                     placeholder={fname}
                                     value={fname}
                                     required="required"
                                     onChange={this.handleInput('fname')}/>
                          {/* </div> */}
                         <div className="model-name-container">
-                            <label className="modal-lname-label">Last Name</label>
+                            <label className="modal-name-label">Headline *</label>
                                 <input
                                     type="text"
-                                    className="modal-name-input"
-                                    placeholder={lname}
-                                    value={lname}
+                                    className="modal-lname-input"
+                                    placeholder={title}
+                                    value={title}
                                     required="required"
-                                    onChange={this.handleInput('lname')} />
+                                    onChange={this.handleInput('title')} />
                         </div>
                     </div>
                     <div className="modal-edit-title-location">
                             <div className="model-headline-container">
-                                <label className="modal-name-label">Headline</label>
+                                <label className="modal-name-label">Last Name *</label>
                                     <input
                                         type="text"
                                         className="modal-headline"
-                                        placeholder={title}
-                                        value={title}
+                                        placeholder={lname}
+                                        value={lname}
                                         required="required"
-                                        onChange={this.handleInput('title')} />
+                                        onChange={this.handleInput('lname')} />
                             </div>
                             <div className="model-location-container">
                                 <label className="modal-name-label">Location</label>
@@ -85,8 +81,19 @@ class EditModalItem extends React.Component {
                                         value={location}
                                         onChange={this.handleInput('location')} />
                         </div>
-                        <button className="modal-edit-save" >Save</button>
                     </div>
+                    <div className="model-description-container">
+                        <label className="modal-description-label">Description</label>
+                        <textarea
+                            className="modal-description-textarea"
+                            placeholder={description}
+                            value={description}
+                            cols="30"
+                            width="80%"
+                            onChange={this.handleInput('description')}>
+                        </textarea>
+                    </div>
+                        <button className="modal-edit-save" >Save</button>
                 </form>
             </div>
         )

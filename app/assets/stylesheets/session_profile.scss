@@ -27,26 +27,52 @@
     background-color: white;
     height: auto;
     box-shadow: 0 4px 12px lightgrey;
-    padding: 24px, 32px, 32px; 
+    // padding: 24px, 32px, 32px; 
     border-radius: 8px;
     margin: 0 auto;
     background: #fff;
     // padding-top: 8px;
-    padding-bottom: 8px;
+    padding-bottom: 0px;
     z-index: 3;
+    margin-top: 20px;
+}
+
+.about {
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.session-profile-about {
+    margin-left: 3%;
+    font-size: 15px;
+    font-family: sans-serif;
+    color: black; 
+    padding-bottom: 2px;       
+    }
+
+.about-header {
+    margin-left: 3%;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 5px;
+    font-family: sans-serif;
+    color: black; 
+    padding-bottom: 2px;     
 }
 
     .color-block {
-    background-color: rgb(90, 153, 173); 
+    // background-color: rgb(90, 153, 173); 
     height: 200px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
+    width: 800px;
     }
 
     .session-profile-photo {
     height: 150px; 
     width: 150px;
-    margin-left: 5%;
+    margin-left: 3%;
     margin-top: -75px;
     border-radius: 50%;
     border-width: 3px;
@@ -55,7 +81,7 @@
     }
 
     .session-profile-name {
-    margin-left: 5%;
+    margin-left: 3%;
     margin-top: 10px;
     font-size: 1.3rem;
     font-family: sans-serif; 
@@ -64,7 +90,7 @@
     }
 
     .session-profile-title {
-    margin-left: 5%;
+    margin-left: 3%;
     font-size: 15px;
     font-family: sans-serif;
     color: black; 
@@ -72,7 +98,7 @@
     }
 
     .session-profile-location {
-    margin-left: 5%;
+    margin-left: 3%;
     font-size: 12px;
     font-family: sans-serif;
     color: grey; 

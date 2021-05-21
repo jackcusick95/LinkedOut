@@ -133,7 +133,11 @@ class FeedPage extends React.Component {
         
         <div className="feed-container">
             <div className="profile-sidebar">
-               <div className="sidebar-block"></div>
+               {/* <div className="sidebar-block"></div> */}
+                    <img className='sidebar-block' src={
+                        this.props.currentuser.wall_photo ?
+                            this.props.currentuser.wall_photo :
+                            window.wallpic} />
                     <Link to={"/profile"}>
                     <img className='sidebar-photo' src={
                         this.props.currentuser.profile_photo ?
@@ -149,6 +153,11 @@ class FeedPage extends React.Component {
             </div>
             <div className="news-sidebar">
                 <h1 className="news-sidebar-header">LinkedOut News:</h1>
+                    <a className="article" href="https://news.linkedin.com/2021/may/our-2021-grad-s-guide-to-getting-hired">* 2021 Guide to Getting Hired *</a><br></br>
+                    <a className="article" href="https://news.linkedin.com/2021/april/creating-trusted-connections">* Creating Trusted Connectings *</a><br></br>
+                    <a className="article" href="https://news.linkedin.com/2021/march/an-update-on-linkedin-china">* An update on LinkedIn China *</a><br></br>
+                    <a className="article" href="https://news.linkedin.com/2020/october/helping-job-seekers-take-their-next-step">* Helping jobseekers with next steps *</a><br></br>
+                    <a className="article" href="https://news.linkedin.com/2020/march/most-in-demand-jobs-during-coronavirus---companies-hiring">* Most in-demand jobs during covid *</a>
             </div>
             <div className="postfeed">
                 <div className="post-form">
@@ -184,7 +193,7 @@ class FeedPage extends React.Component {
                 </div>
                 <div>
                     <ul className="singlepost">
-                        {[...this.props.postsArr].map((post) => {
+                        {[...this.props.postsArr].reverse().map((post) => {
                             const postUser = this.props.users[post.author_id];
                             const firstname = this.props.users[post.author_id].fname;
                             const lastname = this.props.users[post.author_id].lname;
@@ -205,12 +214,12 @@ class FeedPage extends React.Component {
                                                     <div className="count-bar">
                                                         {/* <div>{this.props.likes.length} likes</div> */}
                                                     </div>
-                                                    <div className="option-bar">
+                                                    {/* <div className="option-bar">
                                                         <button className='option-btn' onClick={this.toggleLike}>
                                                             <i className="far fa-thumbs-up"></i>
                                                             <div>Like</div>
                                                         </button>
-                                                    </div>
+                                                    </div> */}
                                     <div className="create-comment">
                                         <form className="comment-container" onSubmit={this.handleComment(post.id)}>
                                             <img className='post-comment-dogo' src={
@@ -238,12 +247,13 @@ class FeedPage extends React.Component {
                                                             window.dogo} />
                                                     <div id="comment-box">
                                                         <h2 id="comment-name">{commentUser.fname} {commentUser.lname}</h2>
+                                                        <p id="comment-user-title">{commentUser.title}</p>
                                                         <p id="comment-body">{comment.body}</p>
                                                     </div>
                                                     {this.props.session.id === comment.author_id ?
                                                         <button className="comment-drop" onClick={this.commentDropdown(comment.id)}><BsThreeDots /></button> : ''
                                                     }
-                                                    <div className={this.commentId === comment.id ? this.state.cmtDropdown : 'hidden'}>
+                                                    <div className={this.commentId === comment.id ? this.state.commentdrop : 'hidden'}>
                                                         <button onClick={() => this.props.deleteComment(comment.id)}>
                                                             <IconContext.Provider
                                                                 value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>

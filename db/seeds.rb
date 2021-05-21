@@ -24,7 +24,8 @@ ActiveRecord::Base.transaction do
         zipcode: '10013',
         title: 'CFO of Demo User Interaction',
         industry: 'Social Media',
-        company: 'DemoUser Co.'
+        company: 'DemoUser Co.',
+        description: "New to LinkedOut... is this app similar to linkedIn???!"
     )
 
     user_2 = User.create(
@@ -50,10 +51,12 @@ ActiveRecord::Base.transaction do
         zipcode: '20002',
         title: 'CEO of Tesla and SpaceX',
         industry: 'Technology',
-        company: 'Tesla and SpaceX'     
+        company: 'Tesla and SpaceX',
+        description: "Elon Reeve Musk FRS is an entrepreneur and business magnate. He is the founder, CEO and chief engineer at SpaceX; early stage investor, CEO, and product architect of Tesla, Inc.; founder of The Boring Company; and co-founder of Neuralink and OpenAI. A centibillionaire, Musk is one of the richest people in the world."     
     )
 
     user_3.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/elonpp.jpg'), filename: 'elonpp.jpg')
+    user_3.wall_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/space.jpg'), filename: 'space.jpg')
 
     user_4 = User.create(
         email: 'bill@gmail.com',
@@ -221,26 +224,23 @@ ActiveRecord::Base.transaction do
         company: 'Self Employed'     
     )
 
+    
+
     # user_15.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
 
-    post_1 = Post.create(
-        body: 'New to LinkedOut. Looking forward to connecting with all my friends!',
-        author_id: demo.id,
-    )
-    post_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/friends.jpg'), filename: 'friends.jpg')
-
-    # comment_1 = Comment.create(
-    #     body: "first comment",
+    # post_1 = Post.create(
+    #     body: 'New to LinkedOut. Looking forward to connecting with all my friends!',
     #     author_id: demo.id,
-    #     post_id: post_1.id,
+    # )
+    # post_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/friends.jpg'), filename: 'friends.jpg')
+
+
+    # post_2 = Post.create(
+    #     body: 'Long day at the office, but the walk after work was beautiful!',
+    #     author_id: demo.id,
     # )
 
-    post_2 = Post.create(
-        body: 'Long day at the office, but the walk after work was beautiful!',
-        author_id: demo.id,
-    )
-
-    post_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/summer.jpg'), filename: 'summer.jpg')
+    # post_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/summer.jpg'), filename: 'summer.jpg')
 
     post_3 = Post.create(
         body: 'Happy to be back from the sprained ankle and back with the BOYS. King has retaken his chair.',
@@ -319,11 +319,48 @@ ActiveRecord::Base.transaction do
 
     post_13.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/google.jpg'), filename: 'google.jpg')
 
-    like_1 = Like.create(
-        liker_id: demo.id,
-        likeable_id: post_3.id,
-        likeable_type: "Post"
+    # like_1 = Like.create(
+    #     liker_id: demo.id,
+    #     likeable_id: post_3.id,
+    #     likeable_type: "Post"
+    # )
+
+    post_1 = Post.create(
+        body: 'New to LinkedOut. Looking forward to connecting with all my friends!',
+        author_id: demo.id,
     )
+    post_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/friends.jpg'), filename: 'friends.jpg')
+
+    comment_1 = Comment.create(
+        body: "lol nice",
+        author_id: user_3.id,
+        post_id: post_1.id,
+    )
+
+    comment_2 = Comment.create(
+        body: "chill out elon...",
+        author_id: user_4.id,
+        post_id: post_1.id,
+    )
+
+    comment_3 = Comment.create(
+        body: "bro thats not even you in the photo",
+        author_id: user_3.id,
+        post_id: post_11.id,
+    )
+
+    # comment_4 = Comment.create(
+    #     body: "^lolol",
+    #     author_id: user_12.id,
+    #     post_id: post_11.id,
+    # )
+
+    post_2 = Post.create(
+        body: 'Long day at the office, but the walk after work was beautiful!',
+        author_id: demo.id,
+    )
+
+    post_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/summer.jpg'), filename: 'summer.jpg')
 
     job_1 = Job.create(
         user_id: demo.id,
