@@ -1,24 +1,61 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# LinkedOut
 
-Things you may want to cover:
+LinkedOut is a function LinkedIn clone that allows users to create profiles for themselves, as well as view other users with accounts. Users are able to create posts, as well as comment on other user's posts. Users are also able to visit their profile page where they can see/ update their basic information.
 
-* Ruby version
-dgfgsdfgdfgdfgdfgdfg
-* System dependencies
+### **Live site: [LinkedOut](https://linkedout-aa.herokuapp.com/#/)**
 
-* Configuration
+### **Technologies Used:**
 
-* Database creation
+* Front end
+  * Vanilla Javascript
+    * Front end functionality
+  * jQuery
+    * AJAX requests to the back end 
+  * React
+    * Front end structure
+  * Redux
+    * Front end store
+  * HTML
+  * CSS
+* Back end
+  * Ruby on Rails
+  * PostgreSQL
+  * JBuilder
 
-* Database initialization
+## **Features:**  
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### **User Authentication**
 
-* Deployment instructions
+**Login**
 
-* ...
+**Sign Up**
+
+### **News Feed**
+
+**Feed**
+
+**Posting**
+
+**Post**
+
+**Post Features** (includes post comments, delete comment)
+
+### **Profile**
+
+**User Info**
+
+**Edit Profile Info**
+
+### **Other features**
+
+* **Splash Page**
+* **LinkedOut News Sidebar**
+* **Sign Out Functionality**
+* **Nav Bar**
+
+
+
+
