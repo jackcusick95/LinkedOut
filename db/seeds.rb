@@ -349,11 +349,11 @@ ActiveRecord::Base.transaction do
         post_id: post_11.id,
     )
 
-    # comment_4 = Comment.create(
-    #     body: "^lolol",
-    #     author_id: user_12.id,
-    #     post_id: post_11.id,
-    # )
+    comment_4 = Comment.create(
+        body: "^",
+        author_id: demo.id,
+        post_id: post_1.id,
+    )
 
     post_2 = Post.create(
         body: 'Long day at the office, but the walk after work was beautiful!',
