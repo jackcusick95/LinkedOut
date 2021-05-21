@@ -170,11 +170,11 @@ class FeedPage extends React.Component {
                             {this.props.textmodal}
                         </div>
                         <div className="post-icons">
-                            <div className="first-icon">
-                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                                    <FcAddImage />
-                                </IconContext.Provider>
-                            </div>
+                                <div className="first-icon">
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <FcAddImage />
+                                    </IconContext.Provider>
+                                </div>
                                 <p>Photo</p>
                                 <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                                     <FcVideoCall />

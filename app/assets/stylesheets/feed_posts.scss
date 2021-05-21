@@ -174,10 +174,23 @@
     margin-left: 8px;
     margin-right: 50px;
     margin-top: 4px;
+
+}
+
+.post-icons > p:hover {
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 46px;
 }
 
 .first-icon {
     margin-left: 25px;
+}
+
+.first-icon:hover {
+    font-weight: 600;
+    cursor: pointer;
+    // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .post-pic {

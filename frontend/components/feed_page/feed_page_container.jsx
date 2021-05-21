@@ -37,7 +37,7 @@ const mapDispatchToProps = (dispatch) => {
         deleteComment: (commentId) => dispatch(deleteComment(commentId)),
         createLike: (like) => dispatch(createLike(like)),
         deleteLike: (likeId) => dispatch(deleteLike(likeId)),
-    
+        openModal: (modal) => dispatch(openModal(modal)),
 
         textmodal: (
                 <textarea
