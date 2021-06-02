@@ -5,6 +5,11 @@ class Api::JobsController < ApplicationController
         render 'api/jobs/index'
     end 
 
+    def show
+        @job = Job.includes(:user).find(params[:id])
+        render 'api/jobs/show'
+    end 
+
     def create
         @job = Job.new(job_params)
         @job.user_id = current_user.id 

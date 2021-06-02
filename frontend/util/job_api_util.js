@@ -5,11 +5,12 @@ export const fetchAllJobs = () => {
     });
 }
 
+
 export const createJob = (job) => {
     return $.ajax({
         method: 'POST',
         url: '/api/jobs',
-        data: { job }
+        data: job
     });
 }
 

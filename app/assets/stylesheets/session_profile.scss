@@ -135,6 +135,22 @@ background-color: lightgrey;
 cursor: pointer;
 }
 
+   .session-job-photo {
+    height: 75px; 
+    width: 75px;
+    margin-left: 3%;
+    }
+
+.job-container {
+    position: relative;
+
+}
+
+.job-info-container {
+    display: inline-block;
+
+}
+
 //  .modal-edit {
 //   //  position: fixed;
 //     height: 400px;

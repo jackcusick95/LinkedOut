@@ -1,12 +1,14 @@
-jobs = []
-id = 1
-@jobs.shuffle.each do |job|
-    if !jobs.include?(job.company)
-            json.set! id do
-            json.extract! job, :id, :company
-            json.photoUrl url_for(job.photo) if job.photo.attached?
-        end
-        jobs.push(job.company)
-        id += 1
-    end
-end
+
+# @jobs.each do |job|
+#     json.jobs do 
+#         json.set! job.id do
+#             json.partial! "api/jobs/job", job: job 
+#         end 
+#     end 
+# end 
+
+@jobs.each do |job|
+    json.set! job.user_id do
+        json.partial! "api/jobs/job", job: job 
+    end 
+end 

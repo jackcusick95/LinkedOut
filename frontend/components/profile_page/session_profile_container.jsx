@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { IconContext } from "react-icons";
 import { BsPencil } from 'react-icons/bs';
+import {fetchAllJobs} from '../../actions/job_actions';
 
 
 
@@ -12,7 +13,8 @@ const mapStateToProps = (state) => {
         currentuser: state.entities.users[state.session.id],
         users: state.entities.users,
         session: state.session,
-        jobs: Object.values(state.entities.jobs), 
+        jobs: state.entities.jobs,
+        // jobs: Object.values(state.entities.jobs), 
         currentjob: state.entities.jobs[state.session.id],
     };
 };
@@ -22,6 +24,7 @@ const mapDispatchToProps = (dispatch) => {
         logoutUser: () => dispatch(logoutUser()),
         closeModal: () => dispatch(closeModal()),
         openModal: () => dispatch(openModal()),
+        fetchAllJobs: () => dispatch(fetchAllJobs()),
         editmodal: (
             <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                 <BsPencil
