@@ -373,7 +373,7 @@ ActiveRecord::Base.transaction do
         description: "Worked on a several projects including design of Facebook Marketplace and the adtech integration it required.", 
     )
 
-    job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/fblogo.png'), filename: 'fblogo.png')
+    job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/facebookjob.png'), filename: 'facebookjob.png')
 
     # post_14 = Post.create(
     #     body: '',
