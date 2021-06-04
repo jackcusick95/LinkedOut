@@ -25,7 +25,7 @@ ActiveRecord::Base.transaction do
         title: 'CFO of Demo User Interaction',
         industry: 'Social Media',
         company: 'DemoUser Co.',
-        description: "New to LinkedOut... is this app similar to linkedIn???!"
+        description: "Hello and welcome to LinkedOut! You are currently logged in as the demo user and have access to all the functionality of a standard account. Feel free to scroll around the site and let me know if there are any questions (jackcusick95@gmail.com)!"
     )
 
     user_2 = User.create(

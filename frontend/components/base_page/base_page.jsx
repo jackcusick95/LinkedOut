@@ -28,7 +28,7 @@ const BasePage = ( ) => {
                     Jack Cusick</h3>
                 <img className='faceshot' src={window.faceshot} />
                 <div className="footlinks">
-                    <a href="www.linkedin.com/in/jack-cusick">
+                    <a href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
                         <img className='lilogo' src={window.linkedin} />
                     </a>
                     <a href="https://github.com/jackcusick95">
