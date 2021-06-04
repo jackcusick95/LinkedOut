@@ -170,17 +170,22 @@
 }
 
 .post-icons > p {
+    // display: flex;
     font-family: sans-serif;
     margin-left: 8px;
     margin-right: 50px;
     margin-top: 4px;
+    // background-color: transparent;
 
 }
 
 .post-icons > p:hover {
-    font-weight: 600;
+    // font-weight: 600;
     cursor: pointer;
-    margin-right: 46px;
+    // box-shadow: 0 4px 12px lightgrey;
+    // background-color: transparent;
+    // margin-right: 47px;
+    // margin-left: 8px;
 }
 
 .first-icon {
@@ -190,7 +195,21 @@
 .first-icon:hover {
     font-weight: 600;
     cursor: pointer;
-    // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.second-icon:hover {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.third-icon:hover {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.fourth-icon:hover {
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .post-pic {

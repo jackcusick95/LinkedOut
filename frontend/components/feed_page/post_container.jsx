@@ -22,6 +22,7 @@ const mapDispatchToProps = (dispatch) => {
         createPost: (post) => dispatch(createPost(post)),
         updatePost: (post) => dispatch(updatePost(post)),
         deletePost: (postId) => dispatch(deletePost(postId)),
+        openModal: (post) => dispatch(openModal(post)),
         textmodal: (
             <textarea
                 placeholder="Start a Post"
@@ -30,10 +31,8 @@ const mapDispatchToProps = (dispatch) => {
                 width="100%"
                 onClick={() => dispatch(openModal('post'))}>
             </textarea>
-            // <button onClick={ () => dispatch(openModal('post'))}>
-            //     Start a Post
-            // </button>
         ),
+
         closeModal: () => dispatch(closeModal())
     };
 };

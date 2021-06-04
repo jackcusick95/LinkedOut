@@ -129,6 +129,7 @@ class FeedPage extends React.Component {
         console.log(this.props);
         // const { postsArr } = this.props.postsArr;
         const preview = this.state.photoUrl ? <img className="preview-img" src={this.state.photoUrl} /> : null;
+        // const postPhoto = this.post.photoUrl ? <img id="feed-image" src={post.photoUrl} /> : null; 
         return (
         
         <div className="feed-container">
@@ -169,25 +170,32 @@ class FeedPage extends React.Component {
                                 window.dogo} />
                             {this.props.textmodal}
                         </div>
-                        <div className="post-icons">
+                        {/* {this.props.iconmodal} */}
+                            <div className="post-icons">
                                 <div className="first-icon">
                                     <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                                        <FcAddImage />
+                                        <FcAddImage onClick={() => this.props.openModal('post')}/>
                                     </IconContext.Provider>
                                 </div>
-                                <p>Photo</p>
-                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                                    <FcVideoCall />
-                                </IconContext.Provider>
-                                <p>Video</p>
-                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                                    <FcCalendar />
-                                </IconContext.Provider>
-                                <p>Event</p>
-                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                                    <FcNews />
-                                </IconContext.Provider>
-                                <p>Article</p>
+                                <p onClick={ () => this.props.openModal('post')} >Photo</p>
+                                <div className="second-icon">
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <FcVideoCall onClick={() => this.props.openModal('post')}/>
+                                    </IconContext.Provider>
+                                </div>
+                                <p onClick={() => this.props.openModal('post')}>Video</p>
+                                <div className="third-icon">
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <FcCalendar onClick={() => this.props.openModal('post')}/>
+                                    </IconContext.Provider>
+                                </div>
+                                <p onClick={() => this.props.openModal('post')}>Event</p>
+                                <div className="fourth-icon">
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <FcNews onClick={() => this.props.openModal('post')}/>
+                                    </IconContext.Provider>
+                                </div>
+                                <p onClick={() => this.props.openModal('post')}>Article</p>
                         </div>
                     </form>
                 </div>
@@ -198,6 +206,8 @@ class FeedPage extends React.Component {
                             const firstname = this.props.users[post.author_id].fname;
                             const lastname = this.props.users[post.author_id].lname;
                             const career = this.props.users[post.author_id].title;
+                            const postPhoto = post.photoUrl ? <img id="feed-image" src={post.photoUrl} /> : <div></div>;
+
                             return (
                                 <li className="feedposts" key={post.id}>
                                     <div className="feed-pro-pic">
@@ -209,11 +219,12 @@ class FeedPage extends React.Component {
                                     </div>
                                         <p className="feed-career">{career}</p>
                                         <h2 id="feed-body">{post.body}</h2>
-                                        <img id="feed-image" src={post.photoUrl} />
+                                        {postPhoto}
+                        
                                         {/* <PostLike post={post}/> */}
-                                                    <div className="count-bar">
+                                                    {/* <div className="count-bar"> */}
                                                         {/* <div>{this.props.likes.length} likes</div> */}
-                                                    </div>
+                                                    {/* </div> */}
                                                     {/* <div className="option-bar">
                                                         <button className='option-btn' onClick={this.toggleLike}>
                                                             <i className="far fa-thumbs-up"></i>

@@ -46,11 +46,16 @@ class PostPage extends React.Component {
         e.preventDefault();
         const formData = new FormData();
         formData.append('post[body]', this.state.body);
-        formData.append('post[photo]', this.state.photoFile);
+        if (this.state.photoFile) {
+            formData.append('post[photo]', this.state.photoFile);
+        }
         this.props.createPost(formData)
             .then(this.props.closeModal);
-                // (response) => console.log(response.message),
-                // (response) => console.log(response.responseJSON),
+        this.setState({
+            body: "",
+            photoFile: null,
+            photoUrl: null
+        });
     }
 
     render() {
