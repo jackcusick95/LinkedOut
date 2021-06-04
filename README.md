@@ -24,30 +24,27 @@ LinkedOut is a function LinkedIn clone that allows users to create profiles for 
   * PostgreSQL
   * JBuilder
 
-## **Features:**  
+## **Features**  
+
+### **User authentication with error handling on both login and sign up forms**
+
+![Screen Shot 2021-06-04 at 4 17 58 PM](https://user-images.githubusercontent.com/76493900/120858354-aa4a8c80-c550-11eb-844d-d78ee5952cca.png)
 
 
-### **User Authentication**
+### **Users are able to create posts with attachments and upload to feed page**
 
-**Login**
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/76493900/120857751-bf72eb80-c54f-11eb-8540-48de5e384c55.gif)
 
-**Sign Up**
 
-### **News Feed**
+### **Users are able to comment on other user's posts with ability to delete their own comment**
 
-**Feed**
+![Screen Shot 2021-06-04 at 4 25 07 PM](https://user-images.githubusercontent.com/76493900/120859093-b97e0a00-c551-11eb-8d4d-09a18ebbdf5a.png)
 
-**Posting**
 
-**Post**
+### **Users can visit their own profile page and edit their information**
 
-**Post Features** (includes post comments, delete comment)
+![Screen Shot 2021-06-04 at 4 28 28 PM](https://user-images.githubusercontent.com/76493900/120859561-5e004c00-c552-11eb-92d1-6fd86b025c02.png)
 
-### **Profile**
-
-**User Info**
-
-**Edit Profile Info**
 
 ### **Other features**
 
@@ -56,6 +53,10 @@ LinkedOut is a function LinkedIn clone that allows users to create profiles for 
 * **Sign Out Functionality**
 * **Nav Bar**
 
+## **Future Direction**  
 
-
+* Users may:
+  * Be able to connect with other users and view their total connections
+  * Be able to like both posts and comments
+  * Search for all jobs and users on the app
 
