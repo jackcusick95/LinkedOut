@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
         users: state.entities.users,
         session: state.session,
         jobs: state.entities.jobs,
-        // jobs: Object.values(state.entities.jobs), 
+        jobsArr: Object.values(state.entities.jobs), 
         currentjob: state.entities.jobs[state.session.id],
     };
 };

@@ -2,11 +2,11 @@ import { RECEIVE_ALL_JOBS, RECEIVE_JOB, REMOVE_JOB } from '../actions/job_action
 
 const jobsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
-    let newState = {...oldState}
+    let newState = Object.assign({}, oldState);
 
     switch (action.type) {
         case RECEIVE_ALL_JOBS:
-            return action.jobs;
+            return action.payload.jobs;
         case RECEIVE_JOB:
             newState[action.job.id] = action.job;
             return newState;

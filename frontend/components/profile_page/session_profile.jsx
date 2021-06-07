@@ -16,9 +16,6 @@ class SessionProfilePage extends React.Component {
 
     }   
 
-    // componentDidMount() {
-    //     this.props.currentuser;
-    // }
 
     render() {
         return (
@@ -33,6 +30,7 @@ class SessionProfilePage extends React.Component {
                 />
 
                 <ExperienceInfo 
+                    jobsArr={this.props.jobsArr}
                     users={this.props.user}
                     fetchAllJobs={this.props.fetchAllJobs}
                     jobs={this.props.jobs}

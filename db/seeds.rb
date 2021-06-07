@@ -375,6 +375,31 @@ ActiveRecord::Base.transaction do
 
     job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/facebookjob.png'), filename: 'facebookjob.png')
 
+    job_2 = Job.create(
+        user_id: demo.id,
+        title: "Barista",
+        job_type: "Part time",
+        company: "Starbucks",
+        location: "New York, NY",
+        start_date: "2017",
+        end_date: "2018",
+        description: "Worked as a barista at starbucks. Made one of the best iced coffees in all of NYC!", 
+    )
+
+    job_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/starbucks.jpg'), filename: 'starbucks.jpg')
+
+    job_3 = Job.create(
+        user_id: demo.id,
+        title: "Rotational Intern",
+        job_type: "Full time",
+        company: "Tesla",
+        location: "Palo Alto, CA",
+        start_date: "2017",
+        end_date: "2017",
+    )
+
+    job_3.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/tesla.jpg'), filename: 'tesla.jpg')
+
     # post_14 = Post.create(
     #     body: '',
     #     author_id: user_7.id,

@@ -112,7 +112,8 @@
 
 .experience-box {
     background-color: white;
-    margin-top: 20px;;
+    margin-top: 20px;
+    margin-bottom: 30px;
     height: auto;
     box-shadow: 0 4px 12px lightgrey;
     padding: 24px, 32px, 32px; 
@@ -141,7 +142,7 @@ cursor: pointer;
     height: 50px; 
     width: 50px;
     margin-left: 3%;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     }
 
 .job-container {
@@ -154,6 +155,7 @@ cursor: pointer;
 .job-info-container {
     display: inline-block;
     margin-left: 20px;
+    margin-top: 10px;
 
 }
 
@@ -186,6 +188,18 @@ cursor: pointer;
     // font-weight: 600;
     font-family: sans-serif;
     color: grey; 
+    padding-bottom: 2px;    
+}
+
+.job-description{
+    font-size: 14px;
+    // font-weight: 600;
+    font-family: sans-serif;
+    color: black; 
+    padding-bottom: 2px;    
+}
+
+.job-description-two{
     padding-bottom: 2px;    
 }
 

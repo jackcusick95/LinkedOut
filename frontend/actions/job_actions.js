@@ -4,30 +4,30 @@ export const RECEIVE_ALL_JOBS = 'RECEIVE_ALL_JOBS';
 export const RECEIVE_JOB = 'RECEIVE_JOB';
 export const REMOVE_JOB = 'REMOVE_JOB';
 
-const receiveAllJobs = (jobs) => {
+const receiveAllJobs = (payload) => {
     return {
         type: RECEIVE_ALL_JOBS,
-        jobs: jobs
+        payload
     }
 }
 
 const receiveJob = (job) => {
     return {
         type: RECEIVE_JOB,
-        job: job
+        job
     }
 }
 
 const removeJob = (jobId) => {
     return {
         type: REMOVE_JOB,
-        jobId: jobId
+        jobId
     }
 }
 
 export const fetchAllJobs = () => (dispatch) => {
     return APIUtil.fetchAllJobs()
-    .then((jobs) => dispatch(receiveAllJobs(jobs))); 
+    .then((payload) => dispatch(receiveAllJobs(payload))); 
 }
 
 export const createJob = (job) => (dispatch) => {
