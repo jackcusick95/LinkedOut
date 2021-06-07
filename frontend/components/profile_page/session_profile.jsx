@@ -1,7 +1,6 @@
 
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import BasicInfo from './basic_info'; 
 import ExperienceInfo from './experience_info'; 
 
