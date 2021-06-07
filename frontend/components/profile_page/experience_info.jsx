@@ -8,14 +8,6 @@ class ExperienceInfo extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllJobs();
-        // this.props.currentjob.title;
-        // this.props.currentjob.company;
-        // this.props.currentjob.photoUrl;
-        // this.props.currentjob.start_date;
-        // this.props.currentjob.end_date;
-        // this.props.currentjob.location;
-        // this.props.currentjob.description;
-        // this.props.jobsArr;
     }
 
 
