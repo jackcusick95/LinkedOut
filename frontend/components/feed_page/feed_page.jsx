@@ -149,8 +149,8 @@ class FeedPage extends React.Component {
                     <h1 className="sidebar-name">{this.props.currentuser.fname} {this.props.currentuser.lname}</h1>
                 </Link>
                 <p className="sidebar-title">{this.props.currentuser.title}</p>
-                <p className="sidebar-viewprofile">Who viewed your profile:</p>
-                <p className="sidebar-connections">Connections:</p>
+                <p className="sidebar-viewprofile">Recent profile visits: </p> <p className="viewprofile-num"> 12</p>
+                <p className="sidebar-connections">Connections: *Coming soon*</p>
             </div>
             <div className="news-sidebar">
                 <h1 className="news-sidebar-header">LinkedOut News:</h1>

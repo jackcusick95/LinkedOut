@@ -8,8 +8,8 @@ const mapStateToProps = ({errors}) => {
     return {
         errors: Object.values(errors.session),
         formType: 'Sign in',
-        navHeader: "New to LinkedIn?",
-        navLink: <Link to={"/signup"}>Join now</Link>
+        navHeader: "New to LinkedOut? ",
+        navLink: <Link className="signin-navlink" to={"/signup"}>Join now</Link>
     }
 }
 

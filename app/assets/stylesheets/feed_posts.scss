@@ -115,6 +115,7 @@
 }
 
 .sidebar-viewprofile {
+    display: inline-block;
     font-size: 12px;
     font-family: sans-serif;
     color: grey; 
@@ -122,6 +123,14 @@
     margin-left: 10px;
     font-weight: 500;
     font-size: 13px;
+}
+
+.viewprofile-num {
+    display: inline-block;
+    font-size: 12px;
+    font-family: sans-serif;
+    color: blue; 
+     font-weight: 500;
 }
 
 .sidebar-connections {
