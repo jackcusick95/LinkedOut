@@ -156,6 +156,7 @@ cursor: pointer;
     display: inline-block;
     margin-left: 20px;
     margin-top: 10px;
+    overflow-wrap: break-word;
 
 }
 
@@ -197,6 +198,7 @@ cursor: pointer;
     font-family: sans-serif;
     color: black; 
     padding-bottom: 2px;    
+    overflow-wrap: break-word;
 }
 
 .job-description-two{

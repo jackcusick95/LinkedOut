@@ -224,6 +224,19 @@ ActiveRecord::Base.transaction do
         company: 'Self Employed'     
     )
 
+    job_poster = User.create(
+        email: 'jobposter@gmail.com',
+        password: 'password123',
+        fname: 'Job',
+        lname: 'Poster',
+        location: 'New York, NY',
+        zipcode: '10013',
+        title: 'LinkedOut Job Poster',
+        industry: 'Recruiter',
+        company: 'LinkedOut',
+        description: "I am the designated job poster of this site!"
+    )
+
     
 
     # user_15.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
@@ -362,7 +375,125 @@ ActiveRecord::Base.transaction do
 
     post_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/summer.jpg'), filename: 'summer.jpg')
 
-    job_1 = Job.create(
+    
+    google_job = Job.create(
+        user_id: job_poster.id,
+        title: "Software Engineer",
+        job_type: "Full time",
+        company: "Google",
+        location: "Menlo Park, CA",
+        start_date: "2021",
+        end_date: "2021",
+        description: "Looking for a Software Engineer with 2 - 3 years of experience.", 
+    )
+
+    google_job.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/googlelogo.png'), filename: 'googlelogo.png')
+
+    twitter_job = Job.create(
+        user_id: job_poster.id,
+        title: "Senior Software Engineer",
+        job_type: "Full time",
+        company: "Twitter",
+        location: "New York, NY",
+        start_date: "2021",
+        end_date: "2021",
+        description: "Looking for a Software Engineer with 5 - 6 years of experience that has managed large teams.", 
+    )
+
+    twitter_job.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/twitterlogo.png'), filename: 'twitterlogo.png')
+
+    google_job_2 = Job.create(
+        user_id: job_poster.id,
+        title: "Sales Manager",
+        job_type: "Full time",
+        company: "Google",
+        location: "New York, NY",
+        start_date: "2021",
+        end_date: "2021",
+        description: "Need an experienced sales manager to help oversee our new business team.", 
+    )
+
+    google_job_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/googlelogo.png'), filename: 'googlelogo.png')
+
+    google_job_3 = Job.create(
+        user_id: job_poster.id,
+        title: "Business Development Representative",
+        job_type: "Full time",
+        company: "Google",
+        location: "New York, NY",
+        start_date: "2021",
+        end_date: "2021",
+        description: "This is an entry level roll for recent college graduates looking to enter sales.", 
+    )
+
+    google_job_3.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/googlelogo.png'), filename: 'googlelogo.png')
+
+    tesla_job = Job.create(
+        user_id: job_poster.id,
+        title: "Executive Assistant",
+        job_type: "Full time",
+        company: "Tesla",
+        location: "Austin, TX",
+        start_date: "2021",
+        end_date: "2021",
+        description: "Elon Musk in in search for a personal assistant to help manage both him and his Twitter account.", 
+    )
+
+    tesla_job.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/tesla.jpg'), filename: 'tesla.jpg')
+
+    tesla_job_2 = Job.create(
+        user_id: job_poster.id,
+        title: "Software Engineer",
+        job_type: "Full time",
+        company: "Tesla",
+        location: "Austin, TX",
+        start_date: "2021",
+        end_date: "2021",
+        description: "Must have exceptional technical skills, as well as work well in large team environments.", 
+    )
+
+    tesla_job_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/tesla.jpg'), filename: 'tesla.jpg')
+
+    starbucks_job = Job.create(
+        user_id: job_poster.id,
+        title: "Branch Manager",
+        job_type: "Part time",
+        company: "Starbucks",
+        location: "New York, NY",
+        start_date: "2021",
+        end_date: "2021",
+        description: "Looking for an experienced manager to oversee operations at Starbucks Midtown East location.", 
+    )
+
+    starbucks_job.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/starbucks.jpg'), filename: 'starbucks.jpg')
+
+    facebook_job = Job.create(
+        user_id: job_poster.id,
+        title: "Software Engineer",
+        job_type: "Part time",
+        company: "Facebook",
+        location: "Menlo Park, CA",
+        start_date: "2021",
+        end_date: "2021",
+        description: "Looking to fill a part-time remote software engineering roll for an experienced individual.", 
+    )
+
+    facebook_job.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/facebookjob.png'), filename: 'facebookjob.png')
+
+    facebook_job_2 = Job.create(
+        user_id: job_poster.id,
+        title: "Social Media Analyst",
+        job_type: "Full time",
+        company: "Facebook",
+        location: "Menlo Park, CA",
+        start_date: "2021",
+        end_date: "2021",
+        description: "We need an experienced analyst who is on the forefront of social media trends.", 
+    )
+
+    facebook_job_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/facebookjob.png'), filename: 'facebookjob.png')
+
+    demo_job_1 = Job.create(
         user_id: demo.id,
         title: "Software Engineer",
         job_type: "Full time",
@@ -370,12 +501,12 @@ ActiveRecord::Base.transaction do
         location: "Menlo Park, CA",
         start_date: "2018",
         end_date: "2019",
-        description: "Worked on a several projects including design of Facebook Marketplace and the adtech integration it required.", 
+        description: "Worked on a several projects including design of Facebook Marketplace.", 
     )
 
-    job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/facebookjob.png'), filename: 'facebookjob.png')
+    demo_job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/facebookjob.png'), filename: 'facebookjob.png')
 
-    job_2 = Job.create(
+    demo_job_2 = Job.create(
         user_id: demo.id,
         title: "Barista",
         job_type: "Part time",
@@ -386,9 +517,9 @@ ActiveRecord::Base.transaction do
         description: "Worked as a barista at starbucks. Made one of the best iced coffees in all of NYC!", 
     )
 
-    job_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/starbucks.jpg'), filename: 'starbucks.jpg')
+    demo_job_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/starbucks.jpg'), filename: 'starbucks.jpg')
 
-    job_3 = Job.create(
+    demo_job_3 = Job.create(
         user_id: demo.id,
         title: "Rotational Intern",
         job_type: "Full time",
@@ -398,7 +529,7 @@ ActiveRecord::Base.transaction do
         end_date: "2017",
     )
 
-    job_3.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/tesla.jpg'), filename: 'tesla.jpg')
+    demo_job_3.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/tesla.jpg'), filename: 'tesla.jpg')
 
     # post_14 = Post.create(
     #     body: '',

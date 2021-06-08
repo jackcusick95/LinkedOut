@@ -2,6 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const BasePage = ( ) => {
+
+    // function getAlert(e) {
+    //     e.preventDefault(); 
+    //     alert("Coming soon!");
+    // }
+
     return (
        <div className="base-page">
             <nav className="nav-bar">
@@ -17,9 +23,17 @@ const BasePage = ( ) => {
 
                 <img src="https://static-exp3.licdn.com/sc/h/3m4tgpbdz7gbldapvl63mrnxz" id="background-img" />
                 <div className="nav-buttons">
-                    <button id="navbutton">Search for a job<i class="arrow right one"></i></button>
-                    <button id="navbutton">Find a person you know<i class="arrow right two"></i></button>
-                    <button id="navbutton">Learn a new skill<i class="arrow right three"></i></button>
+                    <Link to={"/jobs"}>
+                        <button className="navbutton">Search for a job<i class="arrow right one"></i></button>
+                    </Link>
+                    <div className="second-nav-button">
+                        <span className="tooltip" >Feature coming soon!</span>
+                        <button className="navbutton">Find a person you know<i class="arrow right two"></i></button>
+                    </div>
+                    <div className="third-nav-button">
+                        <span className="tooltip" >Feature coming soon!</span>
+                        <button className="navbutton">Learn a new skill<i class="arrow right three"></i></button>
+                    </div>
                 </div>
             </nav>
             <img src="https://static-exp3.licdn.com/sc/h/2vt8plqbv2l2pi6kxm89bqs59" id="bottom-img"/>

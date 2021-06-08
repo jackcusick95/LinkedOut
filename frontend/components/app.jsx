@@ -10,6 +10,7 @@ import FeedPageContainer from './feed_page/feed_page_container';
 import Modal from './modal/modal'; 
 import NavBarContainer from './nav_bar/nav_bar_container';
 import SessionProfileContainer from './profile_page/session_profile_container'; 
+import JobsContainer from './base_page/jobs_container';
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
                <AuthRoute exact path="/" component={BasePage} />
                <AuthRoute exact path="/login" component={LoginFormContainer} /> 
                <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+               <AuthRoute exact path="/jobs" component={JobsContainer} />
                <ProtectedRoute exact path="/feed" component={FeedPageContainer} />
                <ProtectedRoute exact path="/profile" component={SessionProfileContainer} />
            </Switch>
