@@ -59,7 +59,7 @@ class PostPage extends React.Component {
     }
 
     render() {
-        console.log(this.state);
+        console.log(this.props);
         // const { postsArr } = this.props.postsArr;
         const preview = this.state.photoUrl ? <img className="preview-img" src={this.state.photoUrl} /> : null;
         return (

@@ -18,14 +18,20 @@ class FeedPage extends React.Component {
             body: "",
             comment: {},
             commentdrop: 'hidden',
+            postdrop: 'hidden', 
             photoFile: null,
             photoUrl: null,
+            // timenow: Date.now() - Date.parse(post.createdAt),
             // like: null,
             // liked: false
             // likeCount: this.props.post.likes
         }
         this.commentRef = {};
-        // this.postRef = React.createRef();
+        
+        // if (this.state.timenow < 3600000) {
+        //     setInterval(() => this.setState({ timenow: Date.now() - Date.parse(post.createdAt)}), 60000);
+        // }
+
 
         this.handleBody = this.handleBody.bind(this);
         this.handleFile = this.handleFile.bind(this); 
@@ -38,11 +44,26 @@ class FeedPage extends React.Component {
 
     }
 
+    timeFromNow() {
+    //    const { timenow } = this.state;
+       if (timenow < 60000) {
+           return '<1m';
+       } else if (timenow < 3600000) {
+           return Math.floor(timenow / 60000) + 'm';
+       } else if (timenow < 86400000) {
+           return Math.floor(timenow / 3600000) + 'h';
+       } else {
+           return Math.floor(timenow / 86400000) + 'd'; 
+       }
+    }
+
+
     // commentRef(postId) {
     //     const commentRef = React.createRef();
     //     this.commentRefs[postId] = commentRef;
     //     return commentRef
     // }
+
 
     componentDidMount() {
         this.props.fetchAllPosts(); 
@@ -101,6 +122,16 @@ class FeedPage extends React.Component {
                 this.commentId = commentId;
                 this.setState({commentdrop: 'show'})
             } else this.setState({commentdrop: 'hidden'})
+        }
+    }
+
+    postDropdown(postId) {
+        return (e) => {
+            e.preventDefault();
+            if (this.state.postdrop === 'hidden') {
+                this.postId = postId;
+                this.setState({ postdrop: 'postshow' })
+            } else this.setState({ postdrop: 'hidden' })
         }
     }
 
@@ -207,7 +238,27 @@ class FeedPage extends React.Component {
                             const lastname = this.props.users[post.author_id].lname;
                             const career = this.props.users[post.author_id].title;
                             const postPhoto = post.photoUrl ? <img id="feed-image" src={post.photoUrl} /> : <div></div>;
+                            let timenow = Date.now() - Date.parse(post.created_at); 
+                            console.log(timenow);
 
+                            if (timenow < 3600000) {
+                                setInterval(() => { 
+                                    timenow = Date.now() - Date.parse(post.created_at) 
+                                }, 60000);
+                            }
+
+                            const timeFromNow = () => {
+                                if (timenow < 60000) {
+                                    return '<1m';
+                                } else if (timenow < 3600000) {
+                                    return Math.floor(timenow / 60000) + 'm';
+                                } else if (timenow < 86400000) {
+                                    return Math.floor(timenow / 3600000) + 'h';
+                                } else {
+                                    return Math.floor(timenow / 86400000) + 'd';
+                                }
+                            }
+                            console.log(this.state); 
                             return (
                                 <li className="feedposts" key={post.id}>
                                     <div className="feed-pro-pic">
@@ -218,8 +269,24 @@ class FeedPage extends React.Component {
                                         <h1 className="first-last-name">{firstname} {lastname}</h1>
                                     </div>
                                         <p className="feed-career">{career}</p>
+                                        <p className="timestamp">{timeFromNow()}</p>
                                         <h2 id="feed-body">{post.body}</h2>
+                                    {this.props.session.id === post.author_id ?
+                                        <button className="post-drop" onClick={this.postDropdown(post.id)}><BsThreeDots /></button> : ''
+                                    }
+                                    <div className={this.postId === post.id ? this.state.postdrop : 'hidden'}>
+                                        <button className="delete-post-drop" onClick={() => this.props.deletePost(post.id)}>
+                                            <IconContext.Provider
+                                                value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
+                                                <FaTrashAlt></FaTrashAlt>
+                                            </IconContext.Provider>
+                                            <span>Delete Post</span>
+                                        </button>
+                                    </div>
                                         {postPhoto}
+                                        {/* <div className="like-and-comment-box">
+
+                                        </div> */}
                         
                                         {/* <PostLike post={post}/> */}
                                                     {/* <div className="count-bar"> */}
