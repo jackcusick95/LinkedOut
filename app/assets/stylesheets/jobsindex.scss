@@ -10,12 +10,84 @@
     padding-right: 400px;
     padding-top: 20px;
     padding-bottom: 20px;
+    
+    .jobs-homelogo {
+        height: 30px;
+        width: 130px;
+    }
+
+        .jobs-buttons {
+        position: absolute; 
+        right: 10px;
+        top: 15px;
+        
+        #signin {
+            cursor: pointer;
+            font-size: 1.0rem;
+            font-weight: 600;
+            font-family: Sans-Serif;
+            height: 32px;
+            line-height: 32px;
+            // outline-width: 2px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+            text-decoration: none; 
+            border-radius: 50px; 
+            border-width: 1px;
+            box-shadow: inset 0 0 0 1px #0a66c2;
+            color: #0a66c2;
+            margin: 10px;
+            background-color: white;
+        }
+
+        #signin:hover {
+            border-color:  #2977c9;
+            background-color:  #e3eefa;
+            border-width: 2px;
+            margin: -1px;
+            box-shadow: inset 0 0 0 2px #0a66c2;
+            margin-left: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+        #joinnow {
+            background-color: rgba(0,0,0,0);
+            border: 0;
+            cursor: pointer;
+            font-size: 1.0rem;
+            font-weight: 600;
+            font-family: Sans-Serif;
+            height: 32px;
+            line-height: 32px;
+            // overflow: hidden;
+            // outline-width: 2px;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            text-align: center;
+            text-decoration: none;
+            z-index: 0;
+            border-radius: 4px;
+            color: rgba(0,0,0,0.6);
+            margin: 0px 2px;
+        }
+
+        #joinnow:hover {
+            border-color: transparent;
+            background-color:rgb(238, 238, 238);
+            // background-color: white;
+            color:rgb(60, 60, 60);         
+        }
+    }
+    
 }
 
-.jobs-homelogo {
-    height: 30px;
-    width: 130px;
-}
+
 
 .jobs-index-box {
     background-color: white;

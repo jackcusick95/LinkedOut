@@ -14,13 +14,15 @@ class SessionForm extends React.Component {
             zipcode: '',
             title: '',
             industry: '',
-            company: ''
+            company: '',
+            signupErrors: false,
+            // passwordError: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this); 
         this.nextForm = this.nextForm.bind(this);
         this.demoLogin = this.demoLogin.bind(this); 
         this.renderErrors = this.renderErrors.bind(this); 
-        this.handleErrors = this.handleErrors.bind(this); 
+        // this.handleSignupErrors = this.handleSignupErrors.bind(this); 
     }
 
     componentDidMount() {
@@ -43,8 +45,8 @@ class SessionForm extends React.Component {
     nextForm(num) {
         return (e) => {
             e.preventDefault();
-            if (this.props.errors.length !== 0) {
-                return this.props.renderErrors()
+            if (this.state.signupErrors) {
+                this.setState({formNum: num - 1});
             } else {
                 this.setState({formNum: num});
             }
@@ -66,9 +68,31 @@ class SessionForm extends React.Component {
         })
     }
 
-    handleErrors() {
-        if (this.props.errors.length !== 0) this.props.renderErrors()
-    }
+    // handleSignupErrors() {
+    //     const { email, password} = this.state; 
+
+    //     if (email.length === 0 ) {
+    //         this.setState({signupErrors: true});
+    //         return (
+    //             <p id="errors">Please enter your email address</p>
+    //         )
+    //     } else {
+    //         let emailArr = email.split('@');
+    //         if (!(emailArr.length == 2 && emailArr[1].split('.').length == 2)) {
+    //             this.setState({ signupErrors: true });
+    //             return (
+    //                 <p id="errors">Please enter a valid email address</p>
+    //             )
+    //         }
+    //     }
+
+    //     if (password.length < 6) {
+    //         this.setState({ signupErrors: true });
+    //         return (
+    //             <p id="errors">Password must be 6 char or more</p>
+    //         )
+    //     }
+    // }
 
     renderErrors() {
         return (
@@ -95,16 +119,16 @@ class SessionForm extends React.Component {
                         <form className="session-form-box" onSubmit={this.handleSubmit}>
                             <h1 className="form-type-header">{this.props.formType}</h1>
                             <p className="form-headline">Stay updated on your professional life</p>
-                            <p id="errors">{this.renderErrors()}</p>
+                            {this.props.errors.length!== 0 ?
+                                <p id="errors">{this.renderErrors()}</p> : <div className="no-errors"></div>
+                            }
                             <div className="session-form-inputs">
                                 <label>Email:
                                     <input className="session-input" type="text" value={this.state.email} onChange={this.update('email')} />
                                 </label>
-                                {/* <p>{this.props.errors[0]}</p> */}
                                 <label>Password:
                                     <input className="session-input" type="Password" value={this.state.password} onChange={this.update('password')} />
                                 </label>
-                                {/* <p>{this.props.errors[0]}</p> */}
                                 <section className="action-buttons">
                                     <input type="submit" className="session-submit" value={this.props.formType} />
                                     <button className="button" onClick={this.demoLogin}>Demo Login</button>
@@ -131,16 +155,14 @@ class SessionForm extends React.Component {
                         <form className="session-signup-box">
                         <h1 className="form-type-header">{this.props.formType}</h1>
                         <p className="form-headline">Stay updated on your professional life</p>
-                            {this.renderErrors()}
+                            {/* {this.handleSignupErrors()} */}
                         <div className="session-form-inputs">
                             <label>Email
                                 <input className="session-input" type="text" value={this.state.email} onChange={this.update('email')}/>
                             </label>
-                            <p>{this.props.errors[0]}</p>
                             <label>Password
                                 <input className="session-input" type="Password" value={this.state.password} onChange={this.update('password')} />
                             </label>
-                            <p>{this.props.errors[0]}</p>
                             <section className="action-buttons">
                                 <button onClick={this.nextForm(1)}>Continue</button>
                             </section>

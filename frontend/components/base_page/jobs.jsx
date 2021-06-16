@@ -20,9 +20,15 @@ class Jobs extends React.Component {
         console.log(this.props);
         return (
             <div className="jobs-container">
-                    <Link to={"/"}>
-                        <img className='jobs-homelogo' src={window.logo} />
-                    </Link>
+                    <div className="left-nav">
+                        <Link to={"/"}>
+                            <img className='jobs-homelogo' src={window.logo} />
+                        </Link>
+                    </div>
+                    <div className="jobs-buttons">
+                        <Link id="joinnow" to="/signup">Join now</Link>
+                        <Link id="signin" to="/login">Sign in</Link>
+                    </div>
                 <div className="jobs-index-box">
                     <h1 className="about-header">Jobs</h1>
                     {[...this.props.jobsArr].map((job) => {
