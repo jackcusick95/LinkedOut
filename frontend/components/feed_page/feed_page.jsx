@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { IconContext } from "react-icons";
 import { FcAddImage, FcCalendar, FcNews, FcVideoCall} from 'react-icons/fc';
 import { BsPencilSquare, BsThreeDots } from 'react-icons/bs';
-import { FaTrashAlt } from 'react-icons/fa';
+import { FaTrashAlt, FaRegCommentDots } from 'react-icons/fa';
+import { BiLike } from 'react-icons/bi';
 import PostPage from './post';
 
 
@@ -18,9 +19,11 @@ class FeedPage extends React.Component {
             body: "",
             comment: {},
             commentdrop: 'hidden',
+            displayComment: false,
             postdrop: 'hidden', 
             photoFile: null,
             photoUrl: null,
+            cmtCount: 0,
             // timenow: Date.now() - Date.parse(post.createdAt),
             // like: null,
             // liked: false
@@ -39,6 +42,7 @@ class FeedPage extends React.Component {
         this.handleComment = this.handleComment.bind(this);
         this.handleCommentBody = this.handleCommentBody.bind(this); 
         this.handleLike = this.handleLike.bind(this); 
+        this.handleCommentDisplay = this.handleCommentDisplay.bind(this); 
         // this.displayLikes = this.displayLikes.bind(this);
         // this.hideLikes = this.hideLikes.bind(this);
 
@@ -56,13 +60,6 @@ class FeedPage extends React.Component {
            return Math.floor(timenow / 86400000) + 'd'; 
        }
     }
-
-
-    // commentRef(postId) {
-    //     const commentRef = React.createRef();
-    //     this.commentRefs[postId] = commentRef;
-    //     return commentRef
-    // }
 
 
     componentDidMount() {
@@ -102,7 +99,7 @@ class FeedPage extends React.Component {
             e.preventDefault();
             this.postCommentId = -1;
             this.props.createComment(this.state.comment, postId)
-            .then(()=>{
+            .then(() => {
                 this.commentRefs[postId].current.reset()
             });
         }
@@ -115,6 +112,7 @@ class FeedPage extends React.Component {
         }
     }
 
+
     commentDropdown(commentId) {
         return (e) => {
             e.preventDefault();
@@ -122,6 +120,15 @@ class FeedPage extends React.Component {
                 this.commentId = commentId;
                 this.setState({commentdrop: 'show'})
             } else this.setState({commentdrop: 'hidden'})
+        }
+    }
+
+    handleCommentDisplay() {
+        return (e) => {
+            e.preventDefault(); 
+            if (this.state.displayComment === false) {
+                this.setState({displayComment: true })
+            } else this.setState({displayComment: false})
         }
     }
 
@@ -147,22 +154,12 @@ class FeedPage extends React.Component {
         }
     }
 
-    // displayLikes() {
-    //     this.setState({ showLikes: true });
-    // }
-
-    // hideLikes() {
-    //     this.setState({ showLikes: false });
-    // }
-
     render() {
         console.log(this.state); 
         console.log(this.props);
-        // const { postsArr } = this.props.postsArr;
         const preview = this.state.photoUrl ? <img className="preview-img" src={this.state.photoUrl} /> : null;
-        // const postPhoto = this.post.photoUrl ? <img id="feed-image" src={post.photoUrl} /> : null; 
+
         return (
-        
         <div className="feed-container">
             <div className="profile-sidebar">
                {/* <div className="sidebar-block"></div> */}
@@ -258,7 +255,7 @@ class FeedPage extends React.Component {
                                     return Math.floor(timenow / 86400000) + 'd';
                                 }
                             }
-                            console.log(this.state); 
+                            // console.log(this.state); 
                             return (
                                 <li className="feedposts" key={post.id}>
                                     <div className="feed-pro-pic">
@@ -283,67 +280,81 @@ class FeedPage extends React.Component {
                                             <span>Delete Post</span>
                                         </button>
                                     </div>
-                                        {postPhoto}
-                                        {/* <div className="like-and-comment-box">
+                                    {postPhoto}
+                                    <div className="like-comment-count-container">
+                                        <p className="like-count">{2 + " likes"}</p>
+                                        <p className="count-divider">|</p>
+                                        <p className="comment-count" onClick={this.handleCommentDisplay()}>{this.props.commentsArr.filter((comment) => comment.post_id == post.id).length + " comments"}</p>
+                                    </div>
+                                    <div className="like-comment-container">
+                                        <span><div className="like-span"> </div> </span>
+                                        <button id="like-button">
+                                            <IconContext.Provider
+                                                value={{ style: { float: 'left', margin: '-2px 5px 0px 0px', fontSize: '22px' } }}>
+                                                <BiLike></BiLike>
+                                            </IconContext.Provider>
+                                            <span>Like</span>
+                                        </button>
+                                        <span><div className="comment-span"> </div> </span>
+                                        <button id="comment-button" onClick={this.handleCommentDisplay()} >
+                                            <IconContext.Provider
+                                                value={{ style: { float: 'left', margin: '-2px 5px 0px 0px', fontSize: '22px' } }}>
+                                                <FaRegCommentDots></FaRegCommentDots>
+                                            </IconContext.Provider>
+                                            <span>Comment</span>
+                                        </button>
+                                    </div>
+                                    { this.state.displayComment === true ?
+                                        <div className="comment-section">
+                                            <div className="create-comment">
+                                                <form className="comment-container" onSubmit={this.handleComment(post.id)}>
+                                                    <img className='post-comment-dogo' src={
+                                                        this.props.currentuser.profile_photo ?
+                                                        this.props.currentuser.profile_photo :
+                                                        window.dogo} />
+                                                    <input type="text"
+                                                        className="comment-form"
+                                                        required="required"
+                                                        placeholder="Add a comment..."
+                                                        onChange={this.handleCommentBody(post.id)}
+                                                    />
+                                                    <button className="post-comment-button">Post</button>
+                                                </form>
+                                            </div>
+                                            <div className="post-comments">
+                                                {[...this.props.commentsArr].map((comment) => {
+                                                    const commentUser = this.props.users[comment.author_id];
+                                                    if (comment.post_id == post.id)
+                                                    return (
+                                                        <div className="display-comment" key={comment.id}>
+                                                                <img className='comment-dogo' src={
+                                                                    commentUser.profile_photo ?
+                                                                    commentUser.profile_photo :
+                                                                    window.dogo} />
+                                                            <div id="comment-box">
+                                                                <h2 id="comment-name">{commentUser.fname} {commentUser.lname}</h2>
+                                                                <p id="comment-user-title">{commentUser.title}</p>
+                                                                <p id="comment-body">{comment.body}</p>
+                                                            </div>
+                                                            {this.props.session.id === comment.author_id ?
+                                                                <button className="comment-drop" onClick={this.commentDropdown(comment.id)}><BsThreeDots /></button> : ''
+                                                            }
+                                                            <div className={this.commentId === comment.id ? this.state.commentdrop : 'hidden'}>
+                                                                <button onClick={() => this.props.deleteComment(comment.id)}>
+                                                                    <IconContext.Provider
+                                                                        value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
+                                                                        <FaTrashAlt></FaTrashAlt>
+                                                                    </IconContext.Provider>
+                                                                    <span>Delete Comment</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
 
-                                        </div> */}
-                        
-                                        {/* <PostLike post={post}/> */}
-                                                    {/* <div className="count-bar"> */}
-                                                        {/* <div>{this.props.likes.length} likes</div> */}
-                                                    {/* </div> */}
-                                                    {/* <div className="option-bar">
-                                                        <button className='option-btn' onClick={this.toggleLike}>
-                                                            <i className="far fa-thumbs-up"></i>
-                                                            <div>Like</div>
-                                                        </button>
-                                                    </div> */}
-                                    <div className="create-comment">
-                                        <form className="comment-container" onSubmit={this.handleComment(post.id)}>
-                                            <img className='post-comment-dogo' src={
-                                                this.props.currentuser.profile_photo ?
-                                                this.props.currentuser.profile_photo :
-                                                window.dogo} />
-                                            <input type="text"
-                                                className="comment-form"
-                                                required="required"
-                                                placeholder="Add a comment..."
-                                                onChange={this.handleCommentBody(post.id)}
-                                            />
-                                            <button className="post-comment-button">Post</button>
-                                        </form>
-                                    </div>
-                                    <div className="post-comments">
-                                        {[...this.props.commentsArr].map((comment) => {
-                                            const commentUser = this.props.users[comment.author_id];
-                                            if (comment.post_id == post.id)
-                                            return (
-                                                <div className="display-comment" key={comment.id}>
-                                                        <img className='comment-dogo' src={
-                                                            commentUser.profile_photo ?
-                                                            commentUser.profile_photo :
-                                                            window.dogo} />
-                                                    <div id="comment-box">
-                                                        <h2 id="comment-name">{commentUser.fname} {commentUser.lname}</h2>
-                                                        <p id="comment-user-title">{commentUser.title}</p>
-                                                        <p id="comment-body">{comment.body}</p>
-                                                    </div>
-                                                    {this.props.session.id === comment.author_id ?
-                                                        <button className="comment-drop" onClick={this.commentDropdown(comment.id)}><BsThreeDots /></button> : ''
-                                                    }
-                                                    <div className={this.commentId === comment.id ? this.state.commentdrop : 'hidden'}>
-                                                        <button onClick={() => this.props.deleteComment(comment.id)}>
-                                                            <IconContext.Provider
-                                                                value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
-                                                                <FaTrashAlt></FaTrashAlt>
-                                                            </IconContext.Provider>
-                                                            <span>Delete Comment</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
+                                    : <div></div>}
                                 </li>
                             );
                         })}

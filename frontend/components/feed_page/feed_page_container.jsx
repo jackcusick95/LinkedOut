@@ -18,9 +18,7 @@ const mapStateToProps = (state, ownProps) => {
         session: state.session,
         comments: state.entities.comments,
         commentsArr: Object.values(state.entities.comments),
-        likesArr: Object.values(state.entities.likes)
-        // like: findLike(state.entities.likes, ownProps.likeable_id, ownProps.likeable_type, ownProps.liker_id),
-        // likes: state.entities.post.likes
+        likesArr: Object.values(state.entities.likes),
     };
 };
 
