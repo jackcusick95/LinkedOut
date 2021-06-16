@@ -24,10 +24,8 @@ class FeedPage extends React.Component {
             photoFile: null,
             photoUrl: null,
             cmtCount: 0,
-            // timenow: Date.now() - Date.parse(post.createdAt),
-            // like: null,
-            // liked: false
-            // likeCount: this.props.post.likes
+            liked: false,
+            likedArr: [],
         }
         this.commentRef = {};
         
@@ -41,8 +39,8 @@ class FeedPage extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this); 
         this.handleComment = this.handleComment.bind(this);
         this.handleCommentBody = this.handleCommentBody.bind(this); 
-        this.handleLike = this.handleLike.bind(this); 
         this.handleCommentDisplay = this.handleCommentDisplay.bind(this); 
+        // this.handleLike = this.handleLike.bind(this); 
         // this.displayLikes = this.displayLikes.bind(this);
         // this.hideLikes = this.hideLikes.bind(this);
 
@@ -142,17 +140,19 @@ class FeedPage extends React.Component {
         }
     }
 
-    handleLike() {
-        if (this.props.like) {
-            this.props.deleteLike(this.props.like.id);
-        } else {
-            this.props.createLike({
-                likeable_id: this.props.likeable_id,
-                likeable_type: this.props.likeable_type,
-                liker_id: this.props.liker_id
-            });
-        }
-    }
+    // handleLike() {
+    //     if (this.state.liked === false) {
+    //         this.state.liked = true; 
+    //         return this.state.likedArr.push(currentuser.id);
+    //     } else if (this.state.liked === true) {
+    //         this.state.liked = false;
+    //         const index = likedArr.indexOf(currentuser.id);
+    //         if (index > -1) {
+    //             likedArr.splice(index, 1);
+    //         }
+
+    //     }
+    // }
 
     render() {
         console.log(this.state); 
