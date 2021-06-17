@@ -181,14 +181,6 @@ class FeedPage extends React.Component {
                 <p className="sidebar-viewprofile">Recent profile visits: </p> <p className="viewprofile-num"> 12</p>
                 <p className="sidebar-connections">Connections: *Coming soon*</p>
             </div>
-            {/* <div className="news-sidebar">
-                <h1 className="news-sidebar-header">LinkedOut News:</h1>
-                    <a className="article" href="https://news.linkedin.com/2021/may/our-2021-grad-s-guide-to-getting-hired">* 2021 Guide to Getting Hired *</a><br></br>
-                    <a className="article" href="https://news.linkedin.com/2021/april/creating-trusted-connections">* Creating Trusted Connectings *</a><br></br>
-                    <a className="article" href="https://news.linkedin.com/2021/march/an-update-on-linkedin-china">* An update on LinkedIn China *</a><br></br>
-                    <a className="article" href="https://news.linkedin.com/2020/october/helping-job-seekers-take-their-next-step">* Helping jobseekers with next steps *</a><br></br>
-                    <a className="article" href="https://news.linkedin.com/2020/march/most-in-demand-jobs-during-coronavirus---companies-hiring">* Most in-demand jobs during covid *</a>
-            </div> */}
             <div className="postfeed">
                 <div className="post-form">
                     <form onSubmit={this.handleSubmit}>
@@ -283,12 +275,18 @@ class FeedPage extends React.Component {
                                     </div>
                                     {postPhoto}
                                     <div className="like-comment-count-container">
+                                        <div className="mini-like">
+                                            <IconContext.Provider
+                                                value={{ style: { margin: '0px 0px 0px 0px', fontSize: '10px' } }}>
+                                                <BiLike></BiLike>
+                                            </IconContext.Provider>
+                                        </div>
                                         <p className="like-count">{2 + " likes"}</p>
                                         <p className="count-divider">|</p>
                                         <p className="comment-count" onClick={this.handleCommentDisplay()}>{this.props.commentsArr.filter((comment) => comment.post_id == post.id).length + " comments"}</p>
                                     </div>
                                     <div className="like-comment-container">
-                                        <span><div className="like-span"> </div> </span>
+                                        {/* <span><div className="like-span"> </div> </span> */}
                                         <button id="like-button">
                                             <IconContext.Provider
                                                 value={{ style: { float: 'left', margin: '-2px 5px 0px 0px', fontSize: '22px' } }}>
