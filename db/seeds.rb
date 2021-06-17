@@ -531,6 +531,31 @@ ActiveRecord::Base.transaction do
 
     demo_job_3.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/tesla.jpg'), filename: 'tesla.jpg')
 
+    demo_education_1 = Education.create(
+        user_id: demo.id,
+        school: "App Academy",
+        degree: "Software Engineering",
+        field: "Technology",
+        start_date: "2021",
+        end_date: "2021",
+        description: "Completed a fullstack software engineering bootcamp learning React, Redux, Ruby, Javascript, AWS, and more.", 
+    )
+
+    demo_education_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/aalogo.png'), filename: 'aalogo.png')
+
+    demo_education_2 = Education.create(
+        user_id: demo.id,
+        school: "College of Charleston",
+        degree: "Finance and Economics",
+        field: "Business",
+        start_date: "2013",
+        end_date: "2017",
+        description: "Majored in finance and economics. Was also part of the sailing team and Sigma Chi fraternity.", 
+    )
+
+    demo_education_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/cofc.jpg'), filename: 'cofc.jpg')
+
+
     # post_14 = Post.create(
     #     body: '',
     #     author_id: user_7.id,

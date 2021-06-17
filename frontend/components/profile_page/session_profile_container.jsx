@@ -5,6 +5,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import { IconContext } from "react-icons";
 import { BsPencil } from 'react-icons/bs';
 import {fetchAllJobs} from '../../actions/job_actions';
+import {fetchAllEducations} from '../../actions/education_actions'; 
 
 
 
@@ -15,6 +16,8 @@ const mapStateToProps = (state) => {
         session: state.session,
         jobs: state.entities.jobs,
         jobsArr: Object.values(state.entities.jobs), 
+        educations: state.entities.educations,
+        educationsArr: Object.values(state.entities.educations), 
         currentjob: state.entities.jobs[state.session.id],
     };
 };
@@ -25,6 +28,7 @@ const mapDispatchToProps = (dispatch) => {
         closeModal: () => dispatch(closeModal()),
         openModal: () => dispatch(openModal()),
         fetchAllJobs: () => dispatch(fetchAllJobs()),
+        fetchAllEducations: () => dispatch(fetchAllEducations()), 
         editmodal: (
             <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                 <BsPencil

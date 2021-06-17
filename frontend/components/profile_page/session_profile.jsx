@@ -35,6 +35,8 @@ class SessionProfilePage extends React.Component {
                     jobs={this.props.jobs}
                     currentuser={this.props.currentuser}
                     currentjob={this.props.currentjob}
+                    fetchAllEducations={this.props.fetchAllEducations}
+                    educationsArr={this.props.educationsArr}
                 />
 
                 </div>

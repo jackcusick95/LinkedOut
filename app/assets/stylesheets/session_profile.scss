@@ -119,8 +119,8 @@
     padding: 24px, 32px, 32px; 
     border-radius: 8px;
     background: #fff;
-    padding-bottom: 10px;
-    padding-top: 5px;
+    padding-bottom: 20px;
+    padding-top: 15px;
     z-index: 3;
 }
 
@@ -204,4 +204,18 @@ cursor: pointer;
 .job-description-two{
     padding-bottom: 2px;    
 }
+
+.experience-divider {
+    border-top: 1px solid lightgrey; 
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.job-divider {
+    border-top: 1px solid lightgrey; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 93px;
+}
+
 

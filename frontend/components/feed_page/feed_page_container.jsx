@@ -5,7 +5,7 @@ import { logoutUser } from '../../actions/session_actions';
 import { fetchPost, createPost, updatePost, fetchAllPosts, deletePost } from '../../actions/post_actions';
 import {openModal, closeModal } from '../../actions/modal_actions';
 import {createComment, updateComment, deleteComment } from '../../actions/comment_actions';
-import {createLike, deleteLike} from '../../actions/like_actions';
+import {createLike, deleteLike, fetchAllLikes} from '../../actions/like_actions';
 import { findLike } from '../../reducers/selectors';
 
 
@@ -26,6 +26,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         logoutUser: () => dispatch(logoutUser()),
         fetchAllPosts: () => dispatch(fetchAllPosts()),
+        fetchAllLikes: () => dispatch(fetchAllLikes()),
         fetchPost: (postId) => dispatch(fetchPost(postId)), 
         createPost: (post) => dispatch(createPost(post)),
         updatePost: (post) => dispatch(updatePost(post)),

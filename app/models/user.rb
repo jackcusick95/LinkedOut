@@ -26,6 +26,11 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Job
 
+    has_many :educations,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Education
+
     has_many :likes,
         primary_key: :id,
         foreign_key: :liker_id,

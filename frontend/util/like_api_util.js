@@ -1,3 +1,11 @@
+
+export const fetchAllLikes = () => {
+    return $.ajax({
+        method: 'GET',
+        url: '/api/likes'
+    });
+}
+
 export const createLike = (like) => {
     return $.ajax({
         method: 'POST',
