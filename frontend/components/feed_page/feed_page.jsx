@@ -161,6 +161,7 @@ class FeedPage extends React.Component {
 
         return (
         <div className="feed-container">
+            <div className="grid-container">
             <div className="profile-sidebar">
                {/* <div className="sidebar-block"></div> */}
                     <img className='sidebar-block' src={
@@ -180,14 +181,14 @@ class FeedPage extends React.Component {
                 <p className="sidebar-viewprofile">Recent profile visits: </p> <p className="viewprofile-num"> 12</p>
                 <p className="sidebar-connections">Connections: *Coming soon*</p>
             </div>
-            <div className="news-sidebar">
+            {/* <div className="news-sidebar">
                 <h1 className="news-sidebar-header">LinkedOut News:</h1>
                     <a className="article" href="https://news.linkedin.com/2021/may/our-2021-grad-s-guide-to-getting-hired">* 2021 Guide to Getting Hired *</a><br></br>
                     <a className="article" href="https://news.linkedin.com/2021/april/creating-trusted-connections">* Creating Trusted Connectings *</a><br></br>
                     <a className="article" href="https://news.linkedin.com/2021/march/an-update-on-linkedin-china">* An update on LinkedIn China *</a><br></br>
                     <a className="article" href="https://news.linkedin.com/2020/october/helping-job-seekers-take-their-next-step">* Helping jobseekers with next steps *</a><br></br>
                     <a className="article" href="https://news.linkedin.com/2020/march/most-in-demand-jobs-during-coronavirus---companies-hiring">* Most in-demand jobs during covid *</a>
-            </div>
+            </div> */}
             <div className="postfeed">
                 <div className="post-form">
                     <form onSubmit={this.handleSubmit}>
@@ -361,7 +362,15 @@ class FeedPage extends React.Component {
                     </ul>
                 </div>
             </div>
-            {/* <div className="news-sidebar"></div> */}
+                    <div className="news-sidebar">
+                        <h1 className="news-sidebar-header">LinkedOut News:</h1>
+                        <a className="article" href="https://news.linkedin.com/2021/may/our-2021-grad-s-guide-to-getting-hired">* 2021 Guide to Getting Hired *</a><br></br>
+                        <a className="article" href="https://news.linkedin.com/2021/april/creating-trusted-connections">* Creating Trusted Connectings *</a><br></br>
+                        <a className="article" href="https://news.linkedin.com/2021/march/an-update-on-linkedin-china">* An update on LinkedIn China *</a><br></br>
+                        <a className="article" href="https://news.linkedin.com/2020/october/helping-job-seekers-take-their-next-step">* Helping jobseekers with next steps *</a><br></br>
+                        <a className="article" href="https://news.linkedin.com/2020/march/most-in-demand-jobs-during-coronavirus---companies-hiring">* Most in-demand jobs during covid *</a>
+                    </div>
+            </div>
         </div>
         )
     }
