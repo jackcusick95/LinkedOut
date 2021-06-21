@@ -1,21 +1,25 @@
+// html {
+//    position: relative; 
+//    height: 100%;
+// }
+
 
 .feed-container {
     background-color: #f1f1f1;
-    display: block;
     font-family: sans-serif;
-    width: 100%;
-    height: 100%;
-    // padding-left: 15%;
-    // padding-right: 15%;
+       position: relative; 
+   height: 100%;
 }
 
 .grid-container {
+    max-width: 1100px;
+    margin: 0 auto;
     padding-top: 70px;
     display: grid;
-    grid-template-columns: 5fr 10fr 4fr;
+    grid-template-columns: 6fr 10fr 6fr;
     grid-gap: 20px;
-    padding-left: 10%;
-    padding-right: 10%;
+    // min-height: 0;
+    // min-width: 0;
 }
 
 
@@ -24,7 +28,6 @@
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    // overflow: hidden;
 }
 
 .news-sidebar {
@@ -66,7 +69,9 @@
 
 .profile-sidebar {
     position: sticky;
+    max-width: 280px;
     top: 70px;
+    // width: 100%;
     background-color: white;
     border-radius: 8px;
     height: 280px; 
@@ -146,6 +151,7 @@
 
 .post-form {
     background-color: white;
+    display: flex;
        height: 100px;
        box-shadow: 0 4px 12px lightgrey;
        padding: 24px, 32px, 32px; 
@@ -153,12 +159,12 @@
        margin: 0 auto;
        background: #fff;
        padding-top: 8px;
-       padding-bottom: 8px;
        z-index: 3;
 }
 
 .feed-post-box {
-    width: 370px;
+    width: 440px;
+    margin-right: 5px;
     height: 30px;
     margin-left: 15px;
     border-radius: 35px;
@@ -174,7 +180,11 @@
 .post-icons {
     position: absolute;
     display: flex;
-    margin-top: 60px;
+    margin-left: 60px;
+    margin-top: 10px;
+    padding-left: 1px;
+    // padding-right: -30px;
+    white-space: nowrap;
     
 }
 
@@ -214,7 +224,7 @@
 }
 
 .post-pic {
-    position: absolute;
+    // position: absolute;
     display: flex;
 }
 
@@ -229,7 +239,7 @@
     
     .feedposts {
         background-color: white;
-        width: 490px; 
+        // width: 490px; 
         margin-left: 0px;
         box-shadow: 0 4px 12px lightgrey;
         border-radius: 8px;
@@ -238,7 +248,7 @@
     }
 
     #feed-image {
-    width: 490px;
+    width: 100%;
     height: 300px; 
     }
 
@@ -246,6 +256,7 @@
         font-size: 13px;
         font-weight: 300;
         margin-left: 15px;
+        margin-right: 15px;
         margin-top: 15px;
         margin-bottom: 8px;
         font-family: sans-serif;
@@ -483,4 +494,35 @@
     border-radius: 6px;
     font-size: .9125rem;
     cursor: pointer;
+}
+.divider-container{
+    position: relative;
+     margin-top: 10px; 
+}
+
+.feedpost-divider {
+    display: inline-block;
+    width: 78%;
+   border-top: 1px solid grey; 
+//    margin-top: 20px; 
+   margin-left: 10px;
+   margin-right: 10px;
+   padding-bottom: 2px;
+
+}
+
+.sort-by{
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 12px;
+    // margin-top: 10px; 
+}
+
+.recent {
+    display: inline-block;
+    font-weight: 600;
+}
+
+.grid-padding {
+    width: 100%;
 }

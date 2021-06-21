@@ -163,6 +163,7 @@ class FeedPage extends React.Component {
         return (
         <div className="feed-container">
             <div className="grid-container">
+                {/* <div className="grid-padding"></div> */}
             <div className="profile-sidebar">
                {/* <div className="sidebar-block"></div> */}
                     <img className='sidebar-block' src={
@@ -220,6 +221,9 @@ class FeedPage extends React.Component {
                                 <p onClick={() => this.props.openModal('post')}>Article</p>
                         </div>
                     </form>
+                </div>
+                <div className="divider-container">
+                            <div className="feedpost-divider"></div><span className="sort-by">Sort by: <p className="recent">Recent</p></span>
                 </div>
                 <div>
                     <ul className="singlepost">
