@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { IconContext } from "react-icons";
 import { FcAddImage, FcCalendar, FcNews, FcVideoCall} from 'react-icons/fc';
 import { BsPencilSquare, BsThreeDots } from 'react-icons/bs';
-import { FaTrashAlt, FaRegCommentDots } from 'react-icons/fa';
+import { FaTrashAlt, FaRegCommentDots, FaLinkedin, FaGithub, FaPortrait } from 'react-icons/fa';
 import { BiLike } from 'react-icons/bi';
 import PostPage from './post';
 
@@ -365,13 +365,49 @@ class FeedPage extends React.Component {
                     </ul>
                 </div>
             </div>
-                    <div className="news-sidebar">
+                    {/* <div className="news-sidebar">
                         <h1 className="news-sidebar-header">LinkedOut News:</h1>
                         <a className="article" href="https://news.linkedin.com/2021/may/our-2021-grad-s-guide-to-getting-hired">* 2021 Guide to Getting Hired *</a><br></br>
                         <a className="article" href="https://news.linkedin.com/2021/april/creating-trusted-connections">* Creating Trusted Connectings *</a><br></br>
                         <a className="article" href="https://news.linkedin.com/2021/march/an-update-on-linkedin-china">* An update on LinkedIn China *</a><br></br>
                         <a className="article" href="https://news.linkedin.com/2020/october/helping-job-seekers-take-their-next-step">* Helping jobseekers with next steps *</a><br></br>
                         <a className="article" href="https://news.linkedin.com/2020/march/most-in-demand-jobs-during-coronavirus---companies-hiring">* Most in-demand jobs during covid *</a>
+                    </div> */}
+                    <div className="news-sidebar">
+                        <img className='feed-faceshot' src={window.face} />
+                        <h1 className='feed-name'>Jack Cusick</h1>
+                        <div className="feed-profilebox-icons">
+                            <div className="nav-home">
+                                <div>
+                                    <a href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
+                                        <IconContext.Provider value={{ style: { fontSize: '35px'} }}>
+                                            <FaLinkedin className="home-nav-button" />
+                                        </IconContext.Provider>
+                                        <p className="profile-text">LinkedIn</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="nav-profile">
+                                <div>
+                                    <a href="https://github.com/jackcusick95">
+                                        <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
+                                            <FaGithub className="profile-nav-button" />
+                                        </IconContext.Provider>
+                                        <p className="profile-text">Github</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="nav-signout">
+                                <div>
+                                    <a href="https://www.jackcusick95.com/">
+                                        <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
+                                            <FaPortrait className="nav-logout" onClick={this.props.logoutUser} />
+                                        </IconContext.Provider>
+                                        <p className="profile-text">Website</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
             </div>
         </div>

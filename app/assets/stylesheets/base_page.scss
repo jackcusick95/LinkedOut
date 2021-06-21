@@ -125,7 +125,7 @@
     .base-buttons {
         position: absolute; 
         right: 10px;
-        top: 2px;
+        top: 12px;
         
         #signin {
             cursor: pointer;
@@ -145,17 +145,18 @@
             border-width: 1px;
             box-shadow: inset 0 0 0 1px #0a66c2;
             color: #0a66c2;
-            margin: 10px;
+            margin-top: 10px;
+            // margin-top: 30px;
         }
 
         #signin:hover {
             border-color:  #2977c9;
             background-color:  #e3eefa;
             border-width: 2px;
-            margin: -1px;
+            // margin: -1px;
             box-shadow: inset 0 0 0 2px #0a66c2;
-            margin-left: 10px;
-            margin-right: 10px;
+            // margin-left: 10px;
+            // margin-right: 10px;
             cursor: pointer;
         }
         
