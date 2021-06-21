@@ -338,6 +338,12 @@ ActiveRecord::Base.transaction do
     #     likeable_type: "Post"
     # )
 
+    post_20 = Post.create(
+        body: 'I think it`s fair to say that personal computers have become the most empowering tool we`ve ever created. They`re tools of communication, they`re tools of creativity, and they can be shaped by their user.',
+        author_id: user_4.id,
+    )
+
+
     post_1 = Post.create(
         body: 'New to LinkedOut. Looking forward to connecting with all my friends!',
         author_id: demo.id,
@@ -374,6 +380,12 @@ ActiveRecord::Base.transaction do
     )
 
     post_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/summer.jpg'), filename: 'summer.jpg')
+
+    comment_5 = Comment.create(
+        body: "Not a bad view!!",
+        author_id: user_2.id,
+        post_id: post_2.id,
+    )
 
     
     google_job = Job.create(
