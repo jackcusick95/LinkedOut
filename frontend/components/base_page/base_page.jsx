@@ -23,13 +23,16 @@ const BasePage = ( ) => {
 
                 <img src="https://static-exp3.licdn.com/sc/h/3m4tgpbdz7gbldapvl63mrnxz" id="background-img" />
                 <div className="nav-buttons">
+                    <div className="second-nav-button">
+                        <Link to={"/login"}>
+                            <button className="navbutton">Log in as demo user<i class="arrow right two"></i></button>
+                        </Link>
+                        {/* <span className="tooltip" >Feature coming soon!</span>
+                        <button className="navbutton">Find a person you know<i class="arrow right two"></i></button> */}
+                    </div>
                     <Link to={"/jobs"}>
                         <button className="navbutton">Search for a job<i class="arrow right one"></i></button>
                     </Link>
-                    <div className="second-nav-button">
-                        <span className="tooltip" >Feature coming soon!</span>
-                        <button className="navbutton">Find a person you know<i class="arrow right two"></i></button>
-                    </div>
                     <div className="third-nav-button">
                         <span className="tooltip" >Feature coming soon!</span>
                         <button className="navbutton">Learn a new skill<i class="arrow right three"></i></button>
