@@ -11,6 +11,8 @@ class BasicInfo extends React.Component {
         this.props.currentuser.title;
         this.props.currentuser.location;
         this.props.currentuser.description;
+        this.props.jobsArr;
+        this.props.educationsArr;
     }
 
     render() {
@@ -38,13 +40,20 @@ class BasicInfo extends React.Component {
                                 window.dogo} />
                         </Link>
                         {this.props.editmodal}
-                        <Link to={"/profile"}>
-                            <h1 className="session-profile-name">{this.props.currentuser.fname} {this.props.currentuser.lname}</h1>
-                        </Link>
-                        <p className="session-profile-title">{this.props.currentuser.title}</p>
-                        <p className="session-profile-location">{this.props.currentuser.location}</p>
-                        {/* {aboutDisplay} */}
-                </div>
+                        <div className="probox-container">
+                            <div className="left-profile-box">
+                                <Link to={"/profile"}>
+                                    <h1 className="session-profile-name">{this.props.currentuser.fname} {this.props.currentuser.lname}</h1>
+                                </Link>
+                                <p className="session-profile-title">{this.props.currentuser.title}</p>
+                                <p className="session-profile-location">{this.props.currentuser.location}</p>
+                            </div>
+                            <div className="right-profile-box">
+                                <p className="right-box-text">Facebook</p>
+                            <p className="right-box-text">App Academy</p>
+                            </div>
+                        </div>
+                    </div>
                 {aboutDisplay}
             </div>
         )

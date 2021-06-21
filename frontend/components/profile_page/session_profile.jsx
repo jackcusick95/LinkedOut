@@ -28,6 +28,10 @@ class SessionProfilePage extends React.Component {
                             currentuser={this.props.currentuser}
                             session={this.props.session}
                             editmodal={this.props.editmodal}
+                            fetchAllEducations={this.props.fetchAllEducations}
+                            educationsArr={this.props.educationsArr}
+                            jobsArr={this.props.jobsArr}
+                            fetchAllJobs={this.props.fetchAllJobs}
                         />
 
                         <ExperienceInfo 

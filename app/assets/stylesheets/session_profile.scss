@@ -34,11 +34,9 @@
     background-color: white;
     height: auto;
     box-shadow: 0 4px 12px lightgrey;
-    // padding: 24px, 32px, 32px; 
     border-radius: 8px;
     margin: 0 auto;
     background: #fff;
-    // padding-top: 8px;
     padding-bottom: 0px;
     z-index: 3;
     margin-top: 20px;
@@ -101,7 +99,8 @@
     font-size: 15px;
     font-family: sans-serif;
     color: black; 
-    padding-bottom: 2px;       
+    padding-bottom: 2px;  
+    white-space: nowrap;     
 }
 
 .session-profile-location {
@@ -223,6 +222,32 @@ cursor: pointer;
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 93px;
+}
+
+.left-profile-box {
+    display: inline-block;
+    // white-space: nowrap;
+}
+
+
+.right-profile-box {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.probox-container {
+    position: relative;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 3%;
+    margin-right: 5%;
+}
+
+.right-box-text {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: sans-serif;
 }
 
 

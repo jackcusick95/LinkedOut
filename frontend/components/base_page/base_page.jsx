@@ -40,7 +40,7 @@ const BasePage = ( ) => {
             <div className="footer">
                 <h3 className="founder">Founder: <br/>
                     Jack Cusick</h3>
-                <img className='faceshot' src={window.faceshot} />
+                <img className='faceshot' src={window.anotherface} />
                 <div className="footlinks">
                     <a href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
                         <img className='lilogo' src={window.linkedin} />
