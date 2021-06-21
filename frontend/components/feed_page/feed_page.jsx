@@ -374,7 +374,7 @@ class FeedPage extends React.Component {
                         <a className="article" href="https://news.linkedin.com/2020/march/most-in-demand-jobs-during-coronavirus---companies-hiring">* Most in-demand jobs during covid *</a>
                     </div> */}
                     <div className="news-sidebar">
-                        <img className='feed-faceshot' src={window.face} />
+                        <img className='feed-faceshot' src={window.anotherface} />
                         <h1 className='feed-name'>Jack Cusick</h1>
                         <div className="feed-profilebox-icons">
                             <div className="nav-home">
