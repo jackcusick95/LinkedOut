@@ -128,9 +128,12 @@ class FeedPage extends React.Component {
             if (this.state.displayComment === false) {
                 this.state.commentId = postId
                 this.setState({displayComment: true })
-            } else if (this.state.displayComment === true) {
-                this.state.commentId = -1
-                this.setState({displayComment: false})
+            } else if (this.state.displayComment === true && this.state.commentId !== postId) {
+                this.state.commentId = postId
+                this.setState({displayComment: true})
+            } else if (this.state.displayComment === true && this.state.commentId === postId) {
+                // this.state.commentId = -1
+                this.setState({ displayComment: false })
             }
         }
     }
