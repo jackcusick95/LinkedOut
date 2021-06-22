@@ -337,6 +337,28 @@ class FeedPage extends React.Component {
                                             <div className="post-comments">
                                                 {[...this.props.commentsArr].map((comment) => {
                                                     const commentUser = this.props.users[comment.author_id];
+
+                                                    let cmtTime = Date.now() - Date.parse(comment.created_at);
+                                                    console.log(cmtTime);
+
+                                                    if (cmtTime < 3600000) {
+                                                        setInterval(() => {
+                                                            cmtTime= Date.now() - Date.parse(comment.created_at)
+                                                        }, 60000);
+                                                    }
+
+                                                    const timeFromNow = () => {
+                                                        if (cmtTime < 60000) {
+                                                            return '<1m';
+                                                        } else if (cmtTime < 3600000) {
+                                                            return Math.floor(cmtTime / 60000) + 'm';
+                                                        } else if (cmtTime < 86400000) {
+                                                            return Math.floor(cmtTime / 3600000) + 'h';
+                                                        } else {
+                                                            return Math.floor(cmtTime / 86400000) + 'd';
+                                                        }
+                                                    }
+
                                                     if (comment.post_id == post.id)
                                                     return (
                                                         <div className="display-comment" key={comment.id}>
@@ -349,9 +371,12 @@ class FeedPage extends React.Component {
                                                                 <p id="comment-user-title">{commentUser.title}</p>
                                                                 <p id="comment-body">{comment.body}</p>
                                                             </div>
-                                                            {this.props.session.id === comment.author_id ?
-                                                                <button className="comment-drop" onClick={this.commentDropdown(comment.id)}><BsThreeDots /></button> : ''
-                                                            }
+                                                            <div className="comment-topright">
+                                                                <p className="cmt-timestamp">{timeFromNow()}</p>
+                                                                {this.props.session.id === comment.author_id ?
+                                                                    <button className="comment-drop" onClick={this.commentDropdown(comment.id)}><BsThreeDots /></button> : ''
+                                                                }
+                                                            </div>
                                                             <div className={this.commentId === comment.id ? this.state.commentdrop : 'hidden'}>
                                                                 <button onClick={() => this.props.deleteComment(comment.id)}>
                                                                     <IconContext.Provider
