@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_190151) do
+ActiveRecord::Schema.define(version: 2021_06_22_150847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,8 +80,6 @@ ActiveRecord::Schema.define(version: 2021_06_17_190151) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "likeable_type_id"
-    t.index ["likeable_id"], name: "index_likes_on_likeable_id", unique: true
-    t.index ["likeable_type"], name: "index_likes_on_likeable_type", unique: true
     t.index ["liker_id"], name: "index_likes_on_liker_id", unique: true
   end
 

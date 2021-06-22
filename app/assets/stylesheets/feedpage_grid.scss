@@ -448,7 +448,7 @@
 
     .comment-topright {
         position: relative;
-        right: 45px;
+        right: 50px;
         top: 10px;
     }
 
@@ -460,6 +460,17 @@
         font-family: sans-serif;
          color: grey; 
          margin-right: 5px;
+    }
+
+    .cmt-timestamp-two {
+        display: absolute;
+        justify-content: center;
+        border:none;
+         font-size: 12px;
+        font-family: sans-serif;
+         color: grey; 
+         margin-left: 23px;  
+         margin-top: 5px;
     }
 
 
@@ -475,6 +486,14 @@
         width: 25px;
         // padding-left: 3px;
         border-radius: 15%;
+    }
+
+    .comment-neg-spacing {
+        position: relative;
+        display:inline-block;
+        justify-content: center;
+        border:none;
+        margin-right: -40px;
     }
 
     .post-drop {

@@ -12,7 +12,7 @@ const receiveAllLikes = (likes) => {
     }
 }
 
-const receiveLike = (like) => {
+export const receiveLike = (like) => {
     return {
         type: RECEIVE_LIKE,
         like
@@ -31,10 +31,15 @@ export const fetchAllLikes = () => (dispatch) => {
         .then(likes => dispatch(receiveAllLikes(likes)));
 }
 
-export const createLike = (like) => (dispatch) => {
-    return APIUtil.createLike(like)
-    .then((like) => dispatch(receiveLike(like))); 
+export const createLike = (like, postId) => (dispatch) => {
+    return APIUtil.createLike(like, postId)
+    .then(like => dispatch(receiveLike(like))); 
 }
+
+// export const createLike = (like) => (dispatch) => {
+//     return APIUtil.createLike(like)
+//         .then(like => dispatch(receiveLike(like)));
+// }
 
 export const deleteLike = (likeId) => (dispatch) => {
     return APIUtil.deleteLike(likeId)

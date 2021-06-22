@@ -5,7 +5,7 @@ import { logoutUser } from '../../actions/session_actions';
 import { fetchPost, createPost, updatePost, fetchAllPosts, deletePost } from '../../actions/post_actions';
 import {openModal, closeModal } from '../../actions/modal_actions';
 import {createComment, updateComment, deleteComment } from '../../actions/comment_actions';
-import {createLike, deleteLike, fetchAllLikes} from '../../actions/like_actions';
+import {createLike, deleteLike, fetchAllLikes, receiveLike} from '../../actions/like_actions';
 import { findLike } from '../../reducers/selectors';
 
 
@@ -18,6 +18,7 @@ const mapStateToProps = (state, ownProps) => {
         session: state.session,
         comments: state.entities.comments,
         commentsArr: Object.values(state.entities.comments),
+        likes: state.entities.likes,
         likesArr: Object.values(state.entities.likes),
     };
 };
@@ -34,9 +35,10 @@ const mapDispatchToProps = (dispatch) => {
         createComment: (comment, postId) => dispatch(createComment(comment, postId)),
         updateComment: (comment) => dispatch(updateComment(comment)),
         deleteComment: (commentId) => dispatch(deleteComment(commentId)),
-        createLike: (like) => dispatch(createLike(like)),
+        createLike: (like, postId) => dispatch(createLike(like, postId)),
         deleteLike: (likeId) => dispatch(deleteLike(likeId)),
         openModal: (modal) => dispatch(openModal(modal)),
+        receiveLike: (like) => dispatch(receiveLike(like)),
 
         textmodal: (
                 <textarea

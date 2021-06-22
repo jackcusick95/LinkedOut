@@ -16,7 +16,7 @@ class Post < ApplicationRecord
         class_name: :Comment 
 
     has_many :likes,
-        as: :likeable,
-        dependent: :destroy
-
+       primary_key: :id,
+       foreign_key: :likeable_id,
+       class_name: :Like
 end  

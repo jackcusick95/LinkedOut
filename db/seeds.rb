@@ -332,23 +332,38 @@ ActiveRecord::Base.transaction do
 
     post_13.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/google.jpg'), filename: 'google.jpg')
 
-    # like_1 = Like.create(
-    #     liker_id: demo.id,
-    #     likeable_id: post_3.id,
-    #     likeable_type: "Post"
-    # )
+    like_1 = Like.create(
+        liker_id: demo.id,
+        likeable_id: post_3.id,
+        likeable_type: "post"
+    )
 
+    
+    
     post_20 = Post.create(
         body: 'I think it`s fair to say that personal computers have become the most empowering tool we`ve ever created. They`re tools of communication, they`re tools of creativity, and they can be shaped by their user.',
         author_id: user_4.id,
-    )
-
-
+        )
+        
+        
     post_1 = Post.create(
-        body: 'New to LinkedOut. Looking forward to connecting with all my friends!',
-        author_id: demo.id,
-    )
+            body: 'New to LinkedOut. Looking forward to connecting with all my friends!',
+            author_id: demo.id,
+        )
+
     post_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/friends.jpg'), filename: 'friends.jpg')
+            
+    like_2 = Like.create(
+            liker_id: user_11.id,
+            likeable_id: post_1.id,
+            likeable_type: "post"
+        )
+
+    like_3 = Like.create(
+            liker_id: user_14.id,
+            likeable_id: post_1.id,
+            likeable_type: "post"
+        )
 
     comment_1 = Comment.create(
         body: "lol nice",

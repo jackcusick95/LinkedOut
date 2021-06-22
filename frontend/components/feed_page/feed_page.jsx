@@ -25,8 +25,13 @@ class FeedPage extends React.Component {
             photoFile: null,
             photoUrl: null,
             cmtCount: 0,
+            like: {},
             liked: false,
-            likedArr: [],
+            likeId: null,
+            likeCount: 0,
+            likeable_type: "", 
+            likeable_id: null,
+            postId: null,
         }
         this.commentRef = {};
         
@@ -41,8 +46,8 @@ class FeedPage extends React.Component {
         this.handleComment = this.handleComment.bind(this);
         this.handleCommentBody = this.handleCommentBody.bind(this); 
         this.handleCommentDisplay = this.handleCommentDisplay.bind(this); 
-        // this.handleLike = this.handleLike.bind(this); 
-        // this.displayLikes = this.displayLikes.bind(this);
+        this.handleLike = this.handleLike.bind(this); 
+        // this.setLike = this.setLike.bind(this);
         // this.hideLikes = this.hideLikes.bind(this);
 
     }
@@ -63,6 +68,7 @@ class FeedPage extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllPosts(); 
+        this.props.likesArr; 
     }
 
     handleBody(e) {
@@ -148,17 +154,45 @@ class FeedPage extends React.Component {
         }
     }
 
-    // handleLike() {
-    //     if (this.state.liked === false) {
-    //         this.state.liked = true; 
-    //         return this.state.likedArr.push(currentuser.id);
-    //     } else if (this.state.liked === true) {
-    //         this.state.liked = false;
-    //         const index = likedArr.indexOf(currentuser.id);
-    //         if (index > -1) {
-    //             likedArr.splice(index, 1);
-    //         }
 
+    // handleLike(postId) {
+    //     return (e) => {
+    //         e.preventDefault();
+    //         const formData = new FormData();
+    //         this.state.postId = postId
+    //         formData.append('like[likeable_id]', this.state.postId);
+    //         formData.append('like[likeable_type]', "post");
+    //         this.props.createLike(formData)
+    //     }
+    // }
+
+
+    handleLike(postId) {
+        return (e) => {
+            e.preventDefault();
+            this.setState({ like: { ['likeable_type']: "post" } }),
+            // this.setState({ like: { ['likeable_id']: postId } }),
+            () => {
+                this.props.createLike(this.state.like, postId).then (like => {
+                    this.setState({ like });
+                    dispatch(receiveLike(like));
+                });
+            }
+        }
+    }
+
+    // handleLike(postId) {
+    //     return (e) => {
+    //         e.preventDefault();
+    //         const newLike = {
+    //             liker_id: this.props.currentuser.id,
+    //             likeable_id: postId,
+    //             likeable_type: 'post'
+    //         };
+    //         this.props.createLike(newLike, postId).then(like => {
+    //             this.setState({ like });
+    //             dispatch(receiveLike(like));
+    //         });
     //     }
     // }
 
@@ -242,7 +276,7 @@ class FeedPage extends React.Component {
                             const career = this.props.users[post.author_id].title;
                             const postPhoto = post.photoUrl ? <img id="feed-image" src={post.photoUrl} /> : <div></div>;
                             let timenow = Date.now() - Date.parse(post.created_at); 
-                            console.log(timenow);
+                            // console.log(timenow);
 
                             if (timenow < 3600000) {
                                 setInterval(() => { 
@@ -294,7 +328,9 @@ class FeedPage extends React.Component {
                                                 <BiLike></BiLike>
                                             </IconContext.Provider>
                                         </div>
-                                        <p className="like-count">{2 + " likes"}</p>
+                                        {/* <p className="like-count">{2 + " likes"}</p> */}
+                                        <p className="like-count" onClick={this.handleLike(post.id)}>{this.props.likesArr.filter((like) => like.likeable_id == post.id).length + "  likes"}</p>
+                                        {/* <p className="like-count" onClick={this.handleLike(post.id)}>{this.state.likeCount + "  likes"}</p> */}
                                         <p className="count-divider">|</p>
                                         {/* <p className="comment-count" onClick={this.handleCommentDisplay()}>{this.props.commentsArr.filter((comment) => comment.post_id == post.id).length + " comments"}</p> */}
                                         <p className="comment-count" onClick={this.handleCommentDisplay(post.id)}>{this.props.commentsArr.filter((comment) => comment.post_id == post.id).length + " comments"}</p>
@@ -372,9 +408,12 @@ class FeedPage extends React.Component {
                                                                 <p id="comment-body">{comment.body}</p>
                                                             </div>
                                                             <div className="comment-topright">
-                                                                <p className="cmt-timestamp">{timeFromNow()}</p>
                                                                 {this.props.session.id === comment.author_id ?
-                                                                    <button className="comment-drop" onClick={this.commentDropdown(comment.id)}><BsThreeDots /></button> : ''
+                                                                <div>
+                                                                    <p className="cmt-timestamp">{timeFromNow()}</p>
+                                                                    <button className="comment-drop" onClick={this.commentDropdown(comment.id)}><BsThreeDots /></button> 
+                                                                </div>: 
+                                                                    <p className="cmt-timestamp-two">{timeFromNow()}</p>
                                                                 }
                                                             </div>
                                                             <div className={this.commentId === comment.id ? this.state.commentdrop : 'hidden'}>

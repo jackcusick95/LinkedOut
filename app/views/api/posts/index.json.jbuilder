@@ -22,16 +22,8 @@
     json.likes do
         post.likes.each do |like|
             json.set! like.id do
-                json.partial! 'api/likes/like', like: like 
+                json.extract! like, :id, :created_at, :updated_at, :liker_id, :likeable_type, :likeable_id
             end 
-        end 
-
-        post.comments.each do |comment|
-            comment.likes.each do |like|
-                json.set! like.id do 
-                    json.partial! 'api/likes/like', like: like
-                end
-            end
         end 
     end
 end 
