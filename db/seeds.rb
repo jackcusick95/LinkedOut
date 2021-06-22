@@ -40,7 +40,7 @@ ActiveRecord::Base.transaction do
         company: 'Los Angeles Lakers'     
     )
 
-    user_2.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
+    user_2.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronface.png'), filename: 'lebronface.png')
 
     user_3 = User.create(
         email: 'elon@gmail.com',

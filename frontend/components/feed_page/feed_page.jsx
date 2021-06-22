@@ -96,8 +96,9 @@ class FeedPage extends React.Component {
     handleComment(postId) {
         return (e) => {
             e.preventDefault();
-            this.state.commentId = -1;
             this.props.createComment(this.state.comment, postId)
+            this.state.commentId = postId
+            this.setState({ displayComment: true })
             .then(() => {
                 this.commentRefs[postId].current.reset()
             });
@@ -132,7 +133,6 @@ class FeedPage extends React.Component {
                 this.state.commentId = postId
                 this.setState({displayComment: true})
             } else if (this.state.displayComment === true && this.state.commentId === postId) {
-                // this.state.commentId = -1
                 this.setState({ displayComment: false })
             }
         }
