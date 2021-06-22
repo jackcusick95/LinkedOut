@@ -4,7 +4,7 @@ class Api::LikesController < ApplicationController
         @likes = Like.all.includes(:liker)
         render 'api/likes/index'
     end 
-    
+
     def create
         @like = Like.new(like_params)
         @like.liker_id = current_user.id 

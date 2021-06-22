@@ -352,7 +352,8 @@ ActiveRecord::Base.transaction do
         )
 
     post_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/friends.jpg'), filename: 'friends.jpg')
-            
+        
+
     like_2 = Like.create(
             liker_id: user_11.id,
             likeable_id: post_1.id,

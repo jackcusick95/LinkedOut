@@ -1,24 +1,33 @@
-.jobs-container {
-    background-color: #f1f1f1;
-    width: 90%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    margin:auto;
-    font-family: sans-serif;
-    padding-left: 40px;
-    padding-right: 400px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+
+    .jobs-navbar {
+        max-width: 1100px;
+        margin: 0 auto;
+        position: relative;
+        display: flex; 
+        flex-direction: row;
+        justify-content: space-between;
+        height: 50px;
+        z-index: 2;
+    }
     
     .jobs-homelogo {
+        margin-top: 15px;
         height: 30px;
         width: 130px;
     }
 
-        .jobs-buttons {
+    .jobs-container {
+        background-color: #f1f1f1;
+        font-family: sans-serif;
+        position: relative; 
+        height: 100%;
+        white-space: nowrap;
+    }
+    
+
+    .jobs-buttons {
         position: absolute; 
-        right: 10px;
+        right: 5px;
         top: 15px;
         
         #signin {
@@ -85,7 +94,7 @@
         }
     }
     
-}
+
 
 
 
@@ -93,7 +102,6 @@
     background-color: white;
     margin-top: 20px;
     margin-bottom: 30px;
-    width: 800px;
     height: auto;
     box-shadow: 0 4px 12px lightgrey;
     padding: 24px, 32px, 32px; 
@@ -102,4 +110,39 @@
     padding-bottom: 10px;
     padding-top: 5px;
     z-index: 3;
+    white-space: nowrap;
 }
+
+.jobs-outer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    // padding-top: 70px;
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    grid-gap: 20px;
+}
+
+.jobs-profile-sidebar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    height: 200px;
+    z-index: 0;
+    box-shadow: 0 4px 12px lightgrey;
+    padding-bottom: 10px;
+}
+
+.jobs-profilebox-icons {
+    margin-top: 15px;
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+

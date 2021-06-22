@@ -466,7 +466,7 @@ class FeedPage extends React.Component {
                                 <div>
                                     <a href="https://www.jackcusick95.com/">
                                         <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
-                                            <FaPortrait className="nav-logout" onClick={this.props.logoutUser} />
+                                            <FaPortrait className="nav-logout" />
                                         </IconContext.Provider>
                                         <p className="profile-text">Website</p>
                                     </a>
