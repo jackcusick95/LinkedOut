@@ -18,6 +18,7 @@ class FeedPage extends React.Component {
             post: {}, 
             body: "",
             comment: {},
+            commentId: null,
             commentdrop: 'hidden',
             displayComment: false,
             postdrop: 'hidden', 
@@ -95,7 +96,7 @@ class FeedPage extends React.Component {
     handleComment(postId) {
         return (e) => {
             e.preventDefault();
-            this.postCommentId = -1;
+            this.state.commentId = -1;
             this.props.createComment(this.state.comment, postId)
             .then(() => {
                 this.commentRefs[postId].current.reset()
@@ -105,7 +106,7 @@ class FeedPage extends React.Component {
 
     handleCommentBody(postId) {
         return (e) => {
-            this.postCommentId = postId
+            this.state.commentId = postId
             this.setState({ comment: {['body']: e.target.value}});
         }
     }
@@ -121,12 +122,16 @@ class FeedPage extends React.Component {
         }
     }
 
-    handleCommentDisplay() {
+    handleCommentDisplay(postId) {
         return (e) => {
             e.preventDefault(); 
             if (this.state.displayComment === false) {
+                this.state.commentId = postId
                 this.setState({displayComment: true })
-            } else this.setState({displayComment: false})
+            } else if (this.state.displayComment === true) {
+                this.state.commentId = -1
+                this.setState({displayComment: false})
+            }
         }
     }
 
@@ -288,7 +293,8 @@ class FeedPage extends React.Component {
                                         </div>
                                         <p className="like-count">{2 + " likes"}</p>
                                         <p className="count-divider">|</p>
-                                        <p className="comment-count" onClick={this.handleCommentDisplay()}>{this.props.commentsArr.filter((comment) => comment.post_id == post.id).length + " comments"}</p>
+                                        {/* <p className="comment-count" onClick={this.handleCommentDisplay()}>{this.props.commentsArr.filter((comment) => comment.post_id == post.id).length + " comments"}</p> */}
+                                        <p className="comment-count" onClick={this.handleCommentDisplay(post.id)}>{this.props.commentsArr.filter((comment) => comment.post_id == post.id).length + " comments"}</p>
                                     </div>
                                     <div className="like-comment-container">
                                         {/* <span><div className="like-span"> </div> </span> */}
@@ -300,7 +306,7 @@ class FeedPage extends React.Component {
                                             <span>Like</span>
                                         </button>
                                         <span><div className="comment-span"> </div> </span>
-                                        <button id="comment-button" onClick={this.handleCommentDisplay()} >
+                                        <button id="comment-button" onClick={this.handleCommentDisplay(post.id)} >
                                             <IconContext.Provider
                                                 value={{ style: { float: 'left', margin: '-2px 5px 0px 0px', fontSize: '22px' } }}>
                                                 <FaRegCommentDots></FaRegCommentDots>
@@ -308,7 +314,7 @@ class FeedPage extends React.Component {
                                             <span>Comment</span>
                                         </button>
                                     </div>
-                                    { this.state.displayComment === true ?
+                                    { this.state.displayComment === true && post.id === this.state.commentId ?
                                         <div className="comment-section">
                                             <div className="create-comment">
                                                 <form className="comment-container" onSubmit={this.handleComment(post.id)}>
@@ -365,14 +371,6 @@ class FeedPage extends React.Component {
                     </ul>
                 </div>
             </div>
-                    {/* <div className="news-sidebar">
-                        <h1 className="news-sidebar-header">LinkedOut News:</h1>
-                        <a className="article" href="https://news.linkedin.com/2021/may/our-2021-grad-s-guide-to-getting-hired">* 2021 Guide to Getting Hired *</a><br></br>
-                        <a className="article" href="https://news.linkedin.com/2021/april/creating-trusted-connections">* Creating Trusted Connectings *</a><br></br>
-                        <a className="article" href="https://news.linkedin.com/2021/march/an-update-on-linkedin-china">* An update on LinkedIn China *</a><br></br>
-                        <a className="article" href="https://news.linkedin.com/2020/october/helping-job-seekers-take-their-next-step">* Helping jobseekers with next steps *</a><br></br>
-                        <a className="article" href="https://news.linkedin.com/2020/march/most-in-demand-jobs-during-coronavirus---companies-hiring">* Most in-demand jobs during covid *</a>
-                    </div> */}
                     <div className="news-sidebar">
                         <img className='feed-faceshot' src={window.anotherface} />
                         <h1 className='feed-name'>Jack Cusick</h1>
