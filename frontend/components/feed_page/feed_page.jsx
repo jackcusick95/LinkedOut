@@ -185,16 +185,18 @@ class FeedPage extends React.Component {
     handleLike(postId) {
         return (e) => {
             e.preventDefault();
-            this.postId = postId
-            const newLike = {
-                liker_id: this.props.currentuser.id,
-                likeable_id: postId,
-                likeable_type: 'post'
-            };
-            this.props.createLike(newLike, postId).then(like => {
-                this.setState({ like });
-                // dispatch(receiveLike(like));
-            });
+            // this.state.postId = postId
+            // if (this.state.liked === false) {
+                const newLike = {
+                    liker_id: this.props.currentuser.id,
+                    likeable_id: postId,
+                    likeable_type: 'post'
+                };
+                this.props.createLike(newLike, postId).then(like => {
+                    this.setState({ like });
+                    this.setState({ liked: true });
+                });
+            // } 
         }
     }
 
@@ -330,11 +332,8 @@ class FeedPage extends React.Component {
                                                 <BiLike></BiLike>
                                             </IconContext.Provider>
                                         </div>
-                                        {/* <p className="like-count">{2 + " likes"}</p> */}
                                         <p className="like-count">{this.props.likesArr.filter((like) => like.likeable_id == post.id).length + "  likes"}</p>
-                                        {/* <p className="like-count" onClick={this.handleLike(post.id)}>{this.state.likeCount + "  likes"}</p> */}
                                         <p className="count-divider">|</p>
-                                        {/* <p className="comment-count" onClick={this.handleCommentDisplay()}>{this.props.commentsArr.filter((comment) => comment.post_id == post.id).length + " comments"}</p> */}
                                         <p className="comment-count" onClick={this.handleCommentDisplay(post.id)}>{this.props.commentsArr.filter((comment) => comment.post_id == post.id).length + " comments"}</p>
                                     </div>
                                     <div className="like-comment-container">

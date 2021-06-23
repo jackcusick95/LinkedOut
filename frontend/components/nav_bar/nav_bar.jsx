@@ -5,6 +5,7 @@ import { ImHome3 } from 'react-icons/im';
 import { RiLogoutCircleRFill} from 'react-icons/ri';
 import { GiBearFace } from 'react-icons/gi';
 import { FaTrashAlt, FaRegCommentDots, FaLinkedin, FaGithub, FaPortrait } from 'react-icons/fa';
+import { BsFillBriefcaseFill } from 'react-icons/bs';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -59,6 +60,14 @@ class NavBar extends React.Component {
                                     <ImHome3 className="home-nav-button"/> 
                                 </IconContext.Provider>
                                 <p className="nav-text">Home</p>
+                            </Link>
+                        </div>
+                        <div className="nav-home">
+                            <Link to={"/jobslist"}>
+                                <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
+                                    <BsFillBriefcaseFill className="home-nav-button" />
+                                </IconContext.Provider>
+                                <p className="nav-text">Jobs</p>
                             </Link>
                         </div>
                         <div className="nav-profile">
