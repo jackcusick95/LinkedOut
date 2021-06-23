@@ -36,10 +36,6 @@ export const createLike = (like, postId) => (dispatch) => {
     .then(like => dispatch(receiveLike(like))); 
 }
 
-// export const createLike = (like) => (dispatch) => {
-//     return APIUtil.createLike(like)
-//         .then(like => dispatch(receiveLike(like)));
-// }
 
 export const deleteLike = (likeId) => (dispatch) => {
     return APIUtil.deleteLike(likeId)

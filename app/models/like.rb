@@ -1,7 +1,7 @@
 class Like < ApplicationRecord
 
     validates :liker_id, :likeable_id, :likeable_type, presence: true
-    # validates :liker_id, uniqueness: {scope: [:likeable_id, :likeable_type]}
+    validates :likeable_id, uniqueness: {scope: [:liker_id]}
 
     belongs_to :liker,
         primary_key: :id,

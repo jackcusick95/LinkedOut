@@ -29,7 +29,7 @@ class FeedPage extends React.Component {
             liked: false,
             likeId: null,
             likeCount: 0,
-            likeable_type: "", 
+            likeable_type: "post", 
             likeable_id: null,
             postId: null,
         }
@@ -167,34 +167,36 @@ class FeedPage extends React.Component {
     // }
 
 
-    handleLike(postId) {
-        return (e) => {
-            e.preventDefault();
-            this.setState({ like: { ['likeable_type']: "post" } }),
-            // this.setState({ like: { ['likeable_id']: postId } }),
-            () => {
-                this.props.createLike(this.state.like, postId).then (like => {
-                    this.setState({ like });
-                    dispatch(receiveLike(like));
-                });
-            }
-        }
-    }
-
     // handleLike(postId) {
     //     return (e) => {
     //         e.preventDefault();
-    //         const newLike = {
-    //             liker_id: this.props.currentuser.id,
-    //             likeable_id: postId,
-    //             likeable_type: 'post'
-    //         };
-    //         this.props.createLike(newLike, postId).then(like => {
-    //             this.setState({ like });
-    //             dispatch(receiveLike(like));
-    //         });
+    //         this.setState({ 
+    //             like: { ['likeable_type']: "post", ['liker_id']: this.props.currentuser.id } }),
+    //             // this.setState({ like: { ['liker_id']: this.props.currentuser.id } }),
+    //         () => {
+    //             this.props.createLike(this.state.like, postId).then (like => {
+    //                 this.setState({ like });
+    //                 dispatch(receiveLike(like));
+    //             });
+    //         }
     //     }
     // }
+
+    handleLike(postId) {
+        return (e) => {
+            e.preventDefault();
+            this.postId = postId
+            const newLike = {
+                liker_id: this.props.currentuser.id,
+                likeable_id: postId,
+                likeable_type: 'post'
+            };
+            this.props.createLike(newLike, postId).then(like => {
+                this.setState({ like });
+                // dispatch(receiveLike(like));
+            });
+        }
+    }
 
 
     render() {
@@ -329,7 +331,7 @@ class FeedPage extends React.Component {
                                             </IconContext.Provider>
                                         </div>
                                         {/* <p className="like-count">{2 + " likes"}</p> */}
-                                        <p className="like-count" onClick={this.handleLike(post.id)}>{this.props.likesArr.filter((like) => like.likeable_id == post.id).length + "  likes"}</p>
+                                        <p className="like-count">{this.props.likesArr.filter((like) => like.likeable_id == post.id).length + "  likes"}</p>
                                         {/* <p className="like-count" onClick={this.handleLike(post.id)}>{this.state.likeCount + "  likes"}</p> */}
                                         <p className="count-divider">|</p>
                                         {/* <p className="comment-count" onClick={this.handleCommentDisplay()}>{this.props.commentsArr.filter((comment) => comment.post_id == post.id).length + " comments"}</p> */}
@@ -337,7 +339,7 @@ class FeedPage extends React.Component {
                                     </div>
                                     <div className="like-comment-container">
                                         {/* <span><div className="like-span"> </div> </span> */}
-                                        <button id="like-button">
+                                        <button id="like-button" onClick={this.handleLike(post.id)}>
                                             <IconContext.Provider
                                                 value={{ style: { float: 'left', margin: '-2px 5px 0px 0px', fontSize: '22px' } }}>
                                                 <BiLike></BiLike>

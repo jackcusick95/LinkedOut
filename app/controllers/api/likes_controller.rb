@@ -9,7 +9,7 @@ class Api::LikesController < ApplicationController
         @like = Like.new(like_params)
         @like.liker_id = current_user.id 
         
-        if @like.save 
+        if @like.save! 
             render 'api/likes/show'
         else 
             render json: @like.errors.full_messages, status: 422
