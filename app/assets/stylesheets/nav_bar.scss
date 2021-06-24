@@ -26,7 +26,7 @@
 .right-nav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
+    grid-gap: 15px;
     align-items: center;
     justify-content: center;
 }
@@ -39,10 +39,15 @@
 }
 
 .nav-home {
+    color: grey;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.nav-home:hover {
+    color: black; 
 }
 
 .nav-signout {
@@ -80,16 +85,38 @@
      font-family: sans-serif;
      font-size: 10px;
      margin-top: -5px;
+    //  color:grey
 }
+
+// .nav-text:hover {
+//     color: black;
+// }
 
 .nav-profilebox-icons {
     margin-top: 5px;
-    margin-left: 50px;
+    margin-left: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 30px;
+    grid-gap: 15px;
     align-items: center;
     justify-content: center;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #e3eefa;
+
+}
+
+.nav-profilebox-icons:hover {
+    color:black;
+    border-color: black;
+    border-width: 2px;
+    cursor: pointer;
+    background-color: #e3eefa;
+    margin-left: 19px;
 }
 
 .showdrop {
@@ -113,7 +140,7 @@
 .me-dropdown {
 //    padding-top: 15px;
 
-    margin-bottom: -15px;
+    margin-bottom: -10px;
     border: none;
     background-color: white;
 }
@@ -122,14 +149,20 @@
     height: 25px; 
     width: 25px;
     border-radius: 50%;
-    margin-bottom: -6px;
+    margin-bottom: -8px;
+    margin-top: 2px;
 }
 
 .nav-drop-textalign {
     position: relative; 
     display: flex;
+    color: grey;
     //  align-items: center;
     // justify-content: center;
+}
+
+.nav-drop-textalign:hover {
+    color: black;
 }
 
 .drop-nav-text {
@@ -215,4 +248,25 @@
 .nav-drop-signout:hover {
     font-weight: 600;
 }
+
+.network-nav-button {
+    margin-left: 10px;
+    margin-bottom: -2px;
+}
+
+
+.home-nav-button {
+    // color: grey;
+    margin-bottom: -2px;
+}
+
+.job-nav-button {
+    margin-top: -1px;
+}
+
+.linkedin-nav-button {
+    margin-bottom: -1px;
+    margin-top: 1px;
+}
+
 

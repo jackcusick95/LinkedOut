@@ -4,7 +4,7 @@ import { IconContext } from "react-icons";
 import { ImHome3 } from 'react-icons/im';
 import { RiLogoutCircleRFill} from 'react-icons/ri';
 import { GiBearFace } from 'react-icons/gi';
-import { FaTrashAlt, FaRegCommentDots, FaLinkedin, FaGithub, FaPortrait } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaPortrait, FaUserFriends, FaHome, FaBriefcase } from 'react-icons/fa';
 import { BsFillBriefcaseFill } from 'react-icons/bs';
 import { IoMdArrowDropdown } from 'react-icons/io';
 
@@ -39,27 +39,27 @@ class NavBar extends React.Component {
                             <div className="nav-home">
                                 <div>
                                     <a href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
-                                        <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
+                                        <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                                             <FaLinkedin className="home-nav-button" />
                                         </IconContext.Provider>
                                         {/* <p className="nav-text">LinkedIn</p> */}
                                     </a>
                                 </div>
                             </div>
-                            <div className="nav-profile">
+                            <div className="nav-home">
                                 <div>
                                     <a href="https://github.com/jackcusick95">
-                                        <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
+                                        <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                                             <FaGithub className="profile-nav-button" />
                                         </IconContext.Provider>
                                         {/* <p className="nav-text">Github</p> */}
                                     </a>
                                 </div>
                             </div>
-                            <div className="nav-signout">
+                            <div className="nav-home">
                                 <div>
                                     <a href="https://www.jackcusick95.com/">
-                                        <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
+                                        <IconContext.Provider value={{ style: { fontSize: '23px' } }}>
                                             <FaPortrait className="nav-logout" />
                                         </IconContext.Provider>
                                         {/* <p className="nav-text">Website</p> */}
@@ -71,26 +71,26 @@ class NavBar extends React.Component {
                     <div className="right-nav">
                         <div className="nav-home">
                             <Link to={"/feed"}>
-                                <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
-                                    <ImHome3 className="home-nav-button"/> 
+                                <IconContext.Provider value={{ style: { fontSize: '30px' } }}>
+                                    <FaHome className="home-nav-button"/> 
                                 </IconContext.Provider>
                                 <p className="nav-text">Home</p>
                             </Link>
                         </div>
                         <div className="nav-home">
-                            <Link to={"/jobslist"}>
-                                <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
-                                    <BsFillBriefcaseFill className="home-nav-button" />
+                            <Link to={"/profile"}>
+                                <IconContext.Provider value={{ style: { fontSize: '30px' } }}>
+                                    <FaUserFriends className="network-nav-button" />
                                 </IconContext.Provider>
-                                <p className="nav-text">Jobs</p>
+                                <p className="nav-text">My Network</p>
                             </Link>
                         </div>
-                        <div className="nav-profile">
-                            <Link to={"/profile"}>
-                                <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
-                                    <GiBearFace className="profile-nav-button" />
+                        <div className="nav-home">
+                            <Link to={"/jobslist"}>
+                                <IconContext.Provider value={{ style: { fontSize: '29px' } }}>
+                                    <FaBriefcase className="job-nav-button" />
                                 </IconContext.Provider>
-                                <p className="nav-text">Profile</p>
+                                <p className="nav-text">Jobs</p>
                             </Link>
                         </div>
                         <div className="nav-signout">

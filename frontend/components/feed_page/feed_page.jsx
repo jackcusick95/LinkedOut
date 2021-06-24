@@ -463,11 +463,11 @@ class FeedPage extends React.Component {
                         <img className='feed-faceshot' src={window.anotherface} />
                         <h1 className='feed-name'>Jack Cusick</h1>
                         <div className="feed-profilebox-icons">
-                            <div className="nav-home">
+                            <div className="nav-profile">
                                 <div>
                                     <a href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
                                         <IconContext.Provider value={{ style: { fontSize: '35px'} }}>
-                                            <FaLinkedin className="home-nav-button" />
+                                            <FaLinkedin className="linkedin-nav-button" />
                                         </IconContext.Provider>
                                         <p className="profile-text">LinkedIn</p>
                                     </a>
