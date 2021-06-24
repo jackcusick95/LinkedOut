@@ -47,8 +47,7 @@ class FeedPage extends React.Component {
         this.handleCommentBody = this.handleCommentBody.bind(this); 
         this.handleCommentDisplay = this.handleCommentDisplay.bind(this); 
         this.handleLike = this.handleLike.bind(this); 
-        // this.setLike = this.setLike.bind(this);
-        // this.hideLikes = this.hideLikes.bind(this);
+        this.removeLike = this.removeLike.bind(this); 
 
     }
 
@@ -181,6 +180,19 @@ class FeedPage extends React.Component {
     //         }
     //     }
     // }
+
+    removeLike(likeObject) {
+        return (e) => {
+            e.preventDefault(); 
+            const likeId = likeObject[0].id;
+            console.log(likeId);
+
+            this.props.deleteLike(likeId).then(like => {
+                this.setState({ like: {} });
+                this.setState({ liked: false });
+            });
+        }
+    }
 
     handleLike(postId) {
         return (e) => {
@@ -337,8 +349,8 @@ class FeedPage extends React.Component {
                                         <p className="comment-count" onClick={this.handleCommentDisplay(post.id)}>{this.props.commentsArr.filter((comment) => comment.post_id == post.id).length + " comments"}</p>
                                     </div>
                                     <div className="like-comment-container">
-                                        {this.props.likesArr.filter((like) => like.likeable_id == post.id).length > 0 ?
-                                            <button id="liked-button">
+                                        {this.props.likesArr.filter((like) => like.likeable_id == post.id && like.liker_id == post.author_id).length > 0 ?
+                                            <button id="liked-button" onClick={this.removeLike(this.props.likesArr.filter((like) => like.likeable_id == post.id))}>
                                                 <IconContext.Provider
                                                     value={{ style: { float: 'left', margin: '-2px 5px 0px 0px', fontSize: '22px' } }}>
                                                     <BiLike></BiLike>
