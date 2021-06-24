@@ -333,7 +333,7 @@ ActiveRecord::Base.transaction do
     post_13.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/google.jpg'), filename: 'google.jpg')
 
     like_1 = Like.create(
-        liker_id: demo.id,
+        liker_id: user_6.id,
         likeable_id: post_3.id,
         likeable_type: "post"
     )
@@ -356,6 +356,12 @@ ActiveRecord::Base.transaction do
 
     like_2 = Like.create(
             liker_id: user_11.id,
+            likeable_id: post_1.id,
+            likeable_type: "post"
+        )
+
+    like_3 = Like.create(
+            liker_id: user_13.id,
             likeable_id: post_1.id,
             likeable_type: "post"
         )
