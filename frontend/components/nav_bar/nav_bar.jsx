@@ -78,7 +78,7 @@ class NavBar extends React.Component {
                             </Link>
                         </div>
                         <div className="nav-home">
-                            <Link to={"/profile"}>
+                            <Link to={"/network"}>
                                 <IconContext.Provider value={{ style: { fontSize: '30px' } }}>
                                     <FaUserFriends className="network-nav-button" />
                                 </IconContext.Provider>

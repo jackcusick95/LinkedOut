@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { IconContext } from "react-icons";
 import { FaLinkedin, FaGithub, FaPortrait } from 'react-icons/fa';
 
-class JobsList extends React.Component {
+class MyNetwork extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -11,12 +11,8 @@ class JobsList extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllJobs();
+        this.props.fetchAllPosts();
     }
-
-    // getAlert(e) {
-    //     e.preventDefault();
-    //     alert("Coming soon!");
-    // }
 
     render() {
         console.log(this.props);
@@ -26,22 +22,22 @@ class JobsList extends React.Component {
                 </div>
                 <div className="jobs-outer-container">
                     <div className="jobs-index-box">
-                        <h1 className="about-header">Jobs</h1>
-                        {[...this.props.jobsArr].map((job) => {
-                            const jobDescription = job.description ? <p className="job-description">{job.description}</p> : <br className="job-description-two"></br>;
+                        <h1 className="about-header">See who's on LinkedOut!</h1>
+                        {[...this.props.usersArr].map((user) => {
+                            const userDescription = user.description ? <p className="job-description">{user.description}</p> : <br className="job-description-two"></br>;
                             return (
                                 <div className="full-job-container">
-                                    <div className="job-container" key={job.id}>
+                                    <div className="job-container" key={user.id}>
                                         <img className='session-job-photo' src={
-                                            job.photoUrl ?
-                                                job.photoUrl :
+                                            user.profile_photo ?
+                                                user.profile_photo :
                                                 window.dogo} />
                                         <div className="job-info-container">
-                                            <h1 className="job-title">{job.title}</h1>
-                                            <p className="job-company">{job.company}</p>
-                                            <p className="job-date">{job.start_date} - {job.end_date}</p>
-                                            <p className="job-location">{job.location}</p>
-                                            {jobDescription}
+                                            <h1 className="job-title">{user.fname} {user.lname}</h1>
+                                            <p className="job-company">{user.title}</p>
+                                            {/* <p className="job-date">{user.start_date} - {job.end_date}</p> */}
+                                            <p className="job-location">{user.location}</p>
+                                            {/* {userDescription} */}
                                         </div>
                                     </div>
                                 </div>
@@ -91,4 +87,4 @@ class JobsList extends React.Component {
 
 }
 
-export default JobsList;
+export default MyNetwork;
