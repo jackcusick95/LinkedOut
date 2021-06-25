@@ -35,7 +35,7 @@ class MyNetwork extends React.Component {
                                         <div className="job-info-container">
                                             <h1 className="job-title">{user.fname} {user.lname}</h1>
                                             <p className="job-company">{user.title}</p>
-                                            {/* <p className="job-date">{user.start_date} - {job.end_date}</p> */}
+                                            {/* <p className="job-date">User since: {user.created_at}</p> */}
                                             <p className="job-location">{user.location}</p>
                                             {/* {userDescription} */}
                                         </div>

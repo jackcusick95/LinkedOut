@@ -101,8 +101,9 @@ class FeedPage extends React.Component {
     handleComment(postId) {
         return (e) => {
             e.preventDefault();
-            this.props.createComment(this.state.comment, postId)
-            this.state.commentId = postId
+            this.props.createComment(this.state.comment, postId);
+            document.getElementById('comment-input').value = null;
+            this.state.commentId = postId;
             this.setState({ displayComment: true })
             .then(() => {
                 this.commentRefs[postId].current.reset()
@@ -377,13 +378,14 @@ class FeedPage extends React.Component {
                                     { this.state.displayComment === true && post.id === this.state.commentId ?
                                         <div className="comment-section">
                                             <div className="create-comment">
-                                                <form className="comment-container" onSubmit={this.handleComment(post.id)}>
+                                                <form id="comment-container" onSubmit={this.handleComment(post.id)}>
                                                     <img className='post-comment-dogo' src={
                                                         this.props.currentuser.profile_photo ?
                                                         this.props.currentuser.profile_photo :
                                                         window.dogo} />
                                                     <input type="text"
                                                         className="comment-form"
+                                                        id="comment-input"
                                                         required="required"
                                                         placeholder="Add a comment..."
                                                         onChange={this.handleCommentBody(post.id)}
