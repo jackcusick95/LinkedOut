@@ -40,13 +40,14 @@ class SessionProfilePage extends React.Component {
                             fetchAllJobs={this.props.fetchAllJobs}
                             jobs={this.props.jobs}
                             currentuser={this.props.currentuser}
-                            currentjob={this.props.currentjob}
+                            // currentjob={this.props.currentjob}
                             fetchAllEducations={this.props.fetchAllEducations}
                             educationsArr={this.props.educationsArr}
                             jobmodal={this.props.jobmodal}
                             educationmodal={this.props.educationmodal}
                             addjobmodal={this.props.addjobmodal}
                             addeducationmodal={this.props.addeducationmodal}
+                            // jobId={this.props.jobId}
                         />
                     </div>
                     <div className="news-sidebar">

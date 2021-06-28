@@ -11,7 +11,7 @@ const receiveAllJobs = (payload) => {
     }
 }
 
-const receiveJob = (job) => {
+export const receiveJob = (job) => {
     return {
         type: RECEIVE_JOB,
         job

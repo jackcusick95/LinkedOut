@@ -5,15 +5,13 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import { IconContext } from "react-icons";
 import { BsPencil } from 'react-icons/bs';
 import { MdAdd } from 'react-icons/md';
-import {fetchAllJobs} from '../../actions/job_actions';
+import {fetchAllJobs, receive_job} from '../../actions/job_actions';
 import {fetchAllEducations} from '../../actions/education_actions'; 
 
 
 
 const mapStateToProps = (state) => {
-    // const sortJob = Object.values(state.entities.jobs).filter(
-    //     job => job.user_id == this.props.currentuser.id
-    // )
+
     return {
         currentuser: state.entities.users[state.session.id],
         users: state.entities.users,
@@ -22,7 +20,7 @@ const mapStateToProps = (state) => {
         jobsArr: Object.values(state.entities.jobs), 
         educations: state.entities.educations,
         educationsArr: Object.values(state.entities.educations), 
-        currentjob: state.entities.jobs[state.session.id],
+        // currentjob: state.entities.jobs[state.session.id],
         // currentjobs: sortJob,
     };
 };

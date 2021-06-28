@@ -1,14 +1,17 @@
 import React from 'react';
+import EditJobItem from './job_modal';
 import { IconContext } from "react-icons";
-import { BsPencil } from "react-icons/bs";
-import { IoAdd } from "react-icons/io";
-import { openModal } from '../../actions/modal_actions';
+import EditJob from './job_modal';
+// import { BsPencil } from "react-icons/bs";
+// import { IoAdd } from "react-icons/io";
+// import { openModal } from '../../actions/modal_actions';
 
 class ExperienceInfo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             jobId: null,
+            showMyComponent: false,
         }
     }
 
@@ -16,6 +19,10 @@ class ExperienceInfo extends React.Component {
         this.props.fetchAllJobs();
         this.props.fetchAllEducations(); 
     }
+
+    // handleJobId(jobId) {
+    //     this.setState({ jobId: jobId });
+    // }
 
 
     render() {
@@ -28,7 +35,7 @@ class ExperienceInfo extends React.Component {
                     <h1 className="about-header">Experience</h1>
                         {[...this.props.jobsArr].map((job) => {
                             const jobDescription = job.description ? <p className="job-description">{job.description}</p> : <br className="job-description-two"></br>;
-                            if (job.user_id == this.props.currentuser.id) 
+                            if (job.user_id == this.props.currentuser.id)
                             // this.state.jobId = job.id; 
                             return (
                                 <div className="job-container" key={job.id}>
@@ -60,7 +67,7 @@ class ExperienceInfo extends React.Component {
                                         education.photoUrl ?
                                             education.photoUrl :
                                             window.graduation} />
-                                    {this.props.jobmodal}
+                                    {this.props.educationmodal}
                                     <div className="job-info-container">
                                         <h1 className="job-title">{education.school}</h1>
                                         <p className="job-company">{education.degree}</p>

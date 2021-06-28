@@ -10,11 +10,12 @@ class EditJobItem extends React.Component {
         this.state = {
             ...this.props.jobsArr.filter(
                 job => job.user_id == this.props.currentuser.id
-            )
+            )[0]
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
     }
+
 
     handleSubmit(e) {
         e.preventDefault();
