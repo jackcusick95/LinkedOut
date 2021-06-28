@@ -21,24 +21,29 @@ class MyNetwork extends React.Component {
                 <div className="jobs-navbar">
                 </div>
                 <div className="jobs-outer-container">
-                    <div className="jobs-index-box">
-                        <h1 className="about-header">See who's on LinkedOut!</h1>
+                    <div className="network-index-box">
+                        <h1 className="network-about-header">See who's on LinkedOut!</h1>
                         {[...this.props.usersArr].map((user) => {
                             const userDescription = user.description ? <p className="job-description">{user.description}</p> : <br className="job-description-two"></br>;
                             return (
-                                <div className="full-job-container">
-                                    <div className="job-container" key={user.id}>
-                                        <img className='session-job-photo' src={
+                                <div className="full-network-container">
+                                    <div className="network-container" key={user.id}>
+                                        <img className='session-network-photo' src={
                                             user.profile_photo ?
                                                 user.profile_photo :
                                                 window.dogo} />
-                                        <div className="job-info-container">
+                                        <div className="network-info-container">
                                             <h1 className="job-title">{user.fname} {user.lname}</h1>
                                             <p className="job-company">{user.title}</p>
                                             {/* <p className="job-date">User since: {user.created_at}</p> */}
                                             <p className="job-location">{user.location}</p>
                                             {/* {userDescription} */}
                                         </div>
+                                        <div className="network-connect-button">
+                                            <span className="nav-tooltip" >Feature coming soon!</span>
+                                            <p>Connect</p>                                        
+                                        </div>
+                                    {user !== this.props.usersArr[this.props.usersArr.length - 1] ? <div className="job-divider"></div> : <div></div>}
                                     </div>
                                 </div>
                             );

@@ -1,0 +1,97 @@
+.network-index-box{
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    height: auto;
+    box-shadow: 0 4px 12px lightgrey;
+    padding: 24px, 32px, 32px; 
+    border-radius: 8px;
+    background: #fff;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    z-index: 3;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.network-about-header {
+    margin-left: 3%;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 5px;
+    font-family: sans-serif;
+    color: black; 
+    padding-bottom: 30px;    
+}
+
+.network-container {
+    background-color: white;
+    font-family: sans-serif;
+    position: relative; 
+    // display: flex;
+    height: 100%;
+    white-space: nowrap;
+    margin-bottom: 30px;
+    // width: 100%;
+}
+
+.session-network-photo {
+    display: inline-block;
+    height: 50px; 
+    width: 50px;
+    margin-left: 3%;
+    padding-top: 3px;
+    // margin-bottom: 30px;
+}
+
+.network-info-container {
+    display: inline-block;
+    margin-left: 20px;
+    // margin-top: 10px;
+    overflow-wrap: break-word;
+}
+
+.network-connect-button {
+    float: right;
+    text-align: center;
+    text-decoration: none; 
+    border-radius: 50px; 
+    border-width: 1px;
+    box-shadow: inset 0 0 0 1px #0a66c2;
+    color: #0a66c2;
+    margin-right: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+    font-family: sans-serif;
+    margin-top: 10px;
+    // white-space: nowrap;
+}
+
+.network-connect-button:hover {
+    box-shadow: inset 0 0 0 2px #0a66c2;
+    cursor: pointer;
+
+    .nav-tooltip{
+        visibility: visible;
+        opacity: 1;
+        color:rgb(238, 238, 238);
+        background-color: #2977c9;
+    }  
+}
+
+    .nav-tooltip{
+        visibility:hidden;
+        display: inline;
+        position:absolute;
+        margin-top: 20px;
+        margin-left: 15px;
+        width: 100px;
+        padding: 3px;
+        background-color: rgb(70, 70, 70);
+        opacity: 0;
+        transition: opacity 1s;
+        border-radius: 0px 8px 8px 8px;
+    }
