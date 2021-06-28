@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import { updateJob } from '../../actions/job_actions';
+import { updateEducation } from '../../actions/education_actions';
 
-
-class EditJobItem extends React.Component {
+class EditEducationItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ...this.props.jobsArr.filter(
-                job => job.user_id == this.props.currentuser.id
+            ...this.props.educationsArr.filter(
+                education => education.user_id == this.props.currentuser.id
             )
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,7 +19,7 @@ class EditJobItem extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        this.props.updateJob({
+        this.props.updateEducation({
             ...this.state
         }).then(this.props.closeModal);
     }
@@ -31,7 +31,7 @@ class EditJobItem extends React.Component {
 
     render() {
         const {
-            company, description, start_date, title, location
+            school, degree, field, start_date, description
         } = this.state;
         console.log(this.state);
         return (
@@ -42,45 +42,45 @@ class EditJobItem extends React.Component {
                 <div className="edit-modal-border"></div>
                 <form className="edit-modal-form" onSubmit={this.handleSubmit}>
                     <div className="edit-modal-fullname">
-                        <label className="modal-name-label">Position *</label>
+                        <label className="modal-name-label">School *</label>
                         <input
                             type="text"
                             className="modal-fname-input"
-                            placeholder={title}
-                            value={title}
+                            placeholder={school}
+                            value={school}
                             required="required"
-                            onChange={this.handleInput('company')} />
+                            onChange={this.handleInput('school')} />
                         {/* </div> */}
                         <div className="model-name-container">
-                            <label className="modal-name-label">Company *</label>
+                            <label className="modal-name-label">Degree *</label>
                             <input
                                 type="text"
                                 className="modal-lname-input"
-                                placeholder={company}
-                                value={company}
+                                placeholder={degree}
+                                value={degree}
                                 required="required"
-                                onChange={this.handleInput('company')} />
+                                onChange={this.handleInput('degree')} />
                         </div>
                     </div>
                     <div className="modal-edit-title-location">
                         <div className="model-headline-container">
-                            <label className="modal-name-label">Start Date *</label>
+                            <label className="modal-name-label">Field *</label>
                             <input
                                 type="text"
                                 className="modal-headline"
-                                placeholder={start_date}
-                                value={start_date}
+                                placeholder={field}
+                                value={field}
                                 required="required"
-                                onChange={this.handleInput('start_date')} />
+                                onChange={this.handleInput('field')} />
                         </div>
                         <div className="model-location-container">
-                            <label className="modal-name-label">Location</label>
+                            <label className="modal-name-label">Start Date</label>
                             <input
                                 type="text"
                                 className="modal-location"
-                                placeholder={location}
-                                value={location}
-                                onChange={this.handleInput('location')} />
+                                placeholder={start_date}
+                                value={start_date}
+                                onChange={this.handleInput('start_date')} />
                         </div>
                     </div>
                     <div className="model-description-container">
@@ -107,17 +107,18 @@ const mapStateToProps = (state) => {
     return {
         currentuser: state.entities.users[state.session.id],
         users: state.entities.users,
-        jobsArr: Object.values(state.entities.jobs),
+        educationsArr: Object.values(state.entities.educations),
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         closeModal: () => dispatch(closeModal()),
-        updateJob: (job) => dispatch(updateJob(job))
+        updateJob: (job) => dispatch(updateJob(job)),
+        updateEducation: (education) => dispatch(updateEducation(education)),
     };
 };
 
-const EditJob = connect(mapStateToProps, mapDispatchToProps)(EditJobItem);
+const EditEducation = connect(mapStateToProps, mapDispatchToProps)(EditEducationItem);
 
-export default EditJob;
+export default EditEducation;

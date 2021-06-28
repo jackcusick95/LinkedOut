@@ -10,6 +10,9 @@ import {fetchAllEducations} from '../../actions/education_actions';
 
 
 const mapStateToProps = (state) => {
+    // const sortJob = Object.values(state.entities.jobs).filter(
+    //     job => job.user_id == this.props.currentuser.id
+    // )
     return {
         currentuser: state.entities.users[state.session.id],
         users: state.entities.users,
@@ -19,6 +22,7 @@ const mapStateToProps = (state) => {
         educations: state.entities.educations,
         educationsArr: Object.values(state.entities.educations), 
         currentjob: state.entities.jobs[state.session.id],
+        // currentjobs: sortJob,
     };
 };
 
@@ -36,7 +40,24 @@ const mapDispatchToProps = (dispatch) => {
                     onClick={() => dispatch(openModal('edit'))}
                 />
             </IconContext.Provider>
-        )
+        ),
+        jobmodal: (
+            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                <BsPencil
+                    className="edit-basicinfo-button"
+                    onClick={() => dispatch(openModal('job'))}
+                />
+            </IconContext.Provider>
+        ),
+        educationmodal: (
+            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                <BsPencil
+                    className="edit-basicinfo-button"
+                    onClick={() => dispatch(openModal('education'))}
+                />
+            </IconContext.Provider>
+        ),
+
     };
 };
 

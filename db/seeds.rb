@@ -574,7 +574,7 @@ ActiveRecord::Base.transaction do
         field: "Technology",
         start_date: "2021",
         end_date: "2021",
-        description: "Completed a fullstack software engineering bootcamp learning React, Redux, Ruby, Javascript, AWS, and more.", 
+        description: "Fullstack software engineering bootcamp learning React, Redux, Ruby, Javascript, AWS, and more.", 
     )
 
     demo_education_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/aalogo.png'), filename: 'aalogo.png')

@@ -3,6 +3,8 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux'; 
 import PostContainer from  '../../components/feed_page/post_container';
 import EditModal from '../profile_page/edit_modal';
+import EditJob from '../profile_page/job_modal';
+import EditEducation from '../profile_page/job_modal';
 // import FeedPage from '../feed_page/feed_page';
 
 function Modal({ modal, closeModal }) {
@@ -16,6 +18,12 @@ function Modal({ modal, closeModal }) {
             break;
         case 'edit':
             component = <EditModal />;
+            break;
+        case 'job':
+            component = <EditJob />;
+            break;
+        case 'education':
+            component = <EditEducation />;
             break;
         default:
             return null;

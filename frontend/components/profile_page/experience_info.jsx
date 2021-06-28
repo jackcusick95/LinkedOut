@@ -1,9 +1,14 @@
 import React from 'react';
+import { IconContext } from "react-icons";
+import { BsPencil } from "react-icons/bs";
+import { openModal } from '../../actions/modal_actions';
 
 class ExperienceInfo extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            jobId: null,
+        }
     }
 
     componentDidMount() {
@@ -14,6 +19,7 @@ class ExperienceInfo extends React.Component {
 
     render() {
         console.log(this.props);
+
         return (
             <div>
                 <div className="experience-box">
@@ -21,12 +27,14 @@ class ExperienceInfo extends React.Component {
                         {[...this.props.jobsArr].map((job) => {
                             const jobDescription = job.description ? <p className="job-description">{job.description}</p> : <br className="job-description-two"></br>;
                             if (job.user_id == this.props.currentuser.id) 
+                            // this.state.jobId = job.id; 
                             return (
                                 <div className="job-container" key={job.id}>
                                     <img className='session-job-photo' src={
                                         job.photoUrl ?
                                             job.photoUrl :
                                             window.dogo} />
+                                    {this.props.jobmodal}
                                     <div className="job-info-container">
                                         <h1 className="job-title">{job.title}</h1>
                                         <p className="job-company">{job.company}</p>
@@ -49,6 +57,7 @@ class ExperienceInfo extends React.Component {
                                         education.photoUrl ?
                                             education.photoUrl :
                                             window.dogo} />
+                                    {this.props.jobmodal}
                                     <div className="job-info-container">
                                         <h1 className="job-title">{education.school}</h1>
                                         <p className="job-company">{education.degree}</p>
