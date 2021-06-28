@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { IconContext } from "react-icons";
 import { BsPencil } from 'react-icons/bs';
+import { MdAdd } from 'react-icons/md';
 import {fetchAllJobs} from '../../actions/job_actions';
 import {fetchAllEducations} from '../../actions/education_actions'; 
 
@@ -54,6 +55,22 @@ const mapDispatchToProps = (dispatch) => {
                 <BsPencil
                     className="edit-basicinfo-button"
                     onClick={() => dispatch(openModal('education'))}
+                />
+            </IconContext.Provider>
+        ),
+        addjobmodal: (
+            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                <MdAdd
+                    className="add-basicinfo-button"
+                    onClick={() => dispatch(openModal('addjob'))}
+                />
+            </IconContext.Provider>
+        ),
+        addeducationmodal: (
+            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                <MdAdd
+                    className="add-basicinfo-button"
+                    onClick={() => dispatch(openModal('addeducation'))}
                 />
             </IconContext.Provider>
         ),

@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconContext } from "react-icons";
 import { BsPencil } from "react-icons/bs";
+import { IoAdd } from "react-icons/io";
 import { openModal } from '../../actions/modal_actions';
 
 class ExperienceInfo extends React.Component {
@@ -23,6 +24,7 @@ class ExperienceInfo extends React.Component {
         return (
             <div>
                 <div className="experience-box">
+                    {this.props.addjobmodal}
                     <h1 className="about-header">Experience</h1>
                         {[...this.props.jobsArr].map((job) => {
                             const jobDescription = job.description ? <p className="job-description">{job.description}</p> : <br className="job-description-two"></br>;
@@ -33,7 +35,7 @@ class ExperienceInfo extends React.Component {
                                     <img className='session-job-photo' src={
                                         job.photoUrl ?
                                             job.photoUrl :
-                                            window.dogo} />
+                                            window.building} />
                                     {this.props.jobmodal}
                                     <div className="job-info-container">
                                         <h1 className="job-title">{job.title}</h1>
@@ -47,6 +49,7 @@ class ExperienceInfo extends React.Component {
                             );
                         })}
                     <div className="experience-divider"></div>
+                    {this.props.addeducationmodal}
                     <h1 className="about-header">Education</h1>
                     {[...this.props.educationsArr].map((education) => {
                         const educationDescription = education.description ? <p className="job-description">{education.description}</p> : <br className="job-description-two"></br>;
@@ -56,7 +59,7 @@ class ExperienceInfo extends React.Component {
                                     <img className='session-job-photo' src={
                                         education.photoUrl ?
                                             education.photoUrl :
-                                            window.dogo} />
+                                            window.graduation} />
                                     {this.props.jobmodal}
                                     <div className="job-info-container">
                                         <h1 className="job-title">{education.school}</h1>

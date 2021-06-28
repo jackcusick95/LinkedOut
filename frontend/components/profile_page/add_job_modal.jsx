@@ -1,16 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
-import { updateJob } from '../../actions/job_actions';
-import { updateEducation } from '../../actions/education_actions';
+import { updateJob, createJob } from '../../actions/job_actions';
 
-class EditEducationItem extends React.Component {
+
+class AddJobItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ...this.props.educationsArr.filter(
-                education => education.user_id == this.props.currentuser.id
-            )
+            job: {},
+            user_id: this.props.currentuser.id,
+            company: "",
+            description: "",
+            title: "",
+            start_date: "",
+            end_date: "",
+            location: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
@@ -18,48 +23,64 @@ class EditEducationItem extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('job[user_id]', this.state.user_id);
+        formData.append('job[company]', this.state.company);
+        formData.append('job[description]', this.state.description);
+        formData.append('job[title]', this.state.title);
+        formData.append('job[start_date]', this.state.start_date);
+        formData.append('job[end_date]', this.state.end_date);
+        formData.append('job[location]', this.state.location);
 
-        this.props.updateEducation({
-            ...this.state
-        }).then(this.props.closeModal);
+        console.log(formData); 
+        this.props.createJob(formData)
+            .then(this.props.closeModal);
+        this.setState({
+            company: "",
+            description: "",
+            title: "",
+            start_date: "",
+            end_date: "",
+            location: ""
+        });
     }
 
     handleInput(field) {
-        return e => this.setState({ [field]: e.target.value });
+        return e => this.setState({  [field]: e.currentTarget.value } );
     }
 
 
     render() {
         const {
-            school, degree, field, start_date, description
+            company, description, start_date, title, location, end_date
         } = this.state;
         console.log(this.state);
         return (
 
             <div className="modal-edit">
-                <h2 className="modal-edit-header">Edit Education</h2>
+                <h2 className="modal-edit-header">Add Job Experience</h2>
                 <div onClick={this.props.closeModal} className="close-x">X</div>
                 <div className="edit-modal-border"></div>
                 <form className="edit-modal-form" onSubmit={this.handleSubmit}>
                     <div className="edit-modal-fullname">
-                        <label className="modal-name-label">School *</label>
+                        <label className="modal-name-label">Position *</label>
                         <input
                             type="text"
                             className="modal-fname-input"
-                            placeholder={school}
-                            value={school}
+                            placeholder={title}
+                            value={title}
                             required="required"
-                            onChange={this.handleInput('school')} />
+                            onChange={this.handleInput('title')} />
                         {/* </div> */}
                         <div className="model-name-container">
-                            <label className="modal-name-label">Degree *</label>
+                            <label className="modal-name-label">Company *</label>
                             <input
                                 type="text"
                                 className="modal-lname-input"
-                                placeholder={degree}
-                                value={degree}
+                                placeholder={company}
+                                value={company}
                                 required="required"
-                                onChange={this.handleInput('degree')} />
+                                onChange={this.handleInput('company')} />
                         </div>
                     </div>
                     <div className="modal-edit-title-location">
@@ -87,13 +108,13 @@ class EditEducationItem extends React.Component {
                         </div>
                     </div>
                     <div className="model-location-container">
-                        <label className="modal-name-label">Field</label>
+                        <label className="modal-name-label">Location</label>
                         <input
                             type="text"
                             className="modal-location"
-                            placeholder={field}
-                            value={field}
-                            onChange={this.handleInput('field')} />
+                            placeholder={location}
+                            value={location}
+                            onChange={this.handleInput('location')} />
                     </div>
                     <div className="model-description-container">
                         <label className="modal-description-label">Description</label>
@@ -119,7 +140,7 @@ const mapStateToProps = (state) => {
     return {
         currentuser: state.entities.users[state.session.id],
         users: state.entities.users,
-        educationsArr: Object.values(state.entities.educations),
+        jobsArr: Object.values(state.entities.jobs),
     };
 };
 
@@ -127,10 +148,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         closeModal: () => dispatch(closeModal()),
         updateJob: (job) => dispatch(updateJob(job)),
-        updateEducation: (education) => dispatch(updateEducation(education)),
+        createJob: (job) => dispatch(createJob(job)),
     };
 };
 
-const EditEducation = connect(mapStateToProps, mapDispatchToProps)(EditEducationItem);
+const AddJob = connect(mapStateToProps, mapDispatchToProps)(AddJobItem);
 
-export default EditEducation;
+export default AddJob;

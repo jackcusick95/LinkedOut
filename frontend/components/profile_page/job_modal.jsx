@@ -31,7 +31,7 @@ class EditJobItem extends React.Component {
 
     render() {
         const {
-            company, description, start_date, title, location
+            company, description, start_date, end_date, title, location
         } = this.state;
         console.log(this.state);
         return (
@@ -49,7 +49,7 @@ class EditJobItem extends React.Component {
                             placeholder={title}
                             value={title}
                             required="required"
-                            onChange={this.handleInput('company')} />
+                            onChange={this.handleInput('title')} />
                         {/* </div> */}
                         <div className="model-name-container">
                             <label className="modal-name-label">Company *</label>
@@ -63,17 +63,30 @@ class EditJobItem extends React.Component {
                         </div>
                     </div>
                     <div className="modal-edit-title-location">
-                        <div className="model-headline-container">
-                            <label className="modal-name-label">Start Date *</label>
-                            <input
-                                type="text"
-                                className="modal-headline"
-                                placeholder={start_date}
-                                value={start_date}
-                                required="required"
-                                onChange={this.handleInput('start_date')} />
+                        <div className="start-end-container">
+                            <div className="model-start-container">
+                                <label className="modal-name-label">Start Year *</label>
+                                <input
+                                    type="text"
+                                    className="modal-start-input"
+                                    placeholder={start_date}
+                                    value={start_date}
+                                    required="required"
+                                    onChange={this.handleInput('start_date')} />
+                            </div>
+                            <div className="model-end-container">
+                                <label className="modal-name-label">End Year *</label>
+                                <input
+                                    type="text"
+                                    className="modal-end-input"
+                                    placeholder={end_date}
+                                    value={end_date}
+                                    required="required"
+                                    onChange={this.handleInput('end_date')} />
+                            </div> 
                         </div>
-                        <div className="model-location-container">
+                    </div>
+                    <div className="model-location-container">
                             <label className="modal-name-label">Location</label>
                             <input
                                 type="text"
@@ -81,7 +94,6 @@ class EditJobItem extends React.Component {
                                 placeholder={location}
                                 value={location}
                                 onChange={this.handleInput('location')} />
-                        </div>
                     </div>
                     <div className="model-description-container">
                         <label className="modal-description-label">Description</label>

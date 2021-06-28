@@ -10,7 +10,9 @@ export const createEducation = (education) => {
     return $.ajax({
         method: 'POST',
         url: '/api/educations',
-        data: education
+        data: education,
+        contentType: false,
+        processData: false
     });
 }
 

@@ -2,15 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import { updateJob } from '../../actions/job_actions';
-import { updateEducation } from '../../actions/education_actions';
+import { updateEducation, createEducation } from '../../actions/education_actions';
 
-class EditEducationItem extends React.Component {
+class AddEducationItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ...this.props.educationsArr.filter(
-                education => education.user_id == this.props.currentuser.id
-            )
+            education: {},
+            user_id: this.props.currentuser.id,
+            school: "",
+            degree: "",
+            field: "",
+            start_date: "",
+            end_date: "",
+            description: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
@@ -18,10 +23,26 @@ class EditEducationItem extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('education[user_id]', this.state.user_id);
+        formData.append('education[school]', this.state.school);
+        formData.append('education[degree]', this.state.degree);
+        formData.append('education[field]', this.state.field);
+        formData.append('education[start_date]', this.state.start_date);
+        formData.append('education[end_date]', this.state.end_date);
+        formData.append('education[description]', this.state.description);
 
-        this.props.updateEducation({
-            ...this.state
-        }).then(this.props.closeModal);
+        console.log(formData);
+        this.props.createEducation(formData)
+            .then(this.props.closeModal);
+        this.setState({
+            school: "",
+            degree: "",
+            field: "",
+            start_date: "",
+            end_date: "",
+            description: ""
+        });
     }
 
     handleInput(field) {
@@ -31,13 +52,13 @@ class EditEducationItem extends React.Component {
 
     render() {
         const {
-            school, degree, field, start_date, description
+            school, degree, field, start_date, end_date, description
         } = this.state;
         console.log(this.state);
         return (
 
             <div className="modal-edit">
-                <h2 className="modal-edit-header">Edit Education</h2>
+                <h2 className="modal-edit-header">Add Education</h2>
                 <div onClick={this.props.closeModal} className="close-x">X</div>
                 <div className="edit-modal-border"></div>
                 <form className="edit-modal-form" onSubmit={this.handleSubmit}>
@@ -128,9 +149,10 @@ const mapDispatchToProps = (dispatch) => {
         closeModal: () => dispatch(closeModal()),
         updateJob: (job) => dispatch(updateJob(job)),
         updateEducation: (education) => dispatch(updateEducation(education)),
+        createEducation: (education) => dispatch(createEducation(education)),
     };
 };
 
-const EditEducation = connect(mapStateToProps, mapDispatchToProps)(EditEducationItem);
+const AddEducation = connect(mapStateToProps, mapDispatchToProps)(AddEducationItem);
 
-export default EditEducation;
+export default AddEducation;

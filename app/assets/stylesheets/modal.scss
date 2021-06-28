@@ -275,4 +275,44 @@
   margin-left: 440px;  
    }
 
+  .start-end-container {
+    // position: relative,
+    display: flex;
+    justify-content: space-between;
+    width: 235px;
+  }
+
+  .modal-start-container {
+    display: inline-block;
+  }
+
+  .modal-end-container {
+    display: inline-block;
+    // padding-left: 25px;
+  }
+
+  .modal-start-input {
+    display: table-column;
+      width: 90px;
+      border-radius: 3px;
+      height: 25px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      font-family: sans-serif;
+      padding: 2px;
+  }
+
+  .modal-end-input {
+    display: table-column;
+      width: 100px;
+      border-radius: 3px;
+      height: 25px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      font-family: sans-serif;
+      padding: 2px;
+      // margin-right: 20px;
+  }
+
+
 
