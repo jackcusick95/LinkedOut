@@ -182,7 +182,7 @@ ActiveRecord::Base.transaction do
         company: 'Self Employed'     
     )
 
-    # user_12.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
+    user_12.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/tony-hawk.jpg'), filename: 'tony-hawk.jpg')
 
     user_13 = User.create(
         email: 'bode@gmail.com',
@@ -210,7 +210,7 @@ ActiveRecord::Base.transaction do
         company: 'National Geographic'     
     )
 
-    # user_14.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
+    user_14.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/clarepro.png'), filename: 'clarepro.png')
 
     user_15 = User.create(
         email: 'john@gmail.com',
@@ -223,6 +223,8 @@ ActiveRecord::Base.transaction do
         industry: 'Comedy',
         company: 'Self Employed'     
     )
+
+    user_15.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/johnmulaney.jpg'), filename: 'johnmulaney.jpg')
 
     job_poster = User.create(
         email: 'jobposter@gmail.com',
@@ -238,22 +240,22 @@ ActiveRecord::Base.transaction do
     )
 
     
+    post_30 = Post.create(
+        body: 'It’s important to remember that life is a joke and that outlook grants a lot of perspective, but I don’t think comedy should change and become political due to other things. It should just laugh at that cosmic joke that life is all the time.',
+        author_id: user_15.id,
+    )
 
-    # user_15.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lebronpp.jpg'), filename: 'lebronpp.jpg')
+    post_31 = Post.create(
+        body: 'Can`t wait for the summer to get great shots all around the city!',
+        author_id: user_14.id,
+    )
 
-    # post_1 = Post.create(
-    #     body: 'New to LinkedOut. Looking forward to connecting with all my friends!',
-    #     author_id: demo.id,
-    # )
-    # post_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/friends.jpg'), filename: 'friends.jpg')
+    post_31.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/clarephoto.png'), filename: 'clarephoto.png')
 
-
-    # post_2 = Post.create(
-    #     body: 'Long day at the office, but the walk after work was beautiful!',
-    #     author_id: demo.id,
-    # )
-
-    # post_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/summer.jpg'), filename: 'summer.jpg')
+    post_32 = Post.create(
+        body: 'I love snowboarding, but I would never want to do it competitively or at a professional level. Snowboarding is a spawn of skating, and skating is my passion.',
+        author_id: user_12.id,
+    )
 
     post_3 = Post.create(
         body: 'Happy to be back from the sprained ankle and back with the BOYS. King has retaken his chair.',
