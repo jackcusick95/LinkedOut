@@ -155,33 +155,6 @@ class FeedPage extends React.Component {
     }
 
 
-    // handleLike(postId) {
-    //     return (e) => {
-    //         e.preventDefault();
-    //         const formData = new FormData();
-    //         this.state.postId = postId
-    //         formData.append('like[likeable_id]', this.state.postId);
-    //         formData.append('like[likeable_type]', "post");
-    //         this.props.createLike(formData)
-    //     }
-    // }
-
-
-    // handleLike(postId) {
-    //     return (e) => {
-    //         e.preventDefault();
-    //         this.setState({ 
-    //             like: { ['likeable_type']: "post", ['liker_id']: this.props.currentuser.id } }),
-    //             // this.setState({ like: { ['liker_id']: this.props.currentuser.id } }),
-    //         () => {
-    //             this.props.createLike(this.state.like, postId).then (like => {
-    //                 this.setState({ like });
-    //                 dispatch(receiveLike(like));
-    //             });
-    //         }
-    //     }
-    // }
-
     removeLike(likeObject) {
         return (e) => {
             e.preventDefault(); 
@@ -239,7 +212,7 @@ class FeedPage extends React.Component {
                     <h1 className="sidebar-name">{this.props.currentuser.fname} {this.props.currentuser.lname}</h1>
                 </Link>
                 <p className="sidebar-title">{this.props.currentuser.title}</p>
-                <p className="sidebar-viewprofile">Recent profile visits: </p> <p className="viewprofile-num"> 12</p>
+                {/* <p className="sidebar-viewprofile">Recent profile visits: </p> <p className="viewprofile-num"> 12</p> */}
                 <p className="sidebar-connections">Connections: *Coming soon*</p>
             </div>
             <div className="postfeed">

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { IconContext } from "react-icons";
 import { BsPencil } from 'react-icons/bs';
+import { AiFillCamera } from 'react-icons/ai';
 import { MdAdd } from 'react-icons/md';
 import {fetchAllJobs, receive_job} from '../../actions/job_actions';
 import {fetchAllEducations} from '../../actions/education_actions'; 
@@ -37,6 +38,14 @@ const mapDispatchToProps = (dispatch) => {
                 <BsPencil
                     className="edit-basicinfo-button"
                     onClick={() => dispatch(openModal('edit'))}
+                />
+            </IconContext.Provider>
+        ),
+        propicmodal: (
+            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                <AiFillCamera
+                    className="edit-propic-button"
+                    onClick={() => dispatch(openModal('propic'))}
                 />
             </IconContext.Provider>
         ),

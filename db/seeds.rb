@@ -28,6 +28,8 @@ ActiveRecord::Base.transaction do
         description: "Hello and welcome to LinkedOut! You are currently logged in as the demo user and have access to all the functionality of a standard account. Feel free to scroll around the site and let me know if there are any questions (jackcusick95@gmail.com)!"
     )
 
+    demo.profile_photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/chilldog.jpg'), filename: 'chilldog.jpg')
+
     user_2 = User.create(
         email: 'lebron@gmail.com',
         password: 'password123',

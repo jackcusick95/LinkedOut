@@ -16,13 +16,14 @@ class SessionForm extends React.Component {
             industry: '',
             company: '',
             signupErrors: false,
-            // passwordError: false,
+            validEmail: true, 
+            validPassword: true,
         }
         this.handleSubmit = this.handleSubmit.bind(this); 
         this.nextForm = this.nextForm.bind(this);
         this.demoLogin = this.demoLogin.bind(this); 
         this.renderErrors = this.renderErrors.bind(this); 
-        // this.handleSignupErrors = this.handleSignupErrors.bind(this); 
+        this.validEmail = this.validEmail.bind(this); 
     }
 
     componentDidMount() {
@@ -30,9 +31,17 @@ class SessionForm extends React.Component {
     }
 
     update(field) {
+        
+        if (field == 'email') {
+            this.validEmail(this.state.email)
+        } else if (field == 'password') {
+            this.validPasswrod(this.state.password)
+        }
+        
         return (e) => this.setState({
             [field]: e.currentTarget.value
         });
+        
     }
 
     handleSubmit(e) {
@@ -42,10 +51,31 @@ class SessionForm extends React.Component {
         // .then(() => this.props.history.push('/')); 
     }
 
+    validEmail(email) {
+        //regex pulled from https://www.w3resource.com/javascript/form/email-validation.php
+        if (
+            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+                email
+            )
+        ) {
+            this.setState({validEmail: true});
+        } else {
+            this.setState({ validEmail: false });
+        }
+    }
+
+    validPassword(password) {
+        if (password.length > 5) {
+            this.setState({ validPassword: true });
+        } else {
+            this.setState({ validPassword: false });
+        }
+    }
+
     nextForm(num) {
         return (e) => {
             e.preventDefault();
-            if (this.state.signupErrors) {
+            if (this.state.validEmail == true) {
                 this.setState({formNum: num - 1});
             } else {
                 this.setState({formNum: num});
@@ -68,31 +98,6 @@ class SessionForm extends React.Component {
         })
     }
 
-    // handleSignupErrors() {
-    //     const { email, password} = this.state; 
-
-    //     if (email.length === 0 ) {
-    //         this.setState({signupErrors: true});
-    //         return (
-    //             <p id="errors">Please enter your email address</p>
-    //         )
-    //     } else {
-    //         let emailArr = email.split('@');
-    //         if (!(emailArr.length == 2 && emailArr[1].split('.').length == 2)) {
-    //             this.setState({ signupErrors: true });
-    //             return (
-    //                 <p id="errors">Please enter a valid email address</p>
-    //             )
-    //         }
-    //     }
-
-    //     if (password.length < 6) {
-    //         this.setState({ signupErrors: true });
-    //         return (
-    //             <p id="errors">Password must be 6 char or more</p>
-    //         )
-    //     }
-    // }
 
     renderErrors() {
         return (
@@ -155,7 +160,22 @@ class SessionForm extends React.Component {
                         <form className="session-signup-box">
                         <h1 className="form-type-header">{this.props.formType}</h1>
                         <p className="form-headline">Stay updated on your professional life</p>
-                            {/* {this.handleSignupErrors()} */}
+                        <div>
+                            {this.state.validEmail ? (
+                                 <></>
+                            ) : (
+                                <div className="email-error">
+                                    Need to enter a valid email
+                                </div>
+                            )}
+                            {this.state.validPassword ? (
+                                 <></>
+                            ) : (
+                                 <div className="password-error">
+                                    Password needs to be longer than 6 characters
+                                </div>
+                            )}
+                        </div>
                         <div className="session-form-inputs">
                             <label>Email
                                 <input className="session-input" type="text" value={this.state.email} onChange={this.update('email')}/>

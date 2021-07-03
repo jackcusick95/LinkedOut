@@ -39,6 +39,7 @@ class BasicInfo extends React.Component {
                                 this.props.currentuser.profile_photo :
                                 window.dogo} />
                         </Link>
+                        {/* {this.props.propicmodal} */}
                         {this.props.editmodal}
                         <div className="probox-container">
                             <div className="left-profile-box">

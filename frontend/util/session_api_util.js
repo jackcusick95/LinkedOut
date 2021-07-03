@@ -28,3 +28,13 @@ export const updateUser = (user) => {
         data: { user: user}
     });
 }
+
+export const updateUserImg = (formData, id) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `/api/users/${id}`,
+        data: formData,
+        contentType: false,
+        processData: false
+    })
+);

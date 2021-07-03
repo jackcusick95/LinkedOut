@@ -56,3 +56,8 @@ export const updateUser = (user) => (dispatch) => {
     return APIUtil.updateUser(user) 
     .then((user) => dispatch(receiveCurrentUser(user))); 
 }
+
+export const updateUserImg = (formData, id) => (dispatch) => {
+    return APIUtil.updateUserImg(formData, id)
+        .then((user) => dispatch(receiveCurrentUser(user)));
+}

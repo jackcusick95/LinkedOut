@@ -32,6 +32,7 @@ class SessionProfilePage extends React.Component {
                             educationsArr={this.props.educationsArr}
                             jobsArr={this.props.jobsArr}
                             fetchAllJobs={this.props.fetchAllJobs}
+                            propicmodal={this.props.propicmodal}
                         />
 
                         <ExperienceInfo 
