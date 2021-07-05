@@ -43,3 +43,23 @@
         text-decoration: underline;
    }
 
+   .empty-error {
+       height: 3px;
+   }
+
+   .email-error {
+   color: red; 
+   margin-top: -17px;
+   margin-bottom: 2px;
+   font-size: 13px;
+   margin-left: 20px
+   }
+
+   .password-error {
+    color: red; 
+   margin-top: -17px;
+   margin-bottom: 2px;
+   font-size: 13px;
+   margin-left: 20px;
+   }
+

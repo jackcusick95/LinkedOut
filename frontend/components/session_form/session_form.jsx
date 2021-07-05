@@ -16,36 +16,47 @@ class SessionForm extends React.Component {
             industry: '',
             company: '',
             signupErrors: false,
-            validEmail: true, 
-            validPassword: true,
+            emailValid: true, 
+            passwordValid: true,
+            submitted: false,
+            mustEnter: false, 
         }
         this.handleSubmit = this.handleSubmit.bind(this); 
         this.nextForm = this.nextForm.bind(this);
         this.demoLogin = this.demoLogin.bind(this); 
         this.renderErrors = this.renderErrors.bind(this); 
         this.validEmail = this.validEmail.bind(this); 
+        this.validPassword = this.validPassword.bind(this);
     }
 
     componentDidMount() {
         if (this.props.errors.length !== 0) this.props.clearErrors()
     }
 
+    // update(field) {
+        
+    //     return (e) => this.setState({
+    //         [field]: e.currentTarget.value
+    //     });
+        
+    // }
+
     update(field) {
-        
-        if (field == 'email') {
-            this.validEmail(this.state.email)
-        } else if (field == 'password') {
-            this.validPasswrod(this.state.password)
+
+        return (e) => {
+            this.setState({ mustEnter: false });
+
+            if (field == 'email' && this.props.formType === 'Sign Up') {
+                this.validEmail(e.currentTarget.value)
+            } else if (field == 'password' && this.props.formType === 'Sign Up') {
+                this.validPassword(e.currentTarget.value)
+            }
+            this.setState({[field]: e.currentTarget.value});
+
         }
-        
-        return (e) => this.setState({
-            [field]: e.currentTarget.value
-        });
-        
     }
 
     handleSubmit(e) {
-        // debugger
         e.preventDefault();
         this.props.processForm(this.state)
         // .then(() => this.props.history.push('/')); 
@@ -58,28 +69,41 @@ class SessionForm extends React.Component {
                 email
             )
         ) {
-            this.setState({validEmail: true});
+            this.setState({emailValid: true});
         } else {
-            this.setState({ validEmail: false });
+            this.setState({ emailValid: false });
         }
     }
 
     validPassword(password) {
         if (password.length > 5) {
-            this.setState({ validPassword: true });
+            this.setState({ passwordValid: true });
         } else {
-            this.setState({ validPassword: false });
+            this.setState({ passwordValid: false });
         }
     }
 
     nextForm(num) {
+
         return (e) => {
             e.preventDefault();
-            if (this.state.validEmail == true) {
-                this.setState({formNum: num - 1});
-            } else {
+
+            // if (this.state.email.length < 1) {
+            //     this.setState({ emailValid: false });
+            // } else if (this.state.password.length < 1) {
+            //     this.setState({ passwordValid: false });
+            // }
+
+            if (this.state.emailValid == true && this.state.passwordValid == true && this.state.email.length > 0 && this.state.password.length > 0) {
                 this.setState({formNum: num});
+            } else if (this.state.email.length < 1 && this.state.password.length < 1) {
+                this.setState({formNum: num - 1});
+                this.setState({ mustEnter: true });
+            } else {
+                this.setState({ formNum: num - 1 });
             }
+            this.setState({ submitted: true });
+
         }
     }
 
@@ -161,25 +185,39 @@ class SessionForm extends React.Component {
                         <h1 className="form-type-header">{this.props.formType}</h1>
                         <p className="form-headline">Stay updated on your professional life</p>
                         <div>
-                            {this.state.validEmail ? (
-                                 <></>
-                            ) : (
+                            {this.state.submitted ? (
+                                this.state.emailValid ? (
+                                    <div className="empty-error"></div>
+                                ) : (
+                                    <div className="email-error">
+                                        Need to enter a valid email
+                                    </div>
+                                ) 
+                                    ) : <div className="empty-error"></div>
+                             }
+                            {this.state.mustEnter ? (
                                 <div className="email-error">
-                                    Need to enter a valid email
+                                     Must provide both an email and password.
                                 </div>
-                            )}
-                            {this.state.validPassword ? (
-                                 <></>
-                            ) : (
-                                 <div className="password-error">
-                                    Password needs to be longer than 6 characters
-                                </div>
-                            )}
+                                ) : <div className="empty-error"></div>
+                            }
                         </div>
                         <div className="session-form-inputs">
                             <label>Email
                                 <input className="session-input" type="text" value={this.state.email} onChange={this.update('email')}/>
                             </label>
+                        <div>
+                            {this.state.submitted ? (
+                                this.state.passwordValid ? (
+                                        <div className= "empty-error"></div>
+                                ) : (
+                                    <div className="password-error">
+                                        Password must be more than 6 characters.
+                                    </div>
+                                ) 
+                                    ) : <div className="empty-error"></div>
+                             }
+                        </div>
                             <label>Password
                                 <input className="session-input" type="Password" value={this.state.password} onChange={this.update('password')} />
                             </label>
