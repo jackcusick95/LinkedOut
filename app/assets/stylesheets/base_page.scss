@@ -17,6 +17,7 @@
         position: relative;
         margin-top: 40px;
         margin-right: -80px; 
+        z-index: 5;
     }
     .base-header {
         margin-left: 30px;
@@ -198,25 +199,29 @@
     }
 
     #bottom-img {
+        position: relative;
+        // display: flex;
         width: 110%; 
         margin-left: -15px; 
-        margin-top: -50px;
-        margin-bottom: 150px;
+        margin-top: -200px;
+        // margin-bottom: 150px;
+        // z-index: -1;
+        // height: auto;
         // height: 100px;
 
     }
 
     .footer {
-    position: absolute;
+    position: relative;
     display: inline-flex;
     bottom: 0;
     width:120%;
     // height: 76px;
-    // height: 300px;
-    height: 21%;
+    height: 300px;
+    // height: 24%;
     background-color: #f1f1f1;
     margin-left: -10px;
-    margin-top: 50px;
+    margin-top: -20px;
     margin-bottom: -10px;
     border-color: #F8F8F8;
     border-top-width: 2px;
