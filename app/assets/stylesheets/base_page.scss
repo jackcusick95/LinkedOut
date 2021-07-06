@@ -92,6 +92,7 @@
             opacity: 1;
             color:rgb(238, 238, 238);
             background-color: #2977c9;
+            font-family: sans-serif;
             }  
         }
         
@@ -193,13 +194,16 @@
     #bottom {
         display:flex;
         align-content: bottom; 
+        // height: 100px;
     }
 
     #bottom-img {
         width: 110%; 
         margin-left: -15px; 
         margin-top: -50px;
-        margin-bottom: 50px;
+        margin-bottom: 150px;
+        // height: 100px;
+
     }
 
     .footer {
@@ -207,7 +211,9 @@
     display: inline-flex;
     bottom: 0;
     width:120%;
-    height: 76px;
+    // height: 76px;
+    // height: 300px;
+    height: 21%;
     background-color: #f1f1f1;
     margin-left: -10px;
     margin-top: 50px;

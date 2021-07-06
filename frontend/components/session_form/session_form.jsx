@@ -20,6 +20,9 @@ class SessionForm extends React.Component {
             passwordValid: true,
             submitted: false,
             mustEnter: false, 
+            nameEnter: false,
+            locationEnter: false,
+            jobEnter: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this); 
         this.nextForm = this.nextForm.bind(this);
@@ -33,13 +36,6 @@ class SessionForm extends React.Component {
         if (this.props.errors.length !== 0) this.props.clearErrors()
     }
 
-    // update(field) {
-        
-    //     return (e) => this.setState({
-    //         [field]: e.currentTarget.value
-    //     });
-        
-    // }
 
     update(field) {
 
@@ -58,7 +54,15 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state)
+
+        if (this.state.formNum == 3 && this.state.title.length > 0 && this.state.industry.length > 0 && this.state.company.length > 0) {
+            this.props.processForm(this.state)
+            // this.setState({ jobEnter: false });
+        } else if (this.state.formNum == 3 && (this.state.title.length < 1 || this.state.industry.length < 1 || this.state.company.length < 1)) {
+            this.setState({ jobEnter: true });
+        }
+
+        // this.props.processForm(this.state)
         // .then(() => this.props.history.push('/')); 
     }
 
@@ -88,24 +92,39 @@ class SessionForm extends React.Component {
         return (e) => {
             e.preventDefault();
 
-            // if (this.state.email.length < 1) {
-            //     this.setState({ emailValid: false });
-            // } else if (this.state.password.length < 1) {
-            //     this.setState({ passwordValid: false });
-            // }
-
-            if (this.state.emailValid == true && this.state.passwordValid == true && this.state.email.length > 0 && this.state.password.length > 0) {
+            if (this.state.emailValid == true && this.state.passwordValid == true && this.state.email.length > 0 && this.state.password.length > 0 && this.state.formNum == 0) {
                 this.setState({formNum: num});
-            } else if (this.state.email.length < 1 && this.state.password.length < 1) {
+            } else if ((this.state.email.length < 1 || this.state.password.length < 1) && this.state.formNum == 0) {
                 this.setState({formNum: num - 1});
                 this.setState({ mustEnter: true });
-            } else {
+            } else if (this.state.formNum == 1 && this.state.fname.length > 0 && this.state.lname.length > 0) {
+                this.setState({ formNum: num });
+                this.setState({ nameEnter: false });
+            } else if (this.state.formNum == 1 && (this.state.fname.length < 1 || this.state.lname.length < 1)) {
+                this.setState({ formNum: num - 1 });
+                this.setState({ nameEnter: true });
+            } else if (this.state.formNum == 2 && this.state.zipcode.length == 5 && this.state.location.length > 0) {
+                this.setState({ formNum: num });
+                this.setState({ locationEnter: false });
+            } else if (this.state.formNum == 2 && (this.state.zipcode.length != 5 || this.state.location.length < 1)) {
+                this.setState({ formNum: num - 1 });
+                this.setState({ locationEnter: true });
+            } else if (this.state.formNum == 3 && this.state.title.length > 0 && this.state.industry.length > 0 && this.state.company.length > 0) {
+                this.setState({ formNum: num });
+                this.setState({ jobEnter: false });
+            } else if (this.state.formNum == 3 && (this.state.title.length < 1 || this.state.industry.length < 1 || this.state.company.length < 1)) {
+                this.setState({ formNum: num - 1 });
+                this.setState({ jobEnter: true });
+            }
+            else {
                 this.setState({ formNum: num - 1 });
             }
             this.setState({ submitted: true });
 
         }
     }
+
+    // lastFormErrors()
 
     demoLogin(e) {
         e.preventDefault()
@@ -246,7 +265,12 @@ class SessionForm extends React.Component {
                         <form className="session-signup-box">
                             <h1 className="form-type-header">{this.props.formType}</h1>
                             <p className="form-headline">Stay updated on your professional life</p>
-                            {this.renderErrors()}
+                            {this.state.nameEnter ? (
+                                <div className="email-error">
+                                    Must provide both a first and last name.
+                                </div>
+                            ) : <div className="empty-error"></div>
+                            }
                             <div className="session-form-inputs">
                                 <label>First name
                                     <input className="session-input" type="text" value={this.state.fname} onChange={this.update('fname')} />
@@ -274,7 +298,12 @@ class SessionForm extends React.Component {
                         <form className="session-welcome-box">
                             <h1 className="form-type-header">Welcome {this.state.fname}!</h1>
                             <p className="form-headline">Let's start your profile, connect to people you know, and engage with them on topics you care about.</p>
-                            {this.renderErrors()}
+                            {this.state.locationEnter ? (
+                                <div className="email-error">
+                                    Must provide your contry/ region and a valid zipcode.
+                                </div>
+                            ) : <div className="empty-error"></div>
+                            }
                             <div className="session-form-inputs">
                                 <label>Country/ Region
                                     <input className="session-input" type="text" value={this.state.location} onChange={this.update('location')} />
@@ -302,7 +331,12 @@ class SessionForm extends React.Component {
                         <form className="session-almostdone-box" onSubmit={this.handleSubmit}>
                             <h1 className="form-type-header">Almost done!</h1>
                             <p className="form-headline">Your profile helps you discover new people and new opportunities</p>
-                            {this.renderErrors()}
+                            {this.state.jobEnter ? (
+                                <div className="email-error">
+                                    Please fill out all job related fields.
+                                </div>
+                            ) : <div className="empty-error"></div>
+                            }
                             <div className="session-form-inputs">
                                 <label>Most recent job title
                                     <input className="session-input" type="text" value={this.state.title} onChange={this.update('title')} />
@@ -314,7 +348,7 @@ class SessionForm extends React.Component {
                                     <input className="session-input" type="text" value={this.state.company} onChange={this.update('company')} />
                                 </label>
                                 <section className="action-buttons">
-                                    <input type="submit" className="session-submit" value={this.props.formType}/>
+                                    <input type="submit" className="session-submit" value={this.props.formType} />
                                 </section>
                             </div>
                         </form>
