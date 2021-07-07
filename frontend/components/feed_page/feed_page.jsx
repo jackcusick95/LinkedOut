@@ -4,7 +4,8 @@ import { IconContext } from "react-icons";
 import { FcAddImage, FcCalendar, FcNews, FcVideoCall} from 'react-icons/fc';
 import { BsPencilSquare, BsThreeDots } from 'react-icons/bs';
 import { FaTrashAlt, FaRegCommentDots, FaLinkedin, FaGithub, FaPortrait } from 'react-icons/fa';
-import { BiLike } from 'react-icons/bi';
+import { BiEdit, BiLike } from 'react-icons/bi';
+import EditPost from './edit_post_modal';
 import PostPage from './post';
 
 
@@ -32,6 +33,8 @@ class FeedPage extends React.Component {
             likeable_type: "post", 
             likeable_id: null,
             postId: null,
+            editcmt: false,
+            editcmtId: null,
         }
         this.commentRef = {};
         
@@ -48,6 +51,8 @@ class FeedPage extends React.Component {
         this.handleCommentDisplay = this.handleCommentDisplay.bind(this); 
         this.handleLike = this.handleLike.bind(this); 
         this.removeLike = this.removeLike.bind(this); 
+        this.editComment = this.editComment.bind(this); 
+        this.handleEditComment = this.handleEditComment.bind(this); 
 
     }
 
@@ -111,10 +116,34 @@ class FeedPage extends React.Component {
         }
     }
 
+    handleEditComment(comment, postId) {
+        return (e) => {
+            e.preventDefault();
+            this.props.updateComment(comment)
+                .then(() => {
+                    this.state.commentId = postId; 
+                    this.setState({ displayComment: true })
+                    this.setState({ editcmt: false})
+                });
+            // document.getElementById('comment-input').value = null;
+            // this.state.commentId = postId;
+                // .then(() => {
+                //     this.commentRefs[postId].current.reset()
+                // });
+        }
+    }
+
     handleCommentBody(postId) {
         return (e) => {
             this.state.commentId = postId
             this.setState({ comment: {['body']: e.target.value}});
+        }
+    }
+
+    handleEditCommentBody(comment) {
+        return (e) => {
+            this.state.commentId = comment.id
+            comment.body = e.currentTarget.value;
         }
     }
 
@@ -184,6 +213,12 @@ class FeedPage extends React.Component {
                 });
             // } 
         }
+    }
+
+    editComment(cmtId) {
+        this.setState({ editcmt: true });
+        this.setState({ editcmtId: cmtId});
+        this.setState({ commentdrop: 'hidden' });
     }
 
 
@@ -302,13 +337,26 @@ class FeedPage extends React.Component {
                                         <button className="post-drop" onClick={this.postDropdown(post.id)}><BsThreeDots /></button> : ''
                                     }
                                     <div className={this.postId === post.id ? this.state.postdrop : 'hidden'}>
-                                        <button className="delete-post-drop" onClick={() => this.props.deletePost(post.id)}>
-                                            <IconContext.Provider
-                                                value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
-                                                <FaTrashAlt></FaTrashAlt>
-                                            </IconContext.Provider>
-                                            <span>Delete Post</span>
-                                        </button>
+                                        <ul>
+                                            <li>
+                                                <button className="delete-post-drop" onClick={() => this.props.deletePost(post.id)}>
+                                                    <IconContext.Provider
+                                                        value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
+                                                        <FaTrashAlt></FaTrashAlt>
+                                                    </IconContext.Provider>
+                                                    <span>Delete Post</span>
+                                                </button>
+                                            </li>
+                                            <li className="edit-post-li">
+                                                <button className="edit-post-drop" onClick={() => this.props.openModal('editpost')}>
+                                                    <IconContext.Provider
+                                                        value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
+                                                        <BiEdit></BiEdit>
+                                                    </IconContext.Provider>
+                                                    <span>Edit Post</span>
+                                                </button>
+                                            </li>
+                                        </ul>
                                     </div>
                                     {postPhoto}
                                     <div className="like-comment-count-container">
@@ -401,7 +449,18 @@ class FeedPage extends React.Component {
                                                             <div id="comment-box">
                                                                 <h2 id="comment-name">{commentUser.fname} {commentUser.lname}</h2>
                                                                 <p id="comment-user-title">{commentUser.title}</p>
-                                                                <p id="comment-body">{comment.body}</p>
+                                                                {this.state.editcmt && this.state.editcmtId == comment.id ?
+                                                                <div className="update-comment-container">
+                                                                    <input type="text"
+                                                                        className="comment-edit-text"
+                                                                        required="required"
+                                                                        placeholder={comment.body}
+                                                                        onChange={this.handleEditCommentBody(comment)} 
+                                                                    />
+                                                                     <button className="update-comment-button" onClick={this.handleEditComment(comment, post.id)}>Update</button>
+                                                                </div>
+                                                                : <p id="comment-body">{comment.body}</p>
+                                                            }
                                                             </div>
                                                             <div className="comment-topright">
                                                                 {this.props.session.id === comment.author_id ?
@@ -413,13 +472,27 @@ class FeedPage extends React.Component {
                                                                 }
                                                             </div>
                                                             <div className={this.commentId === comment.id ? this.state.commentdrop : 'hidden'}>
-                                                                <button onClick={() => this.props.deleteComment(comment.id)}>
-                                                                    <IconContext.Provider
-                                                                        value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
-                                                                        <FaTrashAlt></FaTrashAlt>
-                                                                    </IconContext.Provider>
-                                                                    <span>Delete Comment</span>
-                                                                </button>
+                                                                <ul>
+                                                                    <li>
+                                                                        <button className="delete-post-drop" onClick={() => this.props.deleteComment(comment.id)}>
+                                                                            <IconContext.Provider
+                                                                                value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
+                                                                                <FaTrashAlt></FaTrashAlt>
+                                                                            </IconContext.Provider>
+                                                                            <span>Delete Comment</span>
+                                                                        </button>
+                                                                    </li>
+                                                                    <li className="edit-post-li">
+                                                                        <button className="edit-post-drop" onClick={() => this.editComment(comment.id)} >
+                                                                            <IconContext.Provider
+                                                                                value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
+                                                                                <BiEdit></BiEdit>
+                                                                            </IconContext.Provider>
+                                                                            <span>Edit Comment</span>
+                                                                        </button>
+                                                                    </li>
+
+                                                                </ul>
                                                             </div>
                                                         </div>
                                                     );
@@ -477,5 +550,6 @@ class FeedPage extends React.Component {
 
 
 }
+
 
 export default FeedPage; 

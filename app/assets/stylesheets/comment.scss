@@ -103,4 +103,39 @@
         text-decoration: underline;
         cursor: pointer;
     }
+
+}
+
+.update-comment-container {
+    position: relative;
+    display: flex;
+}
+
+.comment-edit-text {
+display: inline-block;
+background-color: white;
+border: none;
+font-size: 14px;
+margin-left: 10px;
+margin-bottom: 10px;
+margin-top: 10px;
+width: 75%;
+}
+
+.update-comment-button {
+    display: inline-block;
+    margin-left: 20px;
+    // right: 10px;
+    color:white;
+    font-size: 13px;
+    text-align: center;
+    background:  #2072ca;
+    width: 45px;
+    padding: 4px;
+    border-width: 0px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+      margin-bottom: 10px;
+      z-index: 2; 
 }

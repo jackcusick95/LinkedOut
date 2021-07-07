@@ -40,7 +40,6 @@ class EditModalItem extends React.Component {
                 <div className="edit-modal-border"></div>
                 <form className="edit-modal-form" onSubmit={this.handleSubmit}>
                     <div className="edit-modal-fullname">
-                        {/* <div className="model-fname-container"> */}
                             <label className="modal-name-label">First Name *</label>
                                 <input 
                                     type="text"
@@ -49,7 +48,6 @@ class EditModalItem extends React.Component {
                                     value={fname}
                                     required="required"
                                     onChange={this.handleInput('fname')}/>
-                         {/* </div> */}
                         <div className="model-name-container">
                             <label className="modal-name-label">Headline *</label>
                                 <input

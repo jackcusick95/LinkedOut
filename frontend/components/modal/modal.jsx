@@ -8,6 +8,7 @@ import EditEducation from '../profile_page/education_modal';
 import AddJob from '../profile_page/add_job_modal';
 import AddEducation from '../profile_page/add_education_modal';
 import ProPicContainer from '../profile_page/propic_modal';
+import EditPostModal from '../../components/feed_page/edit_post_modal';
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -17,6 +18,9 @@ function Modal({ modal, closeModal }) {
     switch (modal) {
         case 'post':
             component = <PostContainer />;
+            break;
+        case 'editpost':
+            component = <EditPostModal />;
             break;
         case 'propic':
             component = <ProPicContainer />;
