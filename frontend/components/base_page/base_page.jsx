@@ -1,5 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { IconContext } from "react-icons";
+import { FaLinkedin, FaGithub, FaPortrait, FaReact, FaHtml5, FaAws } from 'react-icons/fa';
+import { SiPostgresql, SiRails, SiRedux } from 'react-icons/si';
+import { DiJavascript, DiRuby } from 'react-icons/di';
+import { GiSailboat } from 'react-icons/gi';
 
 const BasePage = ( ) => {
 
@@ -39,31 +44,119 @@ const BasePage = ( ) => {
             </nav>
             <img src="https://static-exp3.licdn.com/sc/h/2vt8plqbv2l2pi6kxm89bqs59" id="bottom-img"/>
             <div className="footer">
-                <h3 className="founder">Founder: <br/>
-                    Jack Cusick</h3>
-                <img className='faceshot' src={window.anotherface} />
-                <div className="footlinks">
-                    <a href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
-                        <img className='lilogo' src={window.linkedin} />
-                    </a>
-                    <a href="https://github.com/jackcusick95">
-                        <img className='gitlogo' src={window.github} />
-                    </a>
+                <div className="left-footer">
+                    <div className="main-footer-info">
+                        <img className='faceshot' src={window.anotherface} />
+                        <h3 className="founder">Founder: <br/>
+                            Jack Cusick</h3>
+                    </div>
+                    <ul className="footlinks">
+                        <li className="footer-personal-links">
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
+                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                    <FaLinkedin className="footer-link-button" />
+                                </IconContext.Provider>
+                            </a>
+                            <a className="footer-link-text" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
+                               LinkedIn
+                            </a>
+                        </li>
+                        <li className="footer-personal-links">
+                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/jackcusick95">
+                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                    <FaGithub className="footer-link-button" />
+                                </IconContext.Provider>
+                            </a>
+                            <a className="footer-link-text" target="_blank" rel="noopener noreferrer" href="https://github.com/jackcusick95">
+                                Github
+                            </a>
+                        </li>
+                        <li className="footer-personal-links">
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.jackcusick95.com/">
+                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                    <FaPortrait className="footer-link-button" />
+                                </IconContext.Provider>
+                            </a>
+                            <a className="footer-link-text" target="_blank" rel="noopener noreferrer" href="https://www.jackcusick95.com/">
+                                Personal Site
+                            </a>
+                        </li>
+                        <li className="footer-personal-links">
+                            <a target="_blank" rel="noopener noreferrer" href="https://www.sailingworld.com/cougars-clench-team-race-national-championship/">
+                                <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                    <GiSailboat className="footer-link-button" />
+                                </IconContext.Provider>
+                            </a>
+                            <a className="footer-link-text" target="_blank" rel="noopener noreferrer" href="https://www.sailingworld.com/cougars-clench-team-race-national-championship/">
+                               Athletics
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div className="right-footer">
+                    <div className="main-footer-info">
+                        {/* <img className='faceshot' src={window.anotherface} /> */}
+                        <h3 className="founder">LinkedOut: <br />
+                            Technologies Used</h3>
+                    </div>
+                    <div className="tech-used-container">
+                        <ul className="right-footlinks">
+                            <li className="footer-personal-links">
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <FaReact className="footer-link-button" />
+                                    </IconContext.Provider>
+                                <p className="footer-tech-text" >React</p>
+                            </li>
+                            <li className="footer-personal-links">
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <SiRedux className="footer-link-button" />
+                                    </IconContext.Provider>
+                                <p className="footer-tech-text" >Redux</p>
+                            </li>
+                            <li className="footer-personal-links">
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <DiJavascript className="footer-link-button" />
+                                    </IconContext.Provider>
+                                <p className="footer-tech-text" >Javascript</p>
+                            </li>
+                            <li className="footer-personal-links">
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <FaHtml5 className="footer-link-button" />
+                                    </IconContext.Provider>
+                                <p className="footer-tech-text" >HTML/ CSS</p>
+                            </li>
+                        </ul>
+                        <ul className="left-footlinks">
+                            <li className="footer-personal-links">
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <SiPostgresql className="footer-link-button" />
+                                    </IconContext.Provider>
+                                <p className="footer-tech-text" >PostgreSQL</p>
+                            </li>
+                            <li className="footer-personal-links">
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <DiRuby className="footer-link-button" />
+                                    </IconContext.Provider>
+                                <p className="footer-tech-text" >Ruby</p>
+                            </li>
+                            <li className="footer-personal-links">
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <SiRails className="footer-link-button" />
+                                    </IconContext.Provider>
+                                <p className="footer-tech-text" >Rails</p>
+                            </li>
+                            <li className="footer-personal-links">
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <FaAws className="footer-link-button" />
+                                    </IconContext.Provider>
+                                <p className="footer-tech-text" >AWS</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
        </div>
     )
-    // const loggedOutLinks = () => (
-    // );
-
-    // const loggedInPage = () => (
-    //     <div>
-    //         <h1>Hello {currentUser.username}</h1>
-    //         <button onClick={logoutUser}>Sign Out</button>
-    //     </div>
-    // );
-
-    // return currentUser ? loggedInPage() : loggedOutLinks(); 
 }
 
 export default BasePage; 

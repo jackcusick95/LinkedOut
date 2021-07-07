@@ -57,7 +57,7 @@ class SessionProfilePage extends React.Component {
                         <div className="feed-profilebox-icons">
                             <div className="nav-profile">
                                 <div>
-                                    <a href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
                                         <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
                                             <FaLinkedin className="linkedin-nav-button" />
                                         </IconContext.Provider>
@@ -67,7 +67,7 @@ class SessionProfilePage extends React.Component {
                             </div>
                             <div className="nav-profile">
                                 <div>
-                                    <a href="https://github.com/jackcusick95">
+                                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/jackcusick95">
                                         <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
                                             <FaGithub className="profile-nav-button" />
                                         </IconContext.Provider>
@@ -77,7 +77,7 @@ class SessionProfilePage extends React.Component {
                             </div>
                             <div className="nav-signout">
                                 <div>
-                                    <a href="https://www.jackcusick95.com/">
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.jackcusick95.com/">
                                         <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
                                             <FaPortrait className="nav-logout" onClick={this.props.logoutUser} />
                                         </IconContext.Provider>

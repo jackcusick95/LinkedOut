@@ -213,12 +213,12 @@
 
     .footer {
     position: relative;
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     bottom: 0;
     width:120%;
-    // height: 76px;
     height: 300px;
-    // height: 24%;
     background-color: #f1f1f1;
     margin-left: -10px;
     margin-top: -20px;
@@ -226,37 +226,88 @@
     border-color: #F8F8F8;
     border-top-width: 2px;
 
-        .founder{
-            height: 30px; 
-            font-size: 12px;
-            margin-left: 20px;
-            font-family: Sans-Serif;
-            margin-top: 25px
-        }
+    
+}
 
-        .faceshot {
-            height: 45px; 
-            margin-left: 20px;
-            margin-top: 10px;
-            border-radius: 10px;
-        }
+.left-footer {
+    margin-left: 55px;
+    margin-top: 25px;
+}
 
-        .lilogo {
-            // position: absolute;
-            height: 30px; 
-            margin-left: 10px;
-            margin-top: 24px
-        }
+.right-footer {
+    margin-right: 25%;
+    margin-top: 25px;
+}
 
-        .gitlogo {
-            // position: relative;
-            height: 30px;  
-            // margin-right: 20px;
-            margin-left: 10px;
-            // margin-top: 22px;    
-            // padding-top: 5px;     
-        }
+
+}
+.main-footer-info {
+    position: relative;
+    display: flex;
+
+    .founder{
+        display: inline-block;
+        font-size: 22px;
+        margin-left: 30px;
+        font-family: Sans-Serif;
+        margin-top: 10px;
     }
+    
+    .faceshot {
+        display: inline-block;
+        height: 60px; 
+        border-radius: 10px;
+        border: 1px solid black;
+    }
+}
+
+.footlinks {
+    // position: relative;
+    margin-left: 95px;
+    // margin-top: 5px;
+}
+
+.right-footlinks {
+    margin-left: 30px;
+    // margin-top: 10px;
+}
+
+.left-footlinks {
+    margin-left: 50px;
+    // margin-top: 10px;
+}
+
+.footer-personal-links {
+    position: relative;
+    display: flex;
+    margin-bottom: 15px;
+
+    .footer-link-button {
+        display: inline-block;
+    }
+    
+    .footer-link-text {
+        display: inline-block;
+        font-family: sans-serif;
+        margin-left: 15px;
+        margin-top: 3px;
+    }
+
+    .footer-link-text:hover {
+        text-decoration: underline;
+    }
+}
+
+.footer-tech-text {
+    display: inline-block;
+    font-family: sans-serif;
+    margin-left: 15px;
+    margin-top: 3px;
+}
+
+.tech-used-container {
+    position: relative;
+    display: flex;
 }
 
     .tooltip{
