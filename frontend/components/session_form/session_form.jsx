@@ -215,7 +215,7 @@ class SessionForm extends React.Component {
                                     ) : <div className="empty-error"></div>
                              }
                             {this.state.mustEnter ? (
-                                <div className="email-error">
+                                <div className="name-error">
                                      Must provide both an email and password.
                                 </div>
                                 ) : <div className="empty-error"></div>
@@ -266,7 +266,7 @@ class SessionForm extends React.Component {
                             <h1 className="form-type-header">{this.props.formType}</h1>
                             <p className="form-headline">Stay updated on your professional life</p>
                             {this.state.nameEnter ? (
-                                <div className="email-error">
+                                <div className="name-error">
                                     Must provide both a first and last name.
                                 </div>
                             ) : <div className="empty-error"></div>
@@ -299,7 +299,7 @@ class SessionForm extends React.Component {
                             <h1 className="form-type-header">Welcome {this.state.fname}!</h1>
                             <p className="form-headline">Let's start your profile, connect to people you know, and engage with them on topics you care about.</p>
                             {this.state.locationEnter ? (
-                                <div className="email-error">
+                                <div className="name-error">
                                     Must provide your contry/ region and a valid zipcode.
                                 </div>
                             ) : <div className="empty-error"></div>
@@ -332,7 +332,7 @@ class SessionForm extends React.Component {
                             <h1 className="form-type-header">Almost done!</h1>
                             <p className="form-headline">Your profile helps you discover new people and new opportunities</p>
                             {this.state.jobEnter ? (
-                                <div className="email-error">
+                                <div className="name-error">
                                     Please fill out all job related fields.
                                 </div>
                             ) : <div className="empty-error"></div>

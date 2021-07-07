@@ -35,6 +35,7 @@ class FeedPage extends React.Component {
             postId: null,
             editcmt: false,
             editcmtId: null,
+            editpost: false,
         }
         this.commentRef = {};
         
@@ -53,6 +54,9 @@ class FeedPage extends React.Component {
         this.removeLike = this.removeLike.bind(this); 
         this.editComment = this.editComment.bind(this); 
         this.handleEditComment = this.handleEditComment.bind(this); 
+        this.toggleEditPost = this.toggleEditPost.bind(this); 
+        this.leave = this.leave.bind(this); 
+        this.cmtleave = this.cmtleave.bind(this); 
 
     }
 
@@ -221,6 +225,21 @@ class FeedPage extends React.Component {
         this.setState({ commentdrop: 'hidden' });
     }
 
+    toggleEditPost() {
+        return (e) => {
+            e.preventDefault();
+            this.props.openModal('editpost')
+            this.setState({ postdrop: 'hidden' })
+        }
+    }
+
+    leave() {
+        this.setState({ postdrop: 'hidden' });
+    }
+
+    cmtleave() {
+        this.setState({ commentdrop: 'hidden' });
+    }
 
     render() {
         console.log(this.state); 
@@ -336,7 +355,7 @@ class FeedPage extends React.Component {
                                     {this.props.session.id === post.author_id ?
                                         <button className="post-drop" onClick={this.postDropdown(post.id)}><BsThreeDots /></button> : ''
                                     }
-                                    <div className={this.postId === post.id ? this.state.postdrop : 'hidden'}>
+                                    <div className={this.postId === post.id ? this.state.postdrop : 'hidden'} onMouseLeave={this.leave}>
                                         <ul>
                                             <li>
                                                 <button className="delete-post-drop" onClick={() => this.props.deletePost(post.id)}>
@@ -348,7 +367,8 @@ class FeedPage extends React.Component {
                                                 </button>
                                             </li>
                                             <li className="edit-post-li">
-                                                <button className="edit-post-drop" onClick={() => this.props.openModal('editpost')}>
+                                                {/* <button className="edit-post-drop" onClick={() => this.props.openModal('editpost')}> */}
+                                                <button className="edit-post-drop" onClick={this.toggleEditPost()}>
                                                     <IconContext.Provider
                                                         value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
                                                         <BiEdit></BiEdit>
@@ -359,6 +379,9 @@ class FeedPage extends React.Component {
                                         </ul>
                                     </div>
                                     {postPhoto}
+                                    {/* { this.state.editpost ? 
+                                    <EditPost /> : <div></div>
+                                    } */}
                                     <div className="like-comment-count-container">
                                         <div className="mini-like">
                                             <IconContext.Provider
@@ -471,7 +494,7 @@ class FeedPage extends React.Component {
                                                                     <p className="cmt-timestamp-two">{timeFromNow()}</p>
                                                                 }
                                                             </div>
-                                                            <div className={this.commentId === comment.id ? this.state.commentdrop : 'hidden'}>
+                                                            <div className={this.commentId === comment.id ? this.state.commentdrop : 'hidden'} onMouseLeave={this.cmtleave}>
                                                                 <ul>
                                                                     <li>
                                                                         <button className="delete-post-drop" onClick={() => this.props.deleteComment(comment.id)}>

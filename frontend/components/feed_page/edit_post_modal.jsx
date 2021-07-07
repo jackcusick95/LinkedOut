@@ -102,3 +102,5 @@ const mapDispatchToProps = (dispatch) => {
 const EditPostModal = connect(mapStateToProps, mapDispatchToProps)(EditPost);
 
 export default EditPostModal;
+
+// export default EditPost; 
