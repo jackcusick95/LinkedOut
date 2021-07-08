@@ -8,7 +8,18 @@ export const fetchAllPosts = () => {
 export const fetchPost = (postId) => {
     return $.ajax({
         method: 'GET',
-        url: `/api/posts/${postId}`
+        url: `/api/posts/${postId}`,
+    })
+}
+
+export const fetchPostModal = (postId, modal) => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/posts/${postId}`,
+        data: {
+            postId: postId,
+            modal: modal
+        }
     })
 }
 
@@ -26,7 +37,7 @@ export const updatePost = (post) => {
     return $.ajax({
         method: 'PATCH', 
         url: `/api/posts/${post.id}`,
-        data: {post: post }
+        data: {post: post}
     });
 }
 

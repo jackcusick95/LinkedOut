@@ -7,6 +7,7 @@ import { FaTrashAlt, FaRegCommentDots, FaLinkedin, FaGithub, FaPortrait } from '
 import { BiEdit, BiLike } from 'react-icons/bi';
 import EditPost from './edit_post_modal';
 import PostPage from './post';
+import Modal from '../modal/modal'
 
 
 
@@ -36,6 +37,7 @@ class FeedPage extends React.Component {
             editcmt: false,
             editcmtId: null,
             editpost: false,
+            editpostid: null,
         }
         this.commentRef = {};
         
@@ -129,11 +131,6 @@ class FeedPage extends React.Component {
                     this.setState({ displayComment: true })
                     this.setState({ editcmt: false})
                 });
-            // document.getElementById('comment-input').value = null;
-            // this.state.commentId = postId;
-                // .then(() => {
-                //     this.commentRefs[postId].current.reset()
-                // });
         }
     }
 
@@ -225,7 +222,7 @@ class FeedPage extends React.Component {
         this.setState({ commentdrop: 'hidden' });
     }
 
-    toggleEditPost() {
+    toggleEditPost(postId) {
         return (e) => {
             e.preventDefault();
             this.props.openModal('editpost')
@@ -368,12 +365,13 @@ class FeedPage extends React.Component {
                                             </li>
                                             <li className="edit-post-li">
                                                 {/* <button className="edit-post-drop" onClick={() => this.props.openModal('editpost')}> */}
-                                                <button className="edit-post-drop" onClick={this.toggleEditPost()}>
+                                                <button className="edit-post-drop" onClick={this.toggleEditPost(post.id)}>
                                                     <IconContext.Provider
                                                         value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
                                                         <BiEdit></BiEdit>
                                                     </IconContext.Provider>
                                                     <span>Edit Post</span>
+                                                    <Modal className="modal-hidden" post={this.state.post}/>
                                                 </button>
                                             </li>
                                         </ul>

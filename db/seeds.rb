@@ -550,8 +550,8 @@ ActiveRecord::Base.transaction do
         job_type: "Part time",
         company: "Starbucks",
         location: "New York, NY",
-        start_date: "2017",
-        end_date: "2018",
+        start_date: "March, 2017",
+        end_date: "September, 2018",
         description: "Worked as a barista at starbucks. Made one of the best iced coffees in all of NYC!", 
     )
 
@@ -563,8 +563,8 @@ ActiveRecord::Base.transaction do
         job_type: "Full time",
         company: "Tesla",
         location: "Palo Alto, CA",
-        start_date: "2017",
-        end_date: "2017",
+        start_date: "January, 2017",
+        end_date: "April, 2017",
     )
 
     demo_job_3.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/tesla.jpg'), filename: 'tesla.jpg')
@@ -574,8 +574,8 @@ ActiveRecord::Base.transaction do
         school: "App Academy",
         degree: "Software Engineering",
         field: "Technology",
-        start_date: "2021",
-        end_date: "2021",
+        start_date: "February, 2021",
+        end_date: "July, 2021",
         description: "Fullstack software engineering bootcamp learning React, Redux, Ruby, Javascript, AWS, and more.", 
     )
 
@@ -586,8 +586,8 @@ ActiveRecord::Base.transaction do
         school: "College of Charleston",
         degree: "Finance and Economics",
         field: "Business",
-        start_date: "2013",
-        end_date: "2017",
+        start_date: "August, 2013",
+        end_date: "May, 2017",
         description: "Majored in finance and economics. Was also part of the sailing team and Sigma Chi fraternity.", 
     )
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { updatePost} from '../../actions/post_actions';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
-
+// import { useParams } from 'react-router-dom';
 
 
 // Need to put the below logout button on the navbar when i get to it
@@ -10,21 +10,17 @@ class EditPost extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            post: {},
-            body: "",
-            photoFile: null,
-            photoUrl: null
         }
 
         this.handleBody = this.handleBody.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    
     // componentDidMount() {
-    //     this.props.fetchAllPosts();
-    // }
-
+        //     this.props.fetchAllPosts();
+        // }
+        
     handleBody(e) {
         this.setState({ body: e.currentTarget.value });
     }
@@ -63,7 +59,7 @@ class EditPost extends React.Component {
         return (
             <div className="modal-form">
                 <form onSubmit={this.handleSubmit}>
-                    <h2 className="modal-header">Create a post</h2>
+                    <h2 className="modal-header">Update Post</h2>
                     <div onClick={this.props.closeModal} className="close-x">X</div>
                     <div id="modal-border"></div>
                     <textarea

@@ -1,5 +1,7 @@
 import * as APIUtil from '../util/post_api_util';
 
+import {openModal} from './modal_actions'; 
+
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const REMOVE_POST = 'REMOVE_POST';
@@ -49,3 +51,10 @@ export const deletePost = (postId) => (dispatch) => {
     return APIUtil.deletePost(postId) 
     .then(() => dispatch(removePost(postId))); 
 }
+
+// export const fetchPostModal = (postId, modal) => (dispatch) => {
+//     return APIUtil.fetchPost(postId)
+//         .then(
+//             (post) => dispatch(receivePost(post)),
+//             (modal) => dispatch(openModal(modal))); 
+// }

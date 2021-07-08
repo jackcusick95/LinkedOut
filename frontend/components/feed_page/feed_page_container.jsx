@@ -3,7 +3,7 @@ import FeedPage from './feed_page';
 import { connect } from 'react-redux'; 
 import { logoutUser } from '../../actions/session_actions';
 import { fetchPost, createPost, updatePost, fetchAllPosts, deletePost } from '../../actions/post_actions';
-import {openModal, closeModal } from '../../actions/modal_actions';
+import {openModal, closeModal, updateModal } from '../../actions/modal_actions';
 import {createComment, updateComment, deleteComment } from '../../actions/comment_actions';
 import {createLike, deleteLike, fetchAllLikes, receiveLike} from '../../actions/like_actions';
 import { findLike } from '../../reducers/selectors';
@@ -20,6 +20,7 @@ const mapStateToProps = (state, ownProps) => {
         commentsArr: Object.values(state.entities.comments),
         likes: state.entities.likes,
         likesArr: Object.values(state.entities.likes),
+        currentPost: (postId) => Object.values(state.entities.posts).filter((post) => post.id == postId),
     };
 };
 
@@ -37,8 +38,11 @@ const mapDispatchToProps = (dispatch) => {
         deleteComment: (commentId) => dispatch(deleteComment(commentId)),
         createLike: (like, postId) => dispatch(createLike(like, postId)),
         deleteLike: (likeId) => dispatch(deleteLike(likeId)),
-        openModal: (modal) => dispatch(openModal(modal)),
+        openModal: (modal, postId) => dispatch(openModal(modal, postId)),
+        // openEditPostModal: (modal, postId) => dispatch(openModal(modal, postId)),
         receiveLike: (like) => dispatch(receiveLike(like)),
+        updateModal: (postId, modal) => dispatch(updateModal(postId, modal)),
+        // currentPost: (postId) => Object.values(state.entities.posts).filter((post) => post.id == postId),
 
         textmodal: (
                 <textarea
