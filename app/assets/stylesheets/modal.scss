@@ -317,6 +317,31 @@
   margin-left: 440px;  
    }
 
+.modal-edit-delete {
+    position: absolute;
+  color:black;
+  text-align: center;
+  font-family: sans-serif;
+  box-shadow: inset 0 0 0 1px black;
+  width: 50px;
+  padding: 6px;
+  border-width: 1px;
+  border-radius: 40px;
+  margin-top: 8px;
+  margin-bottom: 8px;  
+  margin-left: 380px;  
+  margin-top: -39px;
+   }
+
+  .modal-edit-delete:hover {
+    border-color:  #2977c9;
+    color: #0a66c2;
+    background-color:  #e3eefa;
+    border-width: 2px;
+    box-shadow: inset 0 0 0 2px #0a66c2;
+    cursor: pointer;
+  }
+
 .job-date-error {
    color: red; 
    margin-top: -15px;

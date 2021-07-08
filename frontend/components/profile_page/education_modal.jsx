@@ -343,6 +343,7 @@ class EditEducationItem extends React.Component {
                     </div>
                     <button className="modal-edit-save" >Save</button>
                 </form>
+                <button className="modal-edit-delete" >Delete</button>
             </div>
         )
     }
