@@ -537,8 +537,8 @@ ActiveRecord::Base.transaction do
         job_type: "Full time",
         company: "Facebook",
         location: "Menlo Park, CA",
-        start_date: "2018",
-        end_date: "2019",
+        start_date: "December, 2018",
+        end_date: "Present",
         description: "Worked on a several projects including design of Facebook Marketplace.", 
     )
 

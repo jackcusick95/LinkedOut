@@ -17,7 +17,7 @@ class EditEducationItem extends React.Component {
             yearenddate: "",
             dateerror: false,
             nodate: false,
-            checked: false,
+            active: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
@@ -45,7 +45,7 @@ class EditEducationItem extends React.Component {
 
     handleStartDateInput(field, date) {
         return (e) => {
-            e.preventDefault();
+            // e.preventDefault();
             if (date == 'month') {
                 this.state.nodate = false;
                 this.state.dateerror = false;
@@ -65,20 +65,43 @@ class EditEducationItem extends React.Component {
 
     handleEndDateInput(field, date) {
         return (e) => {
-            e.preventDefault();
-            if (date == 'month') {
+            // e.preventDefault();
+            if (date == 'month' && this.state.active == false) {
+                this.state.active = false;
                 this.state.nodate = false;
                 this.state.dateerror = false;
                 this.state.monthenddate = e.target.value;
-            } else if (date == 'year') {
+            } else if (date == 'month' && this.state.active == true) {
+                // this.state.active = false;
+                this.state.nodate = false;
+                this.state.dateerror = false;
+                this.state.monthenddate = e.target.value;
+                this.state.yearenddate = "";
+                this.setState({ active: false });
+            } else if (date == 'year' && this.state.active == true) {
+                // this.state.active = false;
                 this.state.nodate = false;
                 this.state.dateerror = false;
                 this.state.yearenddate = e.target.value;
-            } else if (date == 'current') {
+                this.state.monthenddate = "";
+                this.setState({ active: false });
+            } else if (date == 'year' && this.state.active == false) {
+                this.state.active = false;
                 this.state.nodate = false;
                 this.state.dateerror = false;
-                this.state.monthenddate = "Present";
-                this.state.yearenddate = "Present";
+                this.state.yearenddate = e.target.value;
+            } else if (date == 'current' && this.state.active == false) {
+                this.state.nodate = false;
+                this.state.dateerror = false;
+                this.state.active = true;
+                this.state.monthenddate = e.target.value;
+                this.state.yearenddate = e.target.value;
+            } else if (date == 'current' && this.state.active == true) {
+                this.state.nodate = false;
+                this.state.dateerror = false;
+                this.state.monthenddate = "";
+                this.state.yearenddate = "";
+                this.setState({ active: false });
             }
 
             if (this.state.monthenddate.length > 1 && this.state.yearenddate.length > 1 && this.state.yearenddate != "Present") {
@@ -294,7 +317,7 @@ class EditEducationItem extends React.Component {
                             </div>
                         </div>
                         <div className="model-checkbox-container">
-                            <input type="checkbox" id="date-checkbox" name="check" value="Present" onClick={this.handleEndDateInput('end_date', 'current')}></input>
+                            <input type="checkbox" id="date-checkbox" checked={this.state.active} value={"Present"} onChange={this.handleEndDateInput('end_date', 'current')}></input>
                             <p className="modal-checkbox-label">Current Position</p>
                         </div>
                     </div>
