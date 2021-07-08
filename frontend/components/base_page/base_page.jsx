@@ -32,10 +32,12 @@ const BasePage = ( ) => {
                         <Link to={"/login"}>
                             <button className="navbutton">Log in as demo user<i className="arrow right two"></i></button>
                         </Link>
+                    </div >
+                    <div className="first-nav-button">
+                        <Link to={"/jobs"}>
+                            <button className="navbutton">Search for a job<i className="arrow right one"></i></button>
+                        </Link>
                     </div>
-                    <Link to={"/jobs"}>
-                        <button className="navbutton">Search for a job<i className="arrow right one"></i></button>
-                    </Link>
                     <div className="third-nav-button">
                         <span className="tooltip" >Feature coming soon!</span>
                         <button className="navbutton">Learn a new skill<i className="arrow right three"></i></button>

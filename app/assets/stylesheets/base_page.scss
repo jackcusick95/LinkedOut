@@ -39,7 +39,7 @@
         padding-top: 20px;
 
         .navbutton {
-            background-color: transparent;
+            background-color: white;
             width: 350px;
             color: #0073b1;
             cursor: pointer;
@@ -72,10 +72,17 @@
 
         .second-nav-button {
             width: 350px;
+            z-index: 1;
+        }
+
+        .first-nav-button {
+            // width: 350px;
+            z-index: 1;
         }
 
         .third-nav-button {
             width: 350px;
+            z-index: 1;
         }
 
         .second-nav-button:hover {
@@ -200,15 +207,10 @@
 
     #bottom-img {
         position: relative;
-        // display: flex;
         width: 110%; 
         margin-left: -15px; 
         margin-top: -200px;
-        // margin-bottom: 150px;
-        // z-index: -1;
-        // height: auto;
-        // height: 100px;
-
+        z-index: 0;
     }
 
     .footer {
