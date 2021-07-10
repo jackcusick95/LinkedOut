@@ -42,6 +42,7 @@ const mapDispatchToProps = (dispatch) => {
         // openEditPostModal: (modal, postId) => dispatch(openModal(modal, postId)),
         receiveLike: (like) => dispatch(receiveLike(like)),
         updateModal: (postId, modal) => dispatch(updateModal(postId, modal)),
+        editPostModal: (e) => { dispatch(openModal(`editpost:${e.target.id}`)) },
         // currentPost: (postId) => Object.values(state.entities.posts).filter((post) => post.id == postId),
 
         textmodal: (

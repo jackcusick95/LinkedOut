@@ -3,9 +3,12 @@ export const CLOSE_MODAL = 'CLOSE_MODAL';
 import * as APIUtil from '../util/post_api_util';
 
 export const openModal = (modal) => {
+    let modalcase = modal.split(":")
+    // debugger
     return {
         type: OPEN_MODAL,
-        modal
+        modaltype: modalcase[0],
+        jobid: modalcase[1]
         // data: {modal: modal, postid: postId }
     };
 };

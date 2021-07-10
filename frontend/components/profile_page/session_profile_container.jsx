@@ -49,22 +49,18 @@ const mapDispatchToProps = (dispatch) => {
                 />
             </IconContext.Provider>
         ),
-        jobmodal: (
-            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                <BsPencil
-                    className="edit-basicinfo-button"
-                    onClick={() => dispatch(openModal('job'))}
-                />
-            </IconContext.Provider>
-        ),
-        educationmodal: (
-            <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                <BsPencil
-                    className="edit-basicinfo-button"
-                    onClick={() => dispatch(openModal('education'))}
-                />
-            </IconContext.Provider>
-        ),
+        jobmodal: (e) => {dispatch(openModal(`job:${e.target.id}`))},
+        
+        educationmodal: (e) => { dispatch(openModal(`education:${e.target.id}`)) },
+
+        // educationmodal: (
+        //     <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+        //         <BsPencil
+        //             className="edit-basicinfo-button"
+        //             onClick={() => dispatch(openModal('education'))}
+        //         />
+        //     </IconContext.Provider>
+        // ),
         addjobmodal: (
             <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                 <MdAdd

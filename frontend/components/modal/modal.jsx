@@ -10,17 +10,19 @@ import AddEducation from '../profile_page/add_education_modal';
 import ProPicContainer from '../profile_page/propic_modal';
 import EditPostModal from '../../components/feed_page/edit_post_modal';
 
-function Modal({ modal, closeModal, openModal }) {
+function Modal({ modal, closeModal, jobId}) {
     if (!modal) {
         return null;
     }
     let component;
-    switch (modal) {
+    console.log(modal.modaltype)
+    // debugger
+    switch (modal.modaltype) {
         case 'post':
             component = <PostContainer />;
             break;
         case 'editpost':
-            component = <EditPostModal openModal={openModal}/>;
+            component = <EditPostModal postid={modal.jobid}/>;
             break;
         case 'propic':
             component = <ProPicContainer />;
@@ -29,10 +31,10 @@ function Modal({ modal, closeModal, openModal }) {
             component = <EditModal />;
             break;
         case 'job':
-            component = <EditJob />;
+                component = <EditJob jobId={modal.jobid}/>;
             break;
         case 'education':
-            component = <EditEducation />;
+            component = <EditEducation educationId={modal.jobid}/>;
             break;
         case 'addjob':
             component = <AddJob />;
@@ -55,6 +57,7 @@ function Modal({ modal, closeModal, openModal }) {
 const mapStateToProps = state => {
     return {
         modal: state.ui.modal,
+        // jobId: state.ui.jobid,
         ui: state.ui,
     };
 };

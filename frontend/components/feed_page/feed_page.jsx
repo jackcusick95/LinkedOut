@@ -56,7 +56,7 @@ class FeedPage extends React.Component {
         this.removeLike = this.removeLike.bind(this); 
         this.editComment = this.editComment.bind(this); 
         this.handleEditComment = this.handleEditComment.bind(this); 
-        this.toggleEditPost = this.toggleEditPost.bind(this); 
+        // this.toggleEditPost = this.toggleEditPost.bind(this); 
         this.leave = this.leave.bind(this); 
         this.cmtleave = this.cmtleave.bind(this); 
 
@@ -189,7 +189,6 @@ class FeedPage extends React.Component {
         return (e) => {
             e.preventDefault(); 
             const likeId = likeObject[0].id;
-            console.log(likeId);
 
             this.props.deleteLike(likeId).then(like => {
                 this.setState({ like: {} });
@@ -201,8 +200,7 @@ class FeedPage extends React.Component {
     handleLike(postId) {
         return (e) => {
             e.preventDefault();
-            // this.state.postId = postId
-            // if (this.state.liked === false) {
+
                 const newLike = {
                     liker_id: this.props.currentuser.id,
                     likeable_id: postId,
@@ -212,7 +210,6 @@ class FeedPage extends React.Component {
                     this.setState({ like });
                     this.setState({ liked: true });
                 });
-            // } 
         }
     }
 
@@ -222,13 +219,13 @@ class FeedPage extends React.Component {
         this.setState({ commentdrop: 'hidden' });
     }
 
-    toggleEditPost(postId) {
-        return (e) => {
-            e.preventDefault();
-            this.props.openModal('editpost')
-            this.setState({ postdrop: 'hidden' })
-        }
-    }
+    // toggleEditPost(postId) {
+    //     return (e) => {
+    //         e.preventDefault();
+    //         this.props.openModal('editpost')
+    //         this.setState({ postdrop: 'hidden' })
+    //     }
+    // }
 
     leave() {
         this.setState({ postdrop: 'hidden' });
@@ -364,15 +361,12 @@ class FeedPage extends React.Component {
                                                 </button>
                                             </li>
                                             <li className="edit-post-li">
-                                                {/* <button className="edit-post-drop" onClick={() => this.props.openModal('editpost')}> */}
-                                                <button className="edit-post-drop" onClick={this.toggleEditPost(post.id)}>
-                                                    <IconContext.Provider
-                                                        value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
-                                                        <BiEdit></BiEdit>
+                                                <div className="edit-post-drop" id={post.id} onClick={this.props.editPostModal}>
+                                                    <IconContext.Provider value={{ style: { float: 'left', margin: '0px 10px 0px 5px' } }}>
+                                                        <BiEdit id={post.id} onClick={this.props.editPostModal}></BiEdit>
                                                     </IconContext.Provider>
-                                                    <span>Edit Post</span>
-                                                    <Modal className="modal-hidden" post={this.state.post}/>
-                                                </button>
+                                                    <span id={post.id} onClick={this.props.editPostModal}>Edit Post</span>
+                                                </div>
                                             </li>
                                         </ul>
                                     </div>

@@ -2,6 +2,8 @@ import React from 'react';
 import EditJobItem from './job_modal';
 import { IconContext } from "react-icons";
 import EditJob from './job_modal';
+import { BsPencil } from 'react-icons/bs';
+import { openModal} from '../../actions/modal_actions';
 // import { BsPencil } from "react-icons/bs";
 // import { IoAdd } from "react-icons/io";
 // import { openModal } from '../../actions/modal_actions';
@@ -43,7 +45,14 @@ class ExperienceInfo extends React.Component {
                                         job.photoUrl ?
                                             job.photoUrl :
                                             window.building} />
-                                    {this.props.jobmodal}
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <BsPencil
+                                            className="edit-basicinfo-button"
+                                            id={job.id}
+                                            onClick={this.props.jobmodal}
+                                        />
+                                    </IconContext.Provider>
+                                    {/* {this.props.jobmodal} */}
                                     <div className="job-info-container">
                                         <h1 className="job-title">{job.title}</h1>
                                         <p className="job-company">{job.company}</p>
@@ -67,7 +76,13 @@ class ExperienceInfo extends React.Component {
                                         education.photoUrl ?
                                             education.photoUrl :
                                             window.graduation} />
-                                    {this.props.educationmodal}
+                                    <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                        <BsPencil
+                                            className="edit-basicinfo-button"
+                                            id={education.id}
+                                            onClick={this.props.educationmodal}
+                                        />
+                                    </IconContext.Provider>
                                     <div className="job-info-container">
                                         <h1 className="job-title">{education.school}</h1>
                                         <p className="job-company">{education.degree}</p>

@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 // import { updateJob } from '../../actions/job_actions';
-import { updateEducation } from '../../actions/education_actions';
+import { updateEducation, deleteEducation } from '../../actions/education_actions';
 
 class EditEducationItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             ...this.props.educationsArr.filter(
-                education => education.user_id == this.props.currentuser.id
+                education => education.id== this.props.educationId
             )[0],
             monthstartdate: "",
             yearstartdate: "",
@@ -23,6 +23,7 @@ class EditEducationItem extends React.Component {
         this.handleInput = this.handleInput.bind(this);
         this.handleStartDateInput = this.handleStartDateInput.bind(this);
         this.handleEndDateInput = this.handleEndDateInput.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     handleSubmit(e) {
@@ -36,6 +37,14 @@ class EditEducationItem extends React.Component {
             this.props.updateEducation({
                 ...this.state
             }).then(this.props.closeModal);
+        }
+    }
+
+    handleDelete(educationId) {
+        return (e) => {
+            e.preventDefault();
+            this.props.deleteEducation(educationId)
+                .then(this.props.closeModal);
         }
     }
 
@@ -343,7 +352,7 @@ class EditEducationItem extends React.Component {
                     </div>
                     <button className="modal-edit-save" >Save</button>
                 </form>
-                <button className="modal-edit-delete" >Delete</button>
+                <div className="modal-edit-delete" onClick={this.handleDelete(this.props.educationId)}>Delete</div>
             </div>
         )
     }
@@ -362,7 +371,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         closeModal: () => dispatch(closeModal()),
-        // updateJob: (job) => dispatch(updateJob(job)),
+        deleteEducation: (educationId) => dispatch(deleteEducation(educationId)),
         updateEducation: (education) => dispatch(updateEducation(education)),
     };
 };

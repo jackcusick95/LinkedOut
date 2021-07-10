@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
-import { updateJob } from '../../actions/job_actions';
+import { updateJob, deleteJob } from '../../actions/job_actions';
 
 
 class EditJobItem extends React.Component {
@@ -9,7 +9,7 @@ class EditJobItem extends React.Component {
         super(props);
         this.state = {
             ...this.props.jobsArr.filter(
-                job => job.user_id == this.props.currentuser.id
+                job => job.id == this.props.jobId
             )[0],
             monthstartdate: "",
             yearstartdate: "",
@@ -24,9 +24,11 @@ class EditJobItem extends React.Component {
         this.handleStartDateInput = this.handleStartDateInput.bind(this); 
         this.handleEndDateInput = this.handleEndDateInput.bind(this);
         this.returnFalse = this.returnFalse.bind(this); 
+        this.handleDelete = this.handleDelete.bind(this); 
     }
 
     componentDidMount() {
+        this.props;
         this.state; 
     }
 
@@ -45,6 +47,14 @@ class EditJobItem extends React.Component {
             }).then(this.props.closeModal);
         }
  
+    }
+
+    handleDelete(jobId) {
+        return (e) => {
+            e.preventDefault(); 
+            this.props.deleteJob(jobId)
+            .then(this.props.closeModal);
+        }
     }
 
     handleInput(field) {
@@ -128,6 +138,7 @@ class EditJobItem extends React.Component {
         const {
             company, description, title, location
         } = this.state;
+        console.log(this.props);
         console.log(this.state);
         return (
 
@@ -354,7 +365,7 @@ class EditJobItem extends React.Component {
                     </div>
                     <button className="modal-edit-save" >Save</button>
                 </form>
-                <button className="modal-edit-delete" >Delete</button>
+                <div className="modal-edit-delete" onClick={this.handleDelete(this.props.jobId)}>Delete</div>
             </div>
         )
     }
@@ -373,7 +384,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         closeModal: () => dispatch(closeModal()),
-        updateJob: (job) => dispatch(updateJob(job))
+        updateJob: (job) => dispatch(updateJob(job)),
+        deleteJob: (jobId) => dispatch(deleteJob(jobId)),
     };
 };
 

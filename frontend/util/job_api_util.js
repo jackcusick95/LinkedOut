@@ -20,7 +20,7 @@ export const updateJob = (job) => {
     return $.ajax({
         method: 'PATCH',
         url: `/api/jobs/${job.id}`,
-        data: { job }
+        data: { job },
     });
 }
 

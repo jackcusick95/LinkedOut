@@ -1,5 +1,5 @@
 import React from 'react';
-import { updatePost} from '../../actions/post_actions';
+import { updatePost, fetchPost} from '../../actions/post_actions';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 // import { useParams } from 'react-router-dom';
@@ -10,6 +10,9 @@ class EditPost extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            ...this.props.postsArr.filter(
+                post => post.id == this.props.postid
+            )[0]
         }
 
         this.handleBody = this.handleBody.bind(this);
@@ -17,9 +20,10 @@ class EditPost extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     
-    // componentDidMount() {
-        //     this.props.fetchAllPosts();
-        // }
+    componentDidMount() {
+            this.props.postsArr;
+            this.props.postid;
+        }
         
     handleBody(e) {
         this.setState({ body: e.currentTarget.value });
@@ -39,22 +43,24 @@ class EditPost extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append('post[body]', this.state.body);
-        if (this.state.photoFile) {
-            formData.append('post[photo]', this.state.photoFile);
-        }
-        this.props.createPost(formData)
+        // const formData = new FormData();
+        // formData.append('post[id]', this.state.id);
+        // formData.append('post[author_id]', this.state.author_id);
+        // formData.append('post[body]', this.state.body);
+        // if (this.state.photoFile) {
+        //     formData.append('post[photo]', this.state.photoFile);
+        // }
+        this.props.updatePost({...this.state})
             .then(this.props.closeModal);
-        this.setState({
-            body: "",
-            photoFile: null,
-            photoUrl: null
-        });
+        // this.setState({
+        //     body: "",
+        //     photoFile: null,
+        //     photoUrl: null
+        // });
     }
 
     render() {
-        console.log(this.props);
+        console.log(this.state);
         const preview = this.state.photoUrl ? <img className="preview-img" src={this.state.photoUrl} /> : null;
         return (
             <div className="modal-form">
@@ -64,7 +70,7 @@ class EditPost extends React.Component {
                     <div id="modal-border"></div>
                     <textarea
                         className="modal-textarea"
-                        placeholder="What do you want to talk about?"
+                        value={this.state.body}
                         required="required"
                         cols="30"
                         width="100%"
@@ -85,13 +91,15 @@ const mapStateToProps = (state) => {
     return {
         currentuser: state.entities.users[state.session.id],
         users: state.entities.users,
+        postsArr: Object.values(state.entities.posts),
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         closeModal: () => dispatch(closeModal()),
-        updatePost: (post) => dispatch(updatePost(post))
+        updatePost: (post) => dispatch(updatePost(post)),
+        fetchPost: (postId) => dispatch(fetchPost(postId)),
     };
 };
 
