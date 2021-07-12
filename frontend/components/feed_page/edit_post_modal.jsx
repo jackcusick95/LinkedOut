@@ -43,14 +43,14 @@ class EditPost extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // const formData = new FormData();
-        // formData.append('post[id]', this.state.id);
-        // formData.append('post[author_id]', this.state.author_id);
-        // formData.append('post[body]', this.state.body);
-        // if (this.state.photoFile) {
-        //     formData.append('post[photo]', this.state.photoFile);
-        // }
-        this.props.updatePost({...this.state})
+        const formData = new FormData();
+        formData.append('post[id]', this.state.id);
+        formData.append('post[author_id]', this.state.author_id);
+        formData.append('post[body]', this.state.body);
+        if (this.state.photoFile) {
+            formData.append('post[photo]', this.state.photoFile);
+        }
+        this.props.updatePost(formData)
             .then(this.props.closeModal);
         // this.setState({
         //     body: "",

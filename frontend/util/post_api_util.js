@@ -33,13 +33,24 @@ export const createPost = (post) => {
     });
 }
 
-export const updatePost = (post) => {
+// export const updatePost = (post) => {
+//     return $.ajax({
+//         method: 'PATCH', 
+//         url: `/api/posts/${post.id}`,
+//         data: post,
+//         contentType: false,
+//         processData: false
+//     });
+// }
+
+
+export const updatePost = (formData) => {
     return $.ajax({
-        method: 'PATCH', 
-        url: `/api/posts/${post.id}`,
-        data: { post },
-        // contentType: false,
-        // processData: false
+        method: 'PATCH',
+        url: `/api/posts/${formData.get('post[id]')}`,
+        data: formData,
+        contentType: false,
+        processData: false
     });
 }
 
