@@ -7,6 +7,7 @@ import { GiBearFace } from 'react-icons/gi';
 import { FaLinkedin, FaGithub, FaPortrait, FaUserFriends, FaHome, FaBriefcase } from 'react-icons/fa';
 import { BsFillBriefcaseFill } from 'react-icons/bs';
 import { IoMdArrowDropdown } from 'react-icons/io';
+import SearchBar from './search_bar';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -35,14 +36,14 @@ class NavBar extends React.Component {
                     <Link to={"/feed"}>
                         <img className='nav-logo' src={window.logo} />
                     </Link>
-                        <div className="nav-profilebox-icons">
+                    <SearchBar />
+                        {/* <div className="nav-profilebox-icons">
                             <div className="nav-home">
                                 <div>
                                     <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
                                         <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                                             <FaLinkedin className="home-nav-button" />
                                         </IconContext.Provider>
-                                        {/* <p className="nav-text">LinkedIn</p> */}
                                     </a>
                                 </div>
                             </div>
@@ -52,7 +53,6 @@ class NavBar extends React.Component {
                                         <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                                             <FaGithub className="profile-nav-button" />
                                         </IconContext.Provider>
-                                        {/* <p className="nav-text">Github</p> */}
                                     </a>
                                 </div>
                             </div>
@@ -62,11 +62,10 @@ class NavBar extends React.Component {
                                         <IconContext.Provider value={{ style: { fontSize: '23px' } }}>
                                             <FaPortrait className="nav-logout" />
                                         </IconContext.Provider>
-                                        {/* <p className="nav-text">Website</p> */}
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                 </div>
                     <div className="right-nav">
                         <div className="nav-home">
