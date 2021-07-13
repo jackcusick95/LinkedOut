@@ -27,31 +27,31 @@ class Jobs extends React.Component {
                         <Link to={"/"}>
                             <img className='jobs-homelogo' src={window.logo} />
                         </Link>
-                        <div className="jobs-profilebox-icons">
-                            <div className="nav-profile">
+                        <div className="nav-profilebox-icons">
+                            <div className="nav-home">
                                 <div>
                                     <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
-                                        <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
-                                            <FaLinkedin className="linkedin-nav-button" />
+                                        <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
+                                            <FaLinkedin className="home-nav-button" />
                                         </IconContext.Provider>
                                         {/* <p className="nav-text">LinkedIn</p> */}
                                     </a>
                                 </div>
                             </div>
-                            <div className="nav-profile">
+                            <div className="nav-home">
                                 <div>
                                     <a target="_blank" rel="noopener noreferrer" href="https://github.com/jackcusick95">
-                                        <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
+                                        <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                                             <FaGithub className="profile-nav-button" />
                                         </IconContext.Provider>
                                         {/* <p className="nav-text">Github</p> */}
                                     </a>
                                 </div>
                             </div>
-                            <div className="nav-signout">
+                            <div className="nav-home">
                                 <div>
                                     <a target="_blank" rel="noopener noreferrer" href="https://www.jackcusick95.com/">
-                                        <IconContext.Provider value={{ style: { fontSize: '35px' } }}>
+                                        <IconContext.Provider value={{ style: { fontSize: '23px' } }}>
                                             <FaPortrait className="nav-logout" />
                                         </IconContext.Provider>
                                         {/* <p className="nav-text">Website</p> */}

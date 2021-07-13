@@ -29,6 +29,7 @@ class JobsList extends React.Component {
                         <h1 className="about-header">Jobs</h1>
                         {[...this.props.jobsArr].map((job) => {
                             const jobDescription = job.description ? <p className="job-description">{job.description}</p> : <br className="job-description-two"></br>;
+                            if (job.user_id == "1289")
                             return (
                                 <div className="full-job-container">
                                     <div className="job-container" key={job.id}>
