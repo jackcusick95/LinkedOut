@@ -289,8 +289,10 @@
 }
 
 .search-item {
+    position: relative;
+    // display: flex;
     width: 95%;
-    font-family: sans-serif;
+    // font-family: sans-serif;
     // height: auto;
     background-color: white;
     padding-top: 5px;
@@ -314,10 +316,31 @@
     padding-bottom: 5px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
     border-radius: 0px 8px 8px 8px;  
-    // border: 1px solid black; 
-    // border-top: none;
-    // border-bottom-left-radius: 10px;
-    // border-bottom-right-radius: 10px;
 }
+
+.search-title {
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 12px;
+    color: grey;
+    margin-left: 5px;
+}
+
+.search-name {
+    // justify-content: center;
+    display: inline-block;
+    font-family: sans-serif;
+}
+
+.search-break{
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: grey;
+    margin-left: 5px;
+    // margin-bottom: 10px;
+}
+
+
 
 

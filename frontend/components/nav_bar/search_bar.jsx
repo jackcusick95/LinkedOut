@@ -63,7 +63,9 @@ class SearchBarItem extends React.Component {
                                             <div key={filteredUser.id}>
                                                 <Link to={`/userprofile/${filteredUser.id}`}>
                                                     <li className="search-item" key={filteredUser.id}>
-                                                        <p>{filteredUser.fname} {filteredUser.lname}</p>
+                                                        <p className="search-name">{filteredUser.fname} {filteredUser.lname} </p>
+                                                        <p className="search-break">.</p>
+                                                        <p className="search-title"> {filteredUser.title}</p>
                                                     </li>
                                                 </Link>
                                             </div>
