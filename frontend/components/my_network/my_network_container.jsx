@@ -8,6 +8,7 @@ const mapStateToProps = (state) => {
         jobsArr: Object.values(state.entities.jobs),
         users: state.entities.users,
         usersArr: Object.values(state.entities.users),
+        currentuser: state.entities.users[state.session.id],
     }
 }
 

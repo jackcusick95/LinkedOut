@@ -24,20 +24,36 @@ class MyNetwork extends React.Component {
                     <div className="network-index-box">
                         <h1 className="network-about-header">See who's on LinkedOut!</h1>
                         {[...this.props.usersArr].map((user) => {
+                            console.log(user); 
                             const userDescription = user.description ? <p className="job-description">{user.description}</p> : <br className="job-description-two"></br>;
                             return (
                                 <div className="full-network-container">
                                     <div className="network-container" key={user.id}>
-                                        <img className='session-network-photo' src={
-                                            user.profile_photo ?
-                                                user.profile_photo :
-                                                window.dogo} />
+                                        {user.id == this.props.currentuser.id ?
+                                            <Link to={"/profile"}>
+                                                <img className='session-network-photo' src={
+                                                    user.profile_photo ?
+                                                        user.profile_photo :
+                                                        window.dogo} />
+                                            </Link>
+                                            : <Link to={`/userprofile/${user.id}`}>
+                                                <img className='session-network-photo' src={
+                                                    user.profile_photo ?
+                                                        user.profile_photo :
+                                                        window.dogo} />
+                                            </Link>
+                                        }
                                         <div className="network-info-container">
-                                            <h1 className="job-title">{user.fname} {user.lname}</h1>
+                                            {user.id == this.props.currentuser.id ?
+                                                <Link to={"/profile"}>
+                                                    <h1 className="job-title">{user.fname} {user.lname}</h1>
+                                                </Link>
+                                                : <Link to={`/userprofile/${user.id}`}>
+                                                    <h1 className="job-title">{user.fname} {user.lname}</h1>
+                                                </Link>
+                                            }
                                             <p className="job-company">{user.title}</p>
-                                            {/* <p className="job-date">User since: {user.created_at}</p> */}
                                             <p className="job-location">{user.location}</p>
-                                            {/* {userDescription} */}
                                         </div>
                                         <div className="network-connect-button">
                                             <span className="nav-tooltip" >Feature coming soon!</span>

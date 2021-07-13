@@ -31,8 +31,8 @@ class ExperienceInfo extends React.Component {
                     <h1 className="about-header">Experience</h1>
                         {[...this.props.jobsArr].map((job) => {
                             const jobDescription = job.description ? <p className="job-description">{job.description}</p> : <br className="job-description-two"></br>;
+                            const currentjobArr = this.props.jobsArr.filter(job => job.user_id == this.props.currentuser.id);
                             if (job.user_id == this.props.currentuser.id)
-                            // this.state.jobId = job.id; 
                             return (
                                 <div className="job-container" key={job.id}>
                                     <img className='session-job-photo' src={
@@ -54,7 +54,7 @@ class ExperienceInfo extends React.Component {
                                         <p className="job-location">{job.location}</p>
                                         {jobDescription}
                                     </div>
-                                    {job !== this.props.jobsArr[this.props.jobsArr.length - 1] ? <div className="job-divider"></div> : <div></div>}
+                                    { job !== currentjobArr[currentjobArr.length - 1] ? <div className="job-divider"></div> : <div></div>}
                                 </div>
                             );
                         })}
@@ -63,6 +63,7 @@ class ExperienceInfo extends React.Component {
                     <h1 className="about-header">Education</h1>
                     {[...this.props.educationsArr].map((education) => {
                         const educationDescription = education.description ? <p className="job-description">{education.description}</p> : <br className="job-description-two"></br>;
+                        const currenteducationArr = this.props.educationsArr.filter(education => education.user_id == this.props.currentuser.id);
                         if (education.user_id == this.props.currentuser.id)
                             return (
                                 <div className="job-container" key={education.id}>
@@ -84,7 +85,7 @@ class ExperienceInfo extends React.Component {
                                         <p className="job-date">{education.start_date} - {education.end_date}</p>
                                         {educationDescription}
                                     </div>
-                                    {education !== this.props.educationsArr[this.props.educationsArr.length - 1] ? <div className="job-divider"></div> : <div></div>}
+                                    {education !== currenteducationArr[currenteducationArr.length - 1] ? <div className="job-divider"></div> : <div></div>}
                                 </div>
                             );
                     })}

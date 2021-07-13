@@ -91,7 +91,8 @@
     font-size: 1.3rem;
     font-family: sans-serif; 
     font-weight: 550;  
-    padding-bottom: 2px;     
+    padding-bottom: 2px;   
+    width: 100%;  
 }
 
 .session-profile-title {
@@ -253,7 +254,7 @@ cursor: pointer;
 
 .left-profile-box {
     display: inline-block;
-    // white-space: nowrap;
+    // width: auto;
 }
 
 
