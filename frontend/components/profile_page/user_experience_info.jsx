@@ -3,10 +3,12 @@ import EditJobItem from './job_modal';
 import { IconContext } from "react-icons";
 import EditJob from './job_modal';
 import { BsPencil } from 'react-icons/bs';
-import { openModal} from '../../actions/modal_actions';
+import { openModal } from '../../actions/modal_actions';
+// import { BsPencil } from "react-icons/bs";
+// import { IoAdd } from "react-icons/io";
+// import { openModal } from '../../actions/modal_actions';
 
-
-class ExperienceInfo extends React.Component {
+class UserExperienceInfo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,8 +19,12 @@ class ExperienceInfo extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllJobs();
-        this.props.fetchAllEducations(); 
+        this.props.fetchAllEducations();
     }
+
+    // handleJobId(jobId) {
+    //     this.setState({ jobId: jobId });
+    // }
 
 
     render() {
@@ -29,9 +35,9 @@ class ExperienceInfo extends React.Component {
                 <div className="experience-box">
                     {this.props.addjobmodal}
                     <h1 className="about-header">Experience</h1>
-                        {[...this.props.jobsArr].map((job) => {
-                            const jobDescription = job.description ? <p className="job-description">{job.description}</p> : <br className="job-description-two"></br>;
-                            if (job.user_id == this.props.currentuser.id)
+                    {[...this.props.jobsArr].map((job) => {
+                        const jobDescription = job.description ? <p className="job-description">{job.description}</p> : <br className="job-description-two"></br>;
+                        if (job.user_id == this.props.userId)
                             // this.state.jobId = job.id; 
                             return (
                                 <div className="job-container" key={job.id}>
@@ -57,13 +63,13 @@ class ExperienceInfo extends React.Component {
                                     {job !== this.props.jobsArr[this.props.jobsArr.length - 1] ? <div className="job-divider"></div> : <div></div>}
                                 </div>
                             );
-                        })}
+                    })}
                     <div className="experience-divider"></div>
                     {this.props.addeducationmodal}
                     <h1 className="about-header">Education</h1>
                     {[...this.props.educationsArr].map((education) => {
                         const educationDescription = education.description ? <p className="job-description">{education.description}</p> : <br className="job-description-two"></br>;
-                        if (education.user_id == this.props.currentuser.id)
+                        if (education.user_id == this.props.userId)
                             return (
                                 <div className="job-container" key={education.id}>
                                     <img className='session-job-photo' src={
@@ -95,4 +101,4 @@ class ExperienceInfo extends React.Component {
 
 }
 
-export default ExperienceInfo;
+export default UserExperienceInfo;

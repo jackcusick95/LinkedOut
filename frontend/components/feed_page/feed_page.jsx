@@ -56,7 +56,6 @@ class FeedPage extends React.Component {
         this.removeLike = this.removeLike.bind(this); 
         this.editComment = this.editComment.bind(this); 
         this.handleEditComment = this.handleEditComment.bind(this); 
-        // this.toggleEditPost = this.toggleEditPost.bind(this); 
         this.leave = this.leave.bind(this); 
         this.cmtleave = this.cmtleave.bind(this); 
 
@@ -219,13 +218,6 @@ class FeedPage extends React.Component {
         this.setState({ commentdrop: 'hidden' });
     }
 
-    // toggleEditPost(postId) {
-    //     return (e) => {
-    //         e.preventDefault();
-    //         this.props.openModal('editpost')
-    //         this.setState({ postdrop: 'hidden' })
-    //     }
-    // }
 
     leave() {
         this.setState({ postdrop: 'hidden' });
@@ -314,8 +306,8 @@ class FeedPage extends React.Component {
                             const career = this.props.users[post.author_id].title;
                             const postPhoto = post.photoUrl ? <img id="feed-image" src={post.photoUrl} /> : <div></div>;
                             let timenow = Date.now() - Date.parse(post.created_at); 
-                            // console.log(timenow);
-
+ 
+                            
                             if (timenow < 3600000) {
                                 setInterval(() => { 
                                     timenow = Date.now() - Date.parse(post.created_at) 
@@ -341,7 +333,14 @@ class FeedPage extends React.Component {
                                             postUser.profile_photo ?
                                             postUser.profile_photo :
                                             window.dogo} />
-                                        <h1 className="first-last-name">{firstname} {lastname}</h1>
+                                        { this.props.currentuser.id == post.author_id ? 
+                                            <Link to={"/profile"}>
+                                                <h1 className="first-last-name">{firstname} {lastname}</h1>
+                                            </Link>
+                                            : <Link to={`/userprofile/${post.author_id}`}>
+                                                <h1 className="first-last-name">{firstname} {lastname}</h1>
+                                            </Link>
+                                        }
                                     </div>
                                         <p className="feed-career">{career}</p>
                                         <p className="timestamp">{timeFromNow()}</p>

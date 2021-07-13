@@ -53,14 +53,6 @@ const mapDispatchToProps = (dispatch) => {
         
         educationmodal: (e) => { dispatch(openModal(`education:${e.target.id}`)) },
 
-        // educationmodal: (
-        //     <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-        //         <BsPencil
-        //             className="edit-basicinfo-button"
-        //             onClick={() => dispatch(openModal('education'))}
-        //         />
-        //     </IconContext.Provider>
-        // ),
         addjobmodal: (
             <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                 <MdAdd

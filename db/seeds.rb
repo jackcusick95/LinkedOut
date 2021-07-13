@@ -594,91 +594,198 @@ ActiveRecord::Base.transaction do
     demo_education_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/cofc.jpg'), filename: 'cofc.jpg')
 
 
-    # post_14 = Post.create(
-    #     body: '',
-    #     author_id: user_7.id,
-    # )
+    billgates_job_1 = Job.create( 
+        user_id: user_4.id,
+        title: "Founder",
+        job_type: "Full time",
+        company: "Microsoft",
+        location: "Seattle, WA",
+        start_date: "January, 1980",
+        end_date: "Present",
+        description: "Founder of Microsoft. Current time is spent on philanthropic work.", 
+    )
 
-    # post_15 = Post.create(
-    #     body: '',
-    #     author_id: user_8.id,
-    # )
+    billgates_job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/microsoftlogo.png'), filename: 'microsoftlogo.png')
+   
+    billgates_job_2 = Job.create( 
+        user_id: user_4.id,
+        title: "Founder",
+        job_type: "Full time",
+        company: "Bill & Melinda Gates Foundation",
+        location: "Seattle, WA",
+        start_date: "January, 2000",
+        end_date: "Present",
+        description: "Private foundation with the goal of reducing poverty and increasing healthcare around the world.", 
+    )
 
-    # post_16 = Post.create(
-    #     body: '',
-    #     author_id: user_8.id,
-    # )
+    billgates_job_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/billfoundation.jpg'), filename: 'billfoundation.jpg')
+   
 
-    # post_17 = Post.create(
-    #     body: '',
-    #     author_id: user_9.id,
-    # )
+    bill_education_1 = Education.create(
+        user_id: user_4.id,
+        school: "Harvard University",
+        degree: "Software Engineering",
+        field: "Technology",
+        start_date: "February, 1973",
+        end_date: "July, 1975",
+        description: "Didn't graduate, but think I'm doing OK now ;)...", 
+    )
 
-    # post_18 = Post.create(
-    #     body: '',
-    #     author_id: user_9.id,
-    # )
+    bill_education_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/harvard.jpg'), filename: 'harvard.jpg')
+   
 
-    # post_19 = Post.create(
-    #     body: '',
-    #     author_id: user_10.id,
-    # )
+    sal_job_1 = Job.create( 
+        user_id: user_7.id,
+        title: "Head of Sales",
+        job_type: "Full time",
+        company: "Google",
+        location: "New York, NY",
+        start_date: "January, 2020",
+        end_date: "Present",
+        description: "Managing of team of 10 BDRs on the Google Ways team.", 
+    )
 
-    # post_20 = Post.create(
-    #     body: '',
-    #     author_id: user_10.id,
-    # )
+    sal_job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/googlelogo.png'), filename: 'googlelogo.png')
 
-    # post_21 = Post.create(
-    #     body: '',
-    #     author_id: user_11.id,
-    # )
+sal_job_2 = Job.create( 
+        user_id: user_7.id,
+        title: "Meat Manager",
+        job_type: "Full time",
+        company: "Tasty Sausage Co.",
+        location: "New York, NY",
+        start_date: "January, 2017",
+        end_date: "December, 2019",
+        description: "Managed the largest sausage factor north of the Mississippi.", 
+    )
 
-    # post_22 = Post.create(
-    #     body: '',
-    #     author_id: user_11.id,
-    # )
+    sal_job_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/sausage.jpg'), filename: 'sausage.jpg')
 
-    # post_23 = Post.create(
-    #     body: '',
-    #     author_id: user_12.id,
-    # )
+    sal_education_1 = Education.create(
+        user_id: user_7.id,
+        school: "St. Michaels College",
+        degree: "Finance & Economics",
+        field: "Business",
+        start_date: "August, 2013",
+        end_date: "May, 2017",
+        description: "Was also part of the club Lacrosse team.", 
+    )
 
-    # post_24 = Post.create(
-    #     body: '',
-    #     author_id: user_12.id,
-    # )
+    sal_education_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/stmich.png'), filename: 'stmich.png')
 
-    # post_25 = Post.create(
-    #     body: '',
-    #     author_id: user_13.id,
-    # )
+    andre_job_1 = Job.create( 
+        user_id: user_6.id,
+        title: "Front Desk Secretary",
+        job_type: "Full time",
+        company: "Morgan Stanley",
+        location: "New York, NY",
+        start_date: "January, 2019",
+        end_date: "Present",
+        description: "I am the key to our office. The protector of the realm.", 
+    )
 
-    # post_26 = Post.create(
-    #     body: '',
-    #     author_id: user_13.id,
-    # )
+    andre_job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/ms.jpg'), filename: 'ms.jpg')
 
-    # post_27 = Post.create(
-    #     body: '',
-    #     author_id: user_14.id,
-    # )
+    andre_job_2 = Job.create( 
+            user_id: user_6.id,
+            title: "Cashier",
+            job_type: "Full time",
+            company: "Seaside Liquor Store",
+            location: "Bridgeport, CT",
+            start_date: "January, 2013",
+            end_date: "December, 2016",
+            description: "Ensuring everyone buying alchol is over 21.", 
+        )
 
-    # post_28 = Post.create(
-    #     body: '',
-    #     author_id: user_14.id,
-    # )
+    andre_job_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/seaside.jpg'), filename: 'seaside.jpg')
 
-    # post_29 = Post.create(
-    #     body: '',
-    #     author_id: user_15.id,
-    # )
+    andre_education_1 = Education.create(
+        user_id: user_6.id,
+        school: "College of Charleston",
+        degree: "Finance & Economics",
+        field: "Business",
+        start_date: "August, 2013",
+        end_date: "May, 2017",
+        description: "Finance, Kappa Sigma Fraternity, owned a moped.", 
+    )
 
-    # post_30 = Post.create(
-    #     body: '',
-    #     author_id: user_15.id,
-    # )
+    andre_education_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/cofc.jpg'), filename: 'cofc.jpg')
+
+    eli_job_1 = Job.create( 
+        user_id: user_5.id,
+        title: "NFL Quarterback",
+        job_type: "Full time",
+        company: "NY Giants",
+        location: "New York, NY",
+        start_date: "January, 2000",
+        end_date: "December, 2018",
+        description: "Two time superbowl champion.", 
+    )
+
+    eli_job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/eligiants.jpg'), filename: 'eligiants.jpg')
 
 
+    eli_education_1 = Education.create(
+        user_id: user_5.id,
+        school: "Ole Miss University",
+        degree: "Sports Business",
+        field: "Business",
+        start_date: "August, 1994",
+        end_date: "May, 1999",
+        description: "Served as the quarterback of our football team.", 
+    )
+
+    eli_education_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/olemiss.jpg'), filename: 'olemiss.jpg')
+
+    elon_job_1 = Job.create( 
+        user_id: user_3.id,
+        title: "Founder",
+        job_type: "Full time",
+        company: "PayPal",
+        location: "New York, NY",
+        start_date: "January, 1995",
+        end_date: "Present",
+        description: "Founded and sold PayPal", 
+    )
+
+    elon_job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/paypal.png'), filename: 'paypal.png')
+
+    elon_job_2 = Job.create( 
+        user_id: user_3.id,
+        title: "Founder",
+        job_type: "Full time",
+        company: "Tesla",
+        location: "Austin, TX",
+        start_date: "January, 2000",
+        end_date: "Present",
+        description: "Changing the world through alternative energy.", 
+    )
+
+    elon_job_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/tesla.jpg'), filename: 'tesla.jpg')
+
+    elon_job_3 = Job.create( 
+        user_id: user_3.id,
+        title: "Founder",
+        job_type: "Full time",
+        company: "SpaceX",
+        location: "San Francisco, CA",
+        start_date: "January, 2010",
+        end_date: "Present",
+        description: "Driven to get humans to Mars.", 
+    )
+
+    elon_job_3.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/spacex.jpg'), filename: 'spacex.jpg')
+
+
+    elon_education_1 = Education.create(
+        user_id: user_3.id,
+        school: "Queens University",
+        degree: "Mechanical Engineering",
+        field: "Engineering",
+        start_date: "August, 1990",
+        end_date: "May, 1992",
+        description: "Undergrad before moving to the US.", 
+    )
+
+    elon_education_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/queens.png'), filename: 'queens.png')
 
 end 

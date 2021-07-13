@@ -10,6 +10,7 @@ import FeedPageContainer from './feed_page/feed_page_container';
 import Modal from './modal/modal'; 
 import NavBarContainer from './nav_bar/nav_bar_container';
 import SessionProfileContainer from './profile_page/session_profile_container'; 
+import UserProfileContainer from './profile_page/user_profile_container';
 import JobsContainer from './base_page/jobs_container';
 import JobsListContainer from './jobs/jobs_list_container';
 import MyNetworkContainer from './my_network/my_network_container';
@@ -28,6 +29,8 @@ const App = () => {
                 <ProtectedRoute exact path="/network" component={MyNetworkContainer} />
                <ProtectedRoute exact path="/feed" component={FeedPageContainer} />
                <ProtectedRoute exact path="/profile" component={SessionProfileContainer} />
+               <ProtectedRoute exact path="/userprofile/:id" component={UserProfileContainer} />
+
            </Switch>
        </div>
     )
