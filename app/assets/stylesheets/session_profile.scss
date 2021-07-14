@@ -188,8 +188,13 @@ cursor: pointer;
     margin-bottom: 30px;
     }
 
+    .session-job-photo:hover {
+        cursor: pointer;
+    }
+
 .job-container {
     position: relative;
+    display: flex;
     margin-top: 10px;
     // margin-bottom: 40px;
 
@@ -198,7 +203,8 @@ cursor: pointer;
 .job-info-container {
     display: inline-block;
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 0px;
+    margin-bottom: 20px;
     overflow-wrap: break-word;
 
 }
@@ -211,6 +217,12 @@ cursor: pointer;
     color: black; 
     padding-bottom: 2px;    
 }
+
+.job-title:hover {
+    cursor: pointer;   
+    text-decoration: underline; 
+}
+
 .job-company {
     font-size: 15px;
     // font-weight: 600;

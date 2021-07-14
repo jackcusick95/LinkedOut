@@ -9,6 +9,7 @@ import AddJob from '../profile_page/add_job_modal';
 import AddEducation from '../profile_page/add_education_modal';
 import ProPicContainer from '../profile_page/propic_modal';
 import EditPostModal from '../../components/feed_page/edit_post_modal';
+import OpenJobModal from '../../components/jobs/open_job_modal'; 
 
 function Modal({ modal, closeModal, jobId}) {
     if (!modal) {
@@ -23,6 +24,9 @@ function Modal({ modal, closeModal, jobId}) {
             break;
         case 'editpost':
             component = <EditPostModal postid={modal.jobid}/>;
+            break;
+        case 'openjob':
+            component = <OpenJobModal jobId={modal.jobid} />;
             break;
         case 'propic':
             component = <ProPicContainer />;

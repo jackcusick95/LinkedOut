@@ -73,12 +73,12 @@ class Jobs extends React.Component {
                             return (
                                 <div className="full-job-container">
                                     <div className="job-container" key={job.id}>
-                                        <img className='session-job-photo' src={
+                                        <img className='session-job-photo' id={job.id} onClick={this.props.openjobmodal} src={
                                             job.photoUrl ?
                                                 job.photoUrl :
                                                 window.dogo} />
                                         <div className="job-info-container">
-                                            <h1 className="job-title">{job.title}</h1>
+                                            <h1 className="job-title" id={job.id} onClick={this.props.openjobmodal}>{job.title}</h1>
                                             <p className="job-company">{job.company}</p>
                                             <p className="job-date">{job.start_date} - {job.end_date}</p>
                                             <p className="job-location">{job.location}</p>
