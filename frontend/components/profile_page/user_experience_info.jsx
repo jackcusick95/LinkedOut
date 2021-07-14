@@ -20,7 +20,6 @@ class UserExperienceInfo extends React.Component {
         return (
             <div>
                 <div className="experience-box">
-                    {this.props.addjobmodal}
                     <h1 className="about-header">Experience</h1>
                     {[...this.props.jobsArr].map((job) => {
                         const jobDescription = job.description ? <p className="job-description">{job.description}</p> : <br className="job-description-two"></br>;

@@ -85,6 +85,15 @@
     border-color: white;
 }
 
+.ed-pro-photo {
+    height: 20px; 
+    width: 20px;
+    margin-right: 5px;
+    display: inline-block;
+    border-style: solid;
+    border-color: white;
+}
+
 .session-profile-name {
     margin-left: 3%;
     margin-top: 10px;
@@ -259,7 +268,8 @@ cursor: pointer;
 
 
 .right-profile-box {
-    margin-top: 10px;
+    margin-top: 0px;
+    // position: relative;
     display: inline-block;
 }
 
@@ -273,13 +283,21 @@ cursor: pointer;
 }
 
 .right-box-text {
+    display: inline-block;
     font-size: 14px;
     font-weight: bold;
     font-family: sans-serif;
+    margin-top: 3px;
 }
 
 .job-hidden {
     display: none;
+}
+
+.pro-ed-container {
+    margin-top: 10px;
+    position: relative;
+    display: flex;
 }
 
 

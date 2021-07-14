@@ -37,35 +37,6 @@ class NavBar extends React.Component {
                         <img className='nav-logo' src={window.logo} />
                     </Link>
                     <SearchBar />
-                        {/* <div className="nav-profilebox-icons">
-                            <div className="nav-home">
-                                <div>
-                                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/jack-cusick-2a5809b4/">
-                                        <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                                            <FaLinkedin className="home-nav-button" />
-                                        </IconContext.Provider>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="nav-home">
-                                <div>
-                                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/jackcusick95">
-                                        <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
-                                            <FaGithub className="profile-nav-button" />
-                                        </IconContext.Provider>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="nav-home">
-                                <div>
-                                    <a target="_blank" rel="noopener noreferrer" href="https://www.jackcusick95.com/">
-                                        <IconContext.Provider value={{ style: { fontSize: '23px' } }}>
-                                            <FaPortrait className="nav-logout" />
-                                        </IconContext.Provider>
-                                    </a>
-                                </div>
-                            </div>
-                        </div> */}
                 </div>
                     <div className="right-nav">
                         <div className="nav-home">

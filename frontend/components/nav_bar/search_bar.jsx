@@ -9,9 +9,10 @@ class SearchBarItem extends React.Component {
         super(props);
         this.state = {
             searchChar: "",
-            users: {},
         }
+        
         this.handleSearchInput = this.handleSearchInput.bind(this); 
+        this.leave = this.leave.bind(this); 
     }
 
     componentDidMount() {
@@ -21,24 +22,11 @@ class SearchBarItem extends React.Component {
     handleSearchInput(e) {
         e.preventDefault(); 
         this.setState({ searchChar: e.target.value});
-        // this.state.searchChar = e.target.value;
+    }
 
-        // if (this.state.searchChar.length > 0) {
-        //     return (
-        //         <div className="search-list-dropdown">
-        //             <ul className="search-item">
-        //                 {[...this.props.usersArr].filter( user => user.fname.toLowerCase().includes(this.state.searchChar.toLowerCase())).map((filteredUser) => {
-        //                     console.log(filteredUser);
-        //                     return (
-        //                         <li className="search-item" key={filteredUser.id}>
-        //                             <p>{filteredUser.fname} {filteredUser.lname}</p>
-        //                         </li>
-        //                     )
-        //                 })}
-        //             </ul>
-        //         </div>
-        //     );
-        // }
+    leave() {
+        document.getElementById('search-inp').value = null;
+        this.setState({ searchChar: "" });
     }
 
     render() {
@@ -48,6 +36,7 @@ class SearchBarItem extends React.Component {
                 <div className="search-container">
                     <input
                         className="search-input"
+                        id="search-inp"
                         type="text"
                         placeholder="🔍  Search for a user..." 
                         onChange={this.handleSearchInput}
@@ -56,7 +45,7 @@ class SearchBarItem extends React.Component {
                 <div>
                     {
                         this.state.searchChar.length > 0 ? 
-                            <ul className="search-list-dropdown">
+                            <ul className="search-list-dropdown" onMouseLeave={this.leave}>
                                     {[...this.props.usersArr].filter(user => user.fname.toLowerCase().includes(this.state.searchChar.toLowerCase())).map((filteredUser) => {
                                         console.log(filteredUser);
                                         return (

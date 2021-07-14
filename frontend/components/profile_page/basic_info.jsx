@@ -50,8 +50,30 @@ class BasicInfo extends React.Component {
                                 <p className="session-profile-location">{this.props.currentuser.location}</p>
                             </div>
                             <div className="right-profile-box">
-                                <p className="right-box-text">Facebook</p>
-                            <p className="right-box-text">App Academy</p>
+                            {[...this.props.jobsArr].filter((job) => job.user_id == this.props.currentuser.id).map((currentJob, idx) => {
+                                if (idx == 0)
+                                    return (
+                                        <div className="pro-ed-container" key={currentJob.id}>
+                                            <img className='ed-pro-photo' src={
+                                                currentJob.photoUrl ?
+                                                    currentJob.photoUrl :
+                                                    window.building} />
+                                            <p className="right-box-text">{currentJob.company}</p>
+                                        </div>
+                                    );
+                            })}
+                            {[...this.props.educationsArr].filter((education) => education.user_id == this.props.currentuser.id).map((currentEducation, idx) => {
+                                if (idx == 0)
+                                    return (
+                                        <div className="pro-ed-container" key={currentEducation.id}>
+                                            <img className='ed-pro-photo' src={
+                                                currentEducation.photoUrl ?
+                                                    currentEducation.photoUrl :
+                                                    window.graduation} />
+                                            <p className="right-box-text">{currentEducation.school}</p>
+                                        </div>
+                                    );
+                            })}
                             </div>
                         </div>
                     </div>
