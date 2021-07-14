@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :jobs, only: [:index, :create, :update, :destroy, :show]
     resources :educations, only: [:index, :create, :update, :destroy, :show]
     resources :likes, only: [:destroy, :index, :show]
+    resources :connections, only: [:destroy, :index, :create, :show]
     resource :session, only: [:create, :destroy, :show]
     resources :posts, only: [:show, :create, :index, :update, :destroy] do
       resources :comments, only: [:create]
