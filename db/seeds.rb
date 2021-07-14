@@ -788,4 +788,120 @@ sal_job_2 = Job.create(
 
     elon_education_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/queens.png'), filename: 'queens.png')
 
+    lebron_job_1 = Job.create( 
+        user_id: user_2.id,
+        title: "NBA Athlete",
+        job_type: "Full time",
+        company: "LA Lakers",
+        location: "Los Angeles, CA",
+        start_date: "January, 2000",
+        end_date: "Present",
+        description: "Four time NBA Champion!", 
+    )
+
+    lebron_job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/nbalogo.jpg'), filename: 'nbalogo.jpg')
+
+
+    lebron_education_1 = Education.create(
+        user_id: user_2.id,
+        school: "St. Vincent Highschool",
+        degree: "NBA Draft",
+        field: "Athletics",
+        start_date: "August, 1994",
+        end_date: "May, 1996",
+        description: "Went number one overall in the NBA draft.", 
+    )
+
+    lebron_education_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/lhs.jpg'), filename: 'lhs.jpg')
+
+    tony_job_1 = Job.create( 
+        user_id: user_12.id,
+        title: "Professional Skateboarder",
+        job_type: "Full time",
+        company: "Tony Hawk Skateboarding",
+        location: "Los Angeles, CA",
+        start_date: "January, 1985",
+        end_date: "Present",
+        description: "Yes, I am the real Tony Hawk.", 
+    )
+
+    tony_job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/tonyhawk.jpg'), filename: 'tonyhawk.jpg')
+
+
+    tony_education_1 = Education.create(
+        user_id: user_12.id,
+        school: "Torrey Pines High School",
+        degree: "Skateboarding",
+        field: "Athletics",
+        start_date: "August, 1984",
+        end_date: "May, 1986",
+        description: "Became a professional skateboarder at age 14", 
+    )
+
+    tony_education_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/torry.jpg'), filename: 'torry.jpg')
+
+    clare_job_1 = Job.create( 
+        user_id: user_14.id,
+        title: "Head of Creative",
+        job_type: "Full time",
+        company: "Firon Marketing",
+        location: "New York, NY",
+        start_date: "October, 2020",
+        end_date: "Present",
+        description: "Lead the creative content production for multiple clients.", 
+    )
+
+    clare_job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/firon.jpg'), filename: 'firon.jpg')
+
+    
+    clare_education_2 = Education.create(
+        user_id: user_14.id,
+        school: "College of Charleston",
+        degree: "BS Photography",
+        field: "Photography",
+        start_date: "August, 2016",
+        end_date: "May, 2020",
+        description: "Studied creative photography and art history.", 
+        )
+        
+    clare_education_2.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/cofc.jpg'), filename: 'cofc.jpg')
+
+    clare_education_1 = Education.create(
+            user_id: user_14.id,
+            school: "Loyola High School",
+            degree: "Highschool",
+            field: "General Studies",
+            start_date: "August, 2012",
+            end_date: "May, 2016",
+            description: "Studied creative photography and was part of the club sailing team.", 
+            )
+            
+    clare_education_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/loyola.jpg'), filename: 'loyola.jpg')
+
+    john_job_1 = Job.create( 
+        user_id: user_15.id,
+        title: "Standup Comedian",
+        job_type: "Full time",
+        company: "John Mulaney Co.",
+        location: "Chicago, Il",
+        start_date: "January, 2000",
+        end_date: "Present",
+        description: "Standup comedian with my own series on Netflix.", 
+    )
+
+    john_job_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/johnpic.jpg'), filename: 'johnpic.jpg')
+
+
+    john_education_1 = Education.create(
+        user_id: user_15.id,
+        school: "Georgetown University",
+        degree: "American Culture",
+        field: "Liberal Arts",
+        start_date: "August, 2000",
+        end_date: "May, 2004",
+        description: "Went on to become a standup comedian.", 
+    )
+
+    john_education_1.photo.attach(io: open('https://linkedout-seed.s3.amazonaws.com/georgetown.jpg'), filename: 'georgetown.jpg')
+        
 end 

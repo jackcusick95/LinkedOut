@@ -41,7 +41,7 @@ class ExperienceInfo extends React.Component {
                                             window.building} />
                                     <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                                         <BsPencil
-                                            className="edit-basicinfo-button"
+                                            className="edit-ed-button"
                                             id={job.id}
                                             onClick={this.props.jobmodal}
                                         />
@@ -73,7 +73,7 @@ class ExperienceInfo extends React.Component {
                                             window.graduation} />
                                     <IconContext.Provider value={{ style: { fontSize: '25px' } }}>
                                         <BsPencil
-                                            className="edit-basicinfo-button"
+                                            className="edit-ed-button"
                                             id={education.id}
                                             onClick={this.props.educationmodal}
                                         />

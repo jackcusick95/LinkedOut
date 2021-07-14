@@ -147,6 +147,20 @@ margin-right: 13px;
 margin-top: 13px;
 }
 
+.edit-ed-button {
+position: absolute;
+right: 13px;
+padding: 5px;
+margin-top: 13px;
+}
+
+.edit-ed-button:hover {
+border-radius: 50%;
+background-color: lightgrey;
+cursor: pointer;
+}
+
+
 .edit-basicinfo-button:hover {
 border-radius: 50%;
 background-color: lightgrey;
