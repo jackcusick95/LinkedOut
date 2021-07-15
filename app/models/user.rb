@@ -36,9 +36,14 @@ class User < ApplicationRecord
         foreign_key: :liker_id,
         class_name: :Like
 
-    has_many :connections,
+    has_many :connecters,
         primary_key: :id,
         foreign_key: :connecter_id,
+        class_name: :Connection
+
+    has_many :connectees,
+        primary_key: :id,
+        foreign_key: :connected_id,
         class_name: :Connection
 
     after_initialize :ensure_session_token

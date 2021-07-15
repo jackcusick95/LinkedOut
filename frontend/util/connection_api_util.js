@@ -9,7 +9,7 @@ export const createConnection = (connection) => {
     return $.ajax({
         method: 'POST',
         url: `/api/connections`,
-        data: connection,
+        data: { connection },
     });
 }
 

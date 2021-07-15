@@ -6,12 +6,39 @@ import { FaLinkedin, FaGithub, FaPortrait } from 'react-icons/fa';
 class MyNetwork extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            connected: false,
+        }
+    this.handleConnection = this.handleConnection.bind(this); 
+    this.removeConnection = this.removeConnection.bind(this); 
     }
 
     componentDidMount() {
         this.props.fetchAllJobs();
         this.props.fetchAllPosts();
+        this.props.fetchAllConnections(); 
+    }
+
+    handleConnection(userId) {
+        return (e) => {
+                e.preventDefault();
+            const newConnection = {
+                connecter_id: this.props.currentuser.id,
+                connected_id: userId,
+            };
+
+            this.props.createConnection(newConnection); 
+        }
+    }
+
+    removeConnection(connectionObject) {
+        return (e) => {
+            e.preventDefault();
+
+            const connectionId = connectionObject[0].id;
+
+            this.props.deleteConnection(connectionId);
+        }
     }
 
     render() {
@@ -55,10 +82,15 @@ class MyNetwork extends React.Component {
                                             <p className="job-company">{user.title}</p>
                                             <p className="job-location">{user.location}</p>
                                         </div>
-                                        <div className="network-connect-button">
-                                            <span className="nav-tooltip" >Feature coming soon!</span>
-                                            <p>Connect</p>                                        
-                                        </div>
+                                        {this.props.connectionsArr.filter((connection) => connection.connected_id == user.id && connection.connecter_id == this.props.currentuser.id).length > 0 ?
+                                            < div className="network-connect-button" onClick={this.removeConnection(this.props.connectionsArr.filter((connection) => (connection.connected_id == user.id && connection.connecter_id == this.props.currentuser.id)))}>
+                                                <p>Disonnect</p>
+                                            </div>
+                                            :
+                                            <div className="lets-connect-button" onClick={this.handleConnection(user.id)}>
+                                                <p>Connect</p>
+                                            </div>
+                                        }
                                     {user !== this.props.usersArr[this.props.usersArr.length - 1] ? <div className="job-divider"></div> : <div></div>}
                                     </div>
                                 </div>

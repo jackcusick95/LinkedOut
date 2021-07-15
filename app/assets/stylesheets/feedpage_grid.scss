@@ -74,7 +74,7 @@
     // width: 100%;
     background-color: white;
     border-radius: 8px;
-    height: 280px; 
+    height: 240px; 
     z-index: 0;
     box-shadow: 0 4px 12px lightgrey;
 }
@@ -139,6 +139,7 @@
 }
 
 .sidebar-connections {
+    display: inline-block;
     font-size: 12px;
     font-family: sans-serif;
     color: grey; 
@@ -147,6 +148,27 @@
     font-weight: 500;
     font-size: 13px;
     white-space: nowrap;
+}
+
+.sidebar-connections:hover {
+    text-decoration: underline;
+}
+
+.count-connections {
+    display: inline-block;
+    font-size: 13px;
+    font-family: sans-serif;
+    color: blue; 
+    margin-top: 6px;
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.pro-sidebar-bottom {
+    position: relative;
+    display: flex;
 }
 
 .post-form {

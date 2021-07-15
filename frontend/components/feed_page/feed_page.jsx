@@ -78,6 +78,7 @@ class FeedPage extends React.Component {
     componentDidMount() {
         this.props.fetchAllPosts(); 
         this.props.likesArr; 
+        this.props.fetchAllConnections();
     }
 
     handleBody(e) {
@@ -231,6 +232,7 @@ class FeedPage extends React.Component {
         console.log(this.state); 
         console.log(this.props);
         const preview = this.state.photoUrl ? <img className="preview-img" src={this.state.photoUrl} /> : null;
+        const connectionCount = this.props.connectionsArr.filter((connection) => (connection.connecter_id == this.props.currentuser.id)).length; 
 
         return (
         <div className="feed-container">
@@ -252,8 +254,12 @@ class FeedPage extends React.Component {
                     <h1 className="sidebar-name">{this.props.currentuser.fname} {this.props.currentuser.lname}</h1>
                 </Link>
                 <p className="sidebar-title">{this.props.currentuser.title}</p>
-                {/* <p className="sidebar-viewprofile">Recent profile visits: </p> <p className="viewprofile-num"> 12</p> */}
-                <p className="sidebar-connections">Connections: *Coming soon*</p>
+                    <Link to={"/network"}>
+                        <div className="pro-sidebar-bottom">
+                            <p className="sidebar-connections">Connections:</p>
+                                <p className="count-connections">{connectionCount}</p>
+                        </div>
+                    </Link>
             </div>
             <div className="postfeed">
                 <div className="post-form">

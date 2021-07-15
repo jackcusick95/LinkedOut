@@ -37,7 +37,7 @@ ActiveRecord::Base.transaction do
         lname: 'James',
         location: 'Los Angeles, CA',
         zipcode: '90001',
-        title: 'Proffesional Basketball Player',
+        title: 'Professional Basketball Player',
         industry: 'NBA',
         company: 'Los Angeles Lakers'     
     )
@@ -342,7 +342,10 @@ ActiveRecord::Base.transaction do
         likeable_type: "post"
     )
 
-    
+    connection_1 = Connection.create(
+        connecter_id: demo.id,
+        connected_id: user_3.id,
+    )
     
     post_20 = Post.create(
         body: 'I think it`s fair to say that personal computers have become the most empowering tool we`ve ever created. They`re tools of communication, they`re tools of creativity, and they can be shaped by their user.',

@@ -4,6 +4,7 @@ const connectionsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     let newState = { ...oldState };
 
+    // debugger
     switch (action.type) {
         case RECEIVE_ALL_CONNECTIONS:
             return action.connections;

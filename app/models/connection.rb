@@ -8,8 +8,13 @@ class Connection < ApplicationRecord
         foreign_key: :connecter_id,
         class_name: :User
 
-    belongs_to :post,
-       primary_key: :id,
-       foreign_key: :likeable_id,
-       class_name: :Post
+    belongs_to :connected,
+        primary_key: :id,
+        foreign_key: :connected_id,
+        class_name: :User
+
+    # belongs_to :post,
+    #    primary_key: :id,
+    #    foreign_key: :likeable_id,
+    #    class_name: :Post
 end 

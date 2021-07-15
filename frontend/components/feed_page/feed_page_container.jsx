@@ -6,6 +6,7 @@ import { fetchPost, createPost, updatePost, fetchAllPosts, deletePost } from '..
 import {openModal, closeModal, updateModal } from '../../actions/modal_actions';
 import {createComment, updateComment, deleteComment } from '../../actions/comment_actions';
 import {createLike, deleteLike, fetchAllLikes, receiveLike} from '../../actions/like_actions';
+import { fetchAllConnections } from '../../actions/connection_actions';
 import { findLike } from '../../reducers/selectors';
 
 
@@ -20,6 +21,8 @@ const mapStateToProps = (state, ownProps) => {
         commentsArr: Object.values(state.entities.comments),
         likes: state.entities.likes,
         likesArr: Object.values(state.entities.likes),
+        connections: state.entities.connections,
+        connectionsArr: Object.values(state.entities.connections),
         currentPost: (postId) => Object.values(state.entities.posts).filter((post) => post.id == postId),
     };
 };
@@ -43,7 +46,7 @@ const mapDispatchToProps = (dispatch) => {
         receiveLike: (like) => dispatch(receiveLike(like)),
         updateModal: (postId, modal) => dispatch(updateModal(postId, modal)),
         editPostModal: (e) => { dispatch(openModal(`editpost:${e.target.id}`)) },
-        // currentPost: (postId) => Object.values(state.entities.posts).filter((post) => post.id == postId),
+        fetchAllConnections: () => dispatch(fetchAllConnections()),
 
         textmodal: (
                 <textarea
